@@ -9,6 +9,6 @@ package Elementos;
  *
  * @author USUARIO
  */
-public abstract class Pokemon {
+public class PokemonTierra {
     
 }
