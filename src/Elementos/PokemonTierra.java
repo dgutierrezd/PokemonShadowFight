@@ -9,6 +9,6 @@ package Elementos;
  *
  * @author USUARIO
  */
-public class PokemonTierra {
+public class PokemonTierra extends Pokemon {
     
 }
