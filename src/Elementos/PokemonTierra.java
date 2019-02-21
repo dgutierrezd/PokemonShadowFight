@@ -10,5 +10,19 @@ package Elementos;
  * @author USUARIO
  */
 public class PokemonTierra extends Pokemon {
+
+    public PokemonTierra(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
+        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
+    }
+
+    @Override
+    public void atacar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void defender() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
