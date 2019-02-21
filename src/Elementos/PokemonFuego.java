@@ -22,8 +22,8 @@ public class PokemonFuego extends Pokemon {
      */
     public static final int PROBABILIDAD_DEFENSA_FUEGO = 90;
 
-    public PokemonFuego(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
-        super(probabilidadAtaque, nombre, tipo, numeroAleatorio);
+    public PokemonFuego(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
     }
     
     
@@ -43,5 +43,10 @@ public class PokemonFuego extends Pokemon {
              }
          }
         return false;
+    }
+
+    @Override
+    public int determinarProbabilidad(Pokemon enemyPokemon) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

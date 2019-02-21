@@ -20,11 +20,10 @@ public class PokemonAgua extends Pokemon {
      */
     public static final int PROBABILIDAD_DEFENSA_AGUA = 50;
 
-    public PokemonAgua(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
-        super(probabilidadAtaque, nombre, tipo, numeroAleatorio);
+    public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
     }
-    
-    
+
     @Override
     public boolean atacar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -41,6 +40,27 @@ public class PokemonAgua extends Pokemon {
              }
          }
         return false;
+    }
+
+    
+    @Override
+    public int determinarProbabilidad(Pokemon enemyPokemon) {
+        setTipoEnemigo(enemyPokemon.getTipo());
+        switch (getTipoEnemigo()){
+            case "Agua":
+                setProbabilidadAtaque(100);
+            break;
+            case "Fuego":
+                setProbabilidadAtaque(100);
+            break;
+            case "Tierra":
+                setProbabilidadAtaque(60);
+            break;
+             case "Viento":
+                 setProbabilidadAtaque(30);
+            break;   
+        }
+        return getProbabilidadAtaque();
     }
     
 }
