@@ -7,6 +7,7 @@ package Control;
 
 import Elementos.Pokemon;
 import Elementos.PokemonAgua;
+import Vistas.VistaPrincipal;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,9 @@ import javax.swing.JOptionPane;
 public class Arena {
     public static void main(String args[]) {
         PokemonAgua squirtle = new PokemonAgua(0, 0, "Michael", "Fuego", 0, "");
-        JOptionPane.showMessageDialog(null, squirtle.defender() + " y "+ squirtle.getNumeroAleatorio());
+        //JOptionPane.showMessageDialog(null, squirtle.defender() + " y "+ squirtle.getNumeroAleatorio());
+        
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
     }
 }
