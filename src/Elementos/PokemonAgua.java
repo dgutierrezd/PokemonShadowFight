@@ -21,12 +21,14 @@ public class PokemonAgua extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_AGUA = 50;
 
     public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, new int[]{1,2,3,4});
     }
 
-    public void llenarArregloProbabilidades(int[] arrayProbabilidades){
-        
+    public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
     }
+    
+    
     @Override
     public boolean atacar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

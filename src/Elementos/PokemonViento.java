@@ -24,6 +24,9 @@ public class PokemonViento extends Pokemon {
         super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
     }
 
+    public PokemonViento(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
+    }
     
     @Override
     public boolean atacar() {
