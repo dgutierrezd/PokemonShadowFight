@@ -6,8 +6,13 @@
 package Elementos;
 
 /**
- *
- * @author USUARIO
+ * Clase Jugador que permite conocer el nombre del jugador que va a jugar
+ * y dispone el turno de juego al usuario o a la computadora.
+ * 
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Rampirez
+ * @version 20190220
+ * @since 1.0
  */
 public abstract class Jugador {
     private String usuario;
