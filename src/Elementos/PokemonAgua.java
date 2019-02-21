@@ -12,8 +12,18 @@ package Elementos;
 public class PokemonAgua extends Pokemon {
     
     public PokemonAgua(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
+        super(100, probabilidadAtaque, prbabilidadDefensa);
         
+    }
+
+    @Override
+    public void atacar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void defender() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
