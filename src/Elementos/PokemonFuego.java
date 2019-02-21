@@ -8,11 +8,18 @@ package Elementos;
 
 
 /**
- *
- * @author USUARIO
+ * Pokemon tipo fuego, pokemon para lucha.
+ * 
+ * @author Daniel Gutierrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190220
+ * @since 1.0
  */
 public class PokemonFuego extends Pokemon {
 
+    /**
+     * Efectividad de defensa a los ataques del oponente
+     */
     public static final int PROBABILIDAD_DEFENSA_FUEGO = 90;
 
     public PokemonFuego(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {

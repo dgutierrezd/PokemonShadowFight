@@ -6,11 +6,18 @@
 package Elementos;
 
 /**
- *
- * @author USUARIO
+ * Pokemon tipo viento, pokemon para lucha.
+ * 
+ * @author Daniel Gutierrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190220
+ * @since 1.0
  */
 public class PokemonViento extends Pokemon {
 
+    /**
+     * Efectividad de defensa a los ataques del oponente
+     */
     public static final int PROBABILIDAD_DEFENSA_VIENTO = 60;
 
     public PokemonViento(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
