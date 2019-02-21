@@ -10,8 +10,13 @@ import Elementos.PokemonAgua;
 import javax.swing.JOptionPane;
 
 /**
+ * Encuentro de los dos Pokemones a luchar, donde se llevan a atacar o defender.
  *
- * @author ASUS
+ * @author Daniel Gutérrez  Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190220
+ * @since 1.0
+ * 
  */
 public class Arena {
     public static void main(String args[]) {

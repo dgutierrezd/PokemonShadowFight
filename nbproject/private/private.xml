@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonFuego.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonAgua.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Pokemon.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Control/Arena.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonTierra.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonViento.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Pokemon.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonTierra.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonFuego.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Jugador.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Computadora.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Control/Arena.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonViento.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Usuario.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonAgua.java</file>
         </group>
     </open-files>
 </project-private>
