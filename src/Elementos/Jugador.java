@@ -10,7 +10,7 @@ package Elementos;
  * y dispone el turno de juego al usuario o a la computadora.
  * 
  * @author Daniel Gutiérrez Duque
- * @author Sebastián Cordero Rampirez
+ * @author Sebastián Cordero Ramirez
  * @version 20190220
  * @since 1.0
  */
