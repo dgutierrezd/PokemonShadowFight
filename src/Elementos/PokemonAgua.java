@@ -11,4 +11,9 @@ package Elementos;
  */
 public class PokemonAgua extends Pokemon {
     
+    public PokemonAgua(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
+        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
+        
+    }
+    
 }
