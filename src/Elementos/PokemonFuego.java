@@ -5,38 +5,36 @@
  */
 package Elementos;
 
+
+
 /**
  *
  * @author USUARIO
  */
 public class PokemonFuego extends Pokemon {
 
-    public PokemonFuego(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
-    }
+    public static final int PROBABILIDAD_DEFENSA_FUEGO = 90;
 
-    @Override
-    public void atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void defender() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public PokemonFuego(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
+        super(probabilidadAtaque, nombre, tipo, numeroAleatorio);
     }
     
-    public PokemonFuego(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
-    }
-
-    @Override
-    public void atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void defender() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    @Override
+    public boolean atacar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean defender() {
+        setNumeroAleatorio((int) (Math.random() * 100));
+         if(getNumeroAleatorio() <= PROBABILIDAD_DEFENSA_FUEGO & getNumeroAleatorio() > 0){
+             return true;
+         }else{
+             if(getNumeroAleatorio() > PROBABILIDAD_DEFENSA_FUEGO & getNumeroAleatorio() <= 100){
+                 return false;
+             }
+         }
+        return false;
+    }
 }

@@ -11,32 +11,28 @@ package Elementos;
  */
 public class PokemonTierra extends Pokemon {
 
-    public PokemonTierra(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
+    public static final int PROBABILIDAD_DEFENSA_TIERRA = 70;
+
+    public PokemonTierra(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
+        super(probabilidadAtaque, nombre, tipo, numeroAleatorio);
     }
+      
 
     @Override
-    public void atacar() {
+    public boolean atacar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void defender() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public PokemonTierra(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        super(resistenciaVida, probabilidadAtaque, prbabilidadDefensa);
-    }
-
-    @Override
-    public void atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void defender() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    public boolean defender() {
+        setNumeroAleatorio((int) (Math.random() * 100));
+         if(getNumeroAleatorio() <= PROBABILIDAD_DEFENSA_TIERRA & getNumeroAleatorio() > 0){
+             return true;
+         }else{
+             if(getNumeroAleatorio() > PROBABILIDAD_DEFENSA_TIERRA & getNumeroAleatorio() <= 100){
+                 return false;
+             }
+         }
+        return false;
+    }  
 }

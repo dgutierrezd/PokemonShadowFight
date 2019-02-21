@@ -11,46 +11,56 @@ package Elementos;
  */
 public abstract class Pokemon {
     public static final int ATAQUE = 1;
+    public static final int VIDA_TOTAL = 10;
     private int resistenciaVida;
     private int probabilidadAtaque;
-    private int prbabilidadDefensa;
     private String nombre;
     private String tipo;
+    private int numeroAleatorio;
 
-    public Pokemon(int resistenciaVida, int probabilidadAtaque, int prbabilidadDefensa) {
-        this.resistenciaVida = resistenciaVida;
+    public Pokemon(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
         this.probabilidadAtaque = probabilidadAtaque;
-        this.prbabilidadDefensa = prbabilidadDefensa;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.numeroAleatorio = numeroAleatorio;
     }
-    public abstract void atacar();
     
-    public abstract void defender();
+    public abstract boolean atacar();
+    
+    public abstract boolean defender();
 
-    public static int getATAQUE() {
-        return ATAQUE;
-    }
-
-    public int getResistenciaVida() {
-        return resistenciaVida;
-    }
 
     public int getProbabilidadAtaque() {
         return probabilidadAtaque;
-    }
-
-    public int getPrbabilidadDefensa() {
-        return prbabilidadDefensa;
     }
 
     public void setProbabilidadAtaque(int probabilidadAtaque) {
         this.probabilidadAtaque = probabilidadAtaque;
     }
 
-    public void setPrbabilidadDefensa(int prbabilidadDefensa) {
-        this.prbabilidadDefensa = prbabilidadDefensa;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setResistenciaVida(int resistenciaVida) {
-        this.resistenciaVida = resistenciaVida;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getNumeroAleatorio() {
+        return numeroAleatorio;
+    }
+
+    public void setNumeroAleatorio(int numeroAleatorio) {
+        this.numeroAleatorio = numeroAleatorio;
+    }
+
+    
 }
