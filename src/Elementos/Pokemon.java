@@ -48,7 +48,21 @@ public abstract class Pokemon {
      * Guarda el tipo del pokemon enemigo, para utilizarlo al calcular la probabilidad.
      */
     private String tipoEnemigo;
+    /**
+     * Guarda las probabilidades de ataque que un Pokemon tiene sobre el pokemon enemigo.
+     */
+    private int[] arrayProbabilidades = new int [3];
 
+    public Pokemon(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
+        this.resistenciaVida = resistenciaVida;
+        this.probabilidadAtaque = probabilidadAtaque;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.numeroAleatorio = numeroAleatorio;
+        this.tipoEnemigo = tipoEnemigo;
+        this.arrayProbabilidades = arrayProbabilidades;
+    }
+    
     public Pokemon(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
         this.resistenciaVida = resistenciaVida;
         this.probabilidadAtaque = probabilidadAtaque;
@@ -57,6 +71,8 @@ public abstract class Pokemon {
         this.numeroAleatorio = numeroAleatorio;
         this.tipoEnemigo = tipoEnemigo;
     }
+    
+    
 
     
     
@@ -73,7 +89,7 @@ public abstract class Pokemon {
     /**
      * Calcula la probabilidad que tiene el pokemon elegido frente al pokemon a combatir.
      * @param enemyPokemon usado para determinar el tipo de Pokemon.
-     * @return 
+     * @return int con el porcentaje de probabilidad de ataque.
      */
     public abstract int determinarProbabilidad(Pokemon enemyPokemon);
 
@@ -116,6 +132,10 @@ public abstract class Pokemon {
 
     public void setTipoEnemigo(String tipoEnemigo) {
         this.tipoEnemigo = tipoEnemigo;
+    }
+
+    public int[] getArrayProbabilidades() {
+        return arrayProbabilidades;
     }
 
     

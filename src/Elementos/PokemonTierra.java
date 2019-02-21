@@ -20,8 +20,8 @@ public class PokemonTierra extends Pokemon {
      */
     public static final int PROBABILIDAD_DEFENSA_TIERRA = 70;
 
-    public PokemonTierra(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
+    public PokemonTierra(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
     }
 
     
@@ -45,6 +45,21 @@ public class PokemonTierra extends Pokemon {
 
     @Override
     public int determinarProbabilidad(Pokemon enemyPokemon) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setTipoEnemigo(enemyPokemon.getTipo());
+        switch (getTipoEnemigo()){
+            case "Agua":
+                setProbabilidadAtaque(30);
+            break;
+            case "Fuego":
+                setProbabilidadAtaque(60);
+            break;
+            case "Tierra":
+                setProbabilidadAtaque(100);
+            break;
+             case "Viento":
+                 setProbabilidadAtaque(100);
+            break;   
+        }
+        return getProbabilidadAtaque();
     }
 }
