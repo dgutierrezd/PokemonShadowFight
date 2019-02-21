@@ -16,11 +16,11 @@ package Elementos;
  */
 public abstract class Pokemon {
     /**
-     * Cantidad de resistincia disminuida al realizar un ataque exitoso
+     * Cantidad de resistincia disminuida al realizar un ataque exitoso.
      */
     public static final int ATAQUE = 1;
     /**
-     * Cantidad de resistencia con la cual inicia el juego cada Pokemon
+     * Cantidad de resistencia con la cual inicia el juego cada Pokemon.
      */
     public static final int VIDA_TOTAL = 10;
     /**
@@ -28,40 +28,54 @@ public abstract class Pokemon {
      */
     private int resistenciaVida;
     /**
-     * Cantida de probabilidad al atacar al oponente, esta varia dependiendo
+     * Cantida de probabilidad al atacar al oponente, esta varia dependiendo.
      * del Pokemon atacante.
      */
     private int probabilidadAtaque;
     /**
-     * Nombre del pokemon, éste es distinto al tipo de Pokemon
+     * Nombre del pokemon, éste es distinto al tipo de Pokemon.
      */
     private String nombre;
     /**
-     * Tipo del Pokemon: Agua, Fuego, Tierra o Viento
+     * Tipo del Pokemon: Agua, Fuego, Tierra o Viento.
      */
     private String tipo;
     /**
-     * Número aleatorio para la probabilidad de defensa
+     * Número aleatorio para la probabilidad de defensa.
      */
     private int numeroAleatorio;
+    /**
+     * Guarda el tipo del pokemon enemigo, para utilizarlo al calcular la probabilidad.
+     */
+    private String tipoEnemigo;
 
-    public Pokemon(int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio) {
+    public Pokemon(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
+        this.resistenciaVida = resistenciaVida;
         this.probabilidadAtaque = probabilidadAtaque;
         this.nombre = nombre;
         this.tipo = tipo;
         this.numeroAleatorio = numeroAleatorio;
+        this.tipoEnemigo = tipoEnemigo;
     }
+
+    
     
     /**
-     * Opción al obtener el turno, y eliminar resitencia al oponente
-     * @return si la opción fue escogida o no
+     * Opción al obtener el turno, y eliminar resitencia al oponente.
+     * @return si la opción fue escogida o no.
      */
     public abstract boolean atacar();
     /**
-     * Opción al obtener el turno, y poder defenderse de los ataques del oponente
+     * Opción al obtener el turno, y poder defenderse de los ataques del oponente.
      * @return si la opción escogida o no
      */
     public abstract boolean defender();
+    /**
+     * Calcula la probabilidad que tiene el pokemon elegido frente al pokemon a combatir.
+     * @param enemyPokemon usado para determinar el tipo de Pokemon.
+     * @return 
+     */
+    public abstract int determinarProbabilidad(Pokemon enemyPokemon);
 
 
     public int getProbabilidadAtaque() {
@@ -96,5 +110,14 @@ public abstract class Pokemon {
         this.numeroAleatorio = numeroAleatorio;
     }
 
+    public String getTipoEnemigo() {
+        return tipoEnemigo;
+    }
+
+    public void setTipoEnemigo(String tipoEnemigo) {
+        this.tipoEnemigo = tipoEnemigo;
+    }
+
+    
     
 }

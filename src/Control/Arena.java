@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Arena {
     public static void main(String args[]) {
-        PokemonAgua squirtle = new PokemonAgua(21, "Squirtle", "Agua", 0);
+        PokemonAgua squirtle = new PokemonAgua(0, 0, "Squirlte", "Agua", 0, "");
         JOptionPane.showMessageDialog(null, squirtle.defender() + " y "+ squirtle.getNumeroAleatorio());
     }
 }
