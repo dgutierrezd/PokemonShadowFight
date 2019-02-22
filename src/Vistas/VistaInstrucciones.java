@@ -6,26 +6,20 @@
 package Vistas;
 
 /**
- * Vista donde se conocen las instrucciones y la manera de jugar y luchar 
- * con el otro pokemon
- * 
- * @author Daniel Gutierrez Duque
- * @author Sebastián Cordero Ramírez
- * @version 20190221
- * @since 1.0
+ *
+ * @author ASUS
  */
-public class VistaInstrucciones extends javax.swing.JDialog {
+public class VistaInstrucciones extends javax.swing.JFrame {
 
+    VistaInstrucciones instrucciones;
     /**
-     * Creates new form VistaInstrucciones
+     * Creates new form VistaInstruccion
      */
-    public VistaInstrucciones(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public VistaInstrucciones() {
+        setResizable(false);
         initComponents();
         setLocationRelativeTo(this);
     }
-    
-    VistaPrincipal principal = new VistaPrincipal();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,194 +30,107 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel26 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        bRegreso = new javax.swing.JButton();
-        bEmpezar = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        bComenzar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel26.setText("jLabel26");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel23.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel23.setText("Instrucciones");
-
-        jLabel24.setText("Hola luchador! Bienvenido a la gran lucha Pokemon, estamos muy cerca");
-
-        jLabel25.setText("del gran momento, solo debes conocer un poco sobre las reglas del");
-
-        jLabel27.setText("juego, para que seas un gran luchador y le ganes a todos tus enemigos.");
-
-        jLabel28.setText("Debes tener en cuenta que no eres tu quien escoge tu Pokemon, éste");
-
-        jLabel29.setText("es seleccionado por nosotros, pero no te preocupes nos aseguraremos");
-
-        jLabel30.setText("de darte el mejor.");
-
-        jLabel31.setText("Puedes realizar dos acciones al estar en juego, atacar o defenderte, para");
-
-        jLabel32.setText("atacar debes dar click sobre el pokemon de tu oponente y para adefenderte");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel33.setText("simplemente debes dar click sobre tu pokemon.");
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 223, -1, -1));
 
         jLabel34.setText("Al iniciar el juego, empiezas con 10 vidas, las cuales se irán disminuyendo ");
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 252, -1, -1));
 
         jLabel35.setText("dependiendo de tus jugadas.");
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 275, -1, -1));
 
         jLabel36.setText("Conociendo estas simples instrucciones, te dejamos y que empiece la lucha!");
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 379, -1, -1));
 
         jLabel37.setText("Que la fuerza esté de tu lado...");
-
-        bRegreso.setText("Volver");
-        bRegreso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bRegresoActionPerformed(evt);
-            }
-        });
-
-        bEmpezar.setText("Empezar");
-        bEmpezar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bEmpezarActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 408, -1, -1));
 
         jLabel38.setText("No podrás conocer que pokemon es tu oponente, solamente conocerás su");
+        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 304, -1, -1));
 
         jLabel39.setText("cantidad de resistencia, pero, si adivinas que pokemon es tu oponente, nada");
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 327, -1, -1));
+
+        jLabel24.setText("Hola luchador! Bienvenido a la gran lucha Pokemon, estamos muy cerca");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 56, -1, -1));
+
+        jLabel25.setText("del gran momento, solo debes conocer un poco sobre las reglas del");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 79, -1, -1));
+
+        jLabel27.setText("juego, para que seas un gran luchador y le ganes a todos tus enemigos.");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 102, -1, -1));
+
+        jLabel28.setText("Debes tener en cuenta que no eres tu quien escoge tu Pokemon, éste");
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 131, -1, -1));
+
+        jLabel29.setText("es seleccionado por nosotros, pero no te preocupes nos aseguraremos");
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 154, -1, -1));
+
+        jLabel31.setText("Puedes realizar dos acciones al estar en juego, atacar o defenderte, para");
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 177, -1, -1));
 
         jLabel40.setText("más dale click al botón \"Yo sé quién eres!\".");
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 350, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel37)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(123, 123, 123)
-                            .addComponent(bEmpezar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bRegreso))
-                        .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel23)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel28)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(bRegreso)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bEmpezar)
-                        .addGap(27, 27, 27))))
-        );
+        jLabel32.setText("atacar debes dar click sobre el pokemon de tu oponente y para adefenderte");
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 200, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jLabel2.setText("Instrucciones");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+
+        bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
+        bComenzar.setToolTipText("");
+        bComenzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bComenzarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 110, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Volver a la vista principal
-     * @param evt 
-     */
-    private void bRegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegresoActionPerformed
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bRegresoActionPerformed
-
-    /**
-     * Ir a la vista de lucha o arena 
-     * @param evt 
-     */
-    private void bEmpezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEmpezarActionPerformed
-        VistaArena arena = new VistaArena(principal, true);
+    private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
+        VistaArena arena =  new VistaArena(this, true);
         arena.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_bEmpezarActionPerformed
+        dispose();
+    }//GEN-LAST:event_bComenzarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bEmpezar;
-    private javax.swing.JButton bRegreso;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JButton bComenzar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;

@@ -16,7 +16,7 @@ import Vistas.VistaPrincipal;
  */
 public class VistaArena extends javax.swing.JDialog {
 
-    VistaPrincipal principal = new VistaPrincipal();
+    VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaArena
      */
@@ -96,9 +96,7 @@ public class VistaArena extends javax.swing.JDialog {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        VistaInstrucciones instrucciones = new VistaInstrucciones(principal, true);
-        instrucciones.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**

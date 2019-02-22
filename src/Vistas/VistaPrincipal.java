@@ -22,8 +22,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     VistaPrincipal principal;
     public VistaPrincipal() {
+        setResizable(false);
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -116,9 +117,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param evt 
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
-        VistaInstrucciones instrucciones = new VistaInstrucciones(this, true);
-        instrucciones.setVisible(true);
-        this.dispose();
+        if(tNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre antes de continuar.");
+        }else{
+            VistaInstrucciones instrucciones = new VistaInstrucciones();
+            instrucciones.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_bComenzarActionPerformed
 
     /**
@@ -127,9 +132,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param evt 
      */
     private void tNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombreActionPerformed
-        if(tNombre.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre antes de continuar.");
-        }
+        
     }//GEN-LAST:event_tNombreActionPerformed
 
 
