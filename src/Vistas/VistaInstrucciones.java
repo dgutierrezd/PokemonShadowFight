@@ -24,6 +24,8 @@ public class VistaInstrucciones extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(this);
     }
+    
+    VistaPrincipal principal = new VistaPrincipal();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,15 +200,17 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     private void bRegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegresoActionPerformed
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_bRegresoActionPerformed
 
     /**
-     * Ir a la vista de lucha 
+     * Ir a la vista de lucha o arena 
      * @param evt 
      */
     private void bEmpezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEmpezarActionPerformed
-        
+        VistaArena arena = new VistaArena(principal, true);
+        arena.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bEmpezarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

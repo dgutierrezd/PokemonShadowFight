@@ -118,11 +118,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         VistaInstrucciones instrucciones = new VistaInstrucciones(this, true);
         instrucciones.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
 
     /**
      * Campo donde se ingresa el nombre del usuario o nickname
+     * se verifica que este campo haya sido llenado correctamente
      * @param evt 
      */
     private void tNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombreActionPerformed
