@@ -6,15 +6,21 @@
 package Vistas;
 
 /**
- *
- * @author ASUS
+ * Vista en la que los Pokemons se atacan y se defienden.
+ * Se implementan todos los metodos de Pokemon,
+ * 
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190221
+ * @since 2.0
  */
 public class VistaArena extends javax.swing.JFrame {
 
+    
+    VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaArenas
      */
-    VistaInstrucciones instrucciones;
     public VistaArena() {
         initComponents();
         setResizable(false);

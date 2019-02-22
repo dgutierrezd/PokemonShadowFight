@@ -6,8 +6,12 @@
 package Vistas;
 
 /**
- *
- * @author ASUS
+ * Vista donde se conocen las instrucciones y la manera en que funciona el juego
+ * 
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190221
+ * @since 2.0
  */
 public class VistaInstrucciones extends javax.swing.JFrame {
 
