@@ -47,6 +47,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bComenzar = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,20 +111,43 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         });
         getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 110, 40));
 
+        bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Ir a la Vista Arena para poder comenzar el juego.
+     * @param evt 
+     */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
-        VistaArena arena =  new VistaArena(this, true);
+        VistaArena arena =  new VistaArena();
         arena.setVisible(true);
         dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
 
+    /**
+     * Volver a la vista principal
+     * @param evt 
+     */
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bVolverActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
+    private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
