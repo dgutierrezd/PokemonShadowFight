@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class Arena {
     public static void main(String args[]) {
         
-        
+        //Borrar esto al finalizar programa. Pruebas de ataque y defensa a los pokemones.
         PokemonTierra bulbasaur = new PokemonTierra(0, 0, "Bulbasaur ", "Tierra", 0, "",new int []{30,60,100,100});
         System.out.println(bulbasaur.defender()+ " y " + bulbasaur.getNumeroAleatorio() );
         
@@ -37,10 +37,7 @@ public class Arena {
                                                     "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
         
         
-        
-        
-        
-//        VistaPrincipal principal = new VistaPrincipal();
-//        principal.setVisible(true);
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
     }
 }

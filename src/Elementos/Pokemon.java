@@ -63,10 +63,6 @@ public abstract class Pokemon {
         this.arrayProbabilidades = arrayProbabilidades;
     }
     
-    
-
-    
-    
     /**
      * Opción al obtener el turno, y eliminar resitencia al oponente.
      * @param enemyPokemon usado para saber contra que Pokemon sera enfrentado.

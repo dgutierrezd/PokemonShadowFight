@@ -50,7 +50,6 @@ public class PokemonAgua extends Pokemon {
         return false;
     }
 
-    
     @Override
     public int determinarProbabilidad(Pokemon enemyPokemon) {
         setTipoEnemigo(enemyPokemon.getTipo());
@@ -71,12 +70,4 @@ public class PokemonAgua extends Pokemon {
         return getProbabilidadAtaque();
     }
 
-    private void setProbabilidadAtaque(int[] arrayProbabilidades) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
