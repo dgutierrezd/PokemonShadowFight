@@ -117,7 +117,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
-        VistaArena arena =  new VistaArena(this, true);
+        VistaArena arena =  new VistaArena();
         arena.setVisible(true);
         dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
