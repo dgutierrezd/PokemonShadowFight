@@ -24,14 +24,19 @@ public class PokemonFuego extends Pokemon {
 
     public PokemonFuego(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
         super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        arrayProbabilidades = new int []{100,100,100,100};
     } 
     
-    public PokemonFuego(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
-    }
     @Override
-    public boolean atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean atacar(Pokemon enemyPokemon) {
+        setNumeroAleatorio((int) (Math.random() * 100));
+        if(getNumeroAleatorio()>0 & getNumeroAleatorio() <=100){
+            if(getNumeroAleatorio() <= determinarProbabilidad(enemyPokemon)){
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override
@@ -52,16 +57,16 @@ public class PokemonFuego extends Pokemon {
         setTipoEnemigo(enemyPokemon.getTipo());
         switch (getTipoEnemigo()){
             case "Agua":
-                setProbabilidadAtaque(100);
+                setProbabilidadAtaque(arrayProbabilidades[0]);
             break;
             case "Fuego":
-                setProbabilidadAtaque(100);
+                setProbabilidadAtaque(arrayProbabilidades[1]);
             break;
             case "Tierra":
-                setProbabilidadAtaque(100);
+                setProbabilidadAtaque(arrayProbabilidades[2]);
             break;
              case "Viento":
-                 setProbabilidadAtaque(100);
+                 setProbabilidadAtaque(arrayProbabilidades[3]);
             break;   
         }
         return getProbabilidadAtaque();

@@ -21,17 +21,20 @@ public class PokemonAgua extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_AGUA = 50;
 
     public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, new int[]{1,2,3,4});
-    }
-
-    public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo);
-    }
-    
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        arrayProbabilidades = new int[]{100,100,60,30};
+    }  
     
     @Override
-    public boolean atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean atacar(Pokemon enemyPokemon) {
+        setNumeroAleatorio((int) (Math.random() * 100));
+        if(getNumeroAleatorio()>0 & getNumeroAleatorio() <=100){
+            if(getNumeroAleatorio() <= determinarProbabilidad(enemyPokemon)){
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     @Override
@@ -53,19 +56,27 @@ public class PokemonAgua extends Pokemon {
         setTipoEnemigo(enemyPokemon.getTipo());
         switch (getTipoEnemigo()){
             case "Agua":
-                setProbabilidadAtaque(100);
+                setProbabilidadAtaque(arrayProbabilidades[0]);
             break;
             case "Fuego":
-                setProbabilidadAtaque(100);
+                setProbabilidadAtaque(arrayProbabilidades[1]);
             break;
             case "Tierra":
-                setProbabilidadAtaque(60);
+                setProbabilidadAtaque(arrayProbabilidades[2]);
             break;
-             case "Viento":
-                 setProbabilidadAtaque(30);
+            case "Viento":
+                setProbabilidadAtaque(arrayProbabilidades[3]);
             break;   
         }
         return getProbabilidadAtaque();
+    }
+
+    private void setProbabilidadAtaque(int[] arrayProbabilidades) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String atacar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

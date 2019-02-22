@@ -51,7 +51,7 @@ public abstract class Pokemon {
     /**
      * Guarda las probabilidades de ataque que un Pokemon tiene sobre el pokemon enemigo.
      */
-    private int[] arrayProbabilidades = new int [3];
+    int[] arrayProbabilidades = new int [3];
 
     public Pokemon(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
         this.resistenciaVida = resistenciaVida;
@@ -63,24 +63,16 @@ public abstract class Pokemon {
         this.arrayProbabilidades = arrayProbabilidades;
     }
     
-    public Pokemon(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo) {
-        this.resistenciaVida = resistenciaVida;
-        this.probabilidadAtaque = probabilidadAtaque;
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.numeroAleatorio = numeroAleatorio;
-        this.tipoEnemigo = tipoEnemigo;
-    }
-    
     
 
     
     
     /**
      * Opción al obtener el turno, y eliminar resitencia al oponente.
+     * @param enemyPokemon usado para saber contra que Pokemon sera enfrentado.
      * @return si la opción fue escogida o no.
      */
-    public abstract boolean atacar();
+    public abstract boolean atacar(Pokemon enemyPokemon);
     /**
      * Opción al obtener el turno, y poder defenderse de los ataques del oponente.
      * @return si la opción escogida o no

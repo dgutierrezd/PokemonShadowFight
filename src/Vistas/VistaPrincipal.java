@@ -154,15 +154,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tNombreActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        VistaPrincipal inicio = new VistaPrincipal();
-        
-        inicio.setVisible(true);
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
