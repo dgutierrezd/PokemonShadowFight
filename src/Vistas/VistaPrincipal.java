@@ -8,8 +8,12 @@ package Vistas;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author USUARIO
+ * Vista Principal donde se ingresa el nombre de usuario o nickname
+ * 
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20190221
+ * @since 1.0
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 
