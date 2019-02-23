@@ -6,20 +6,14 @@
 package Vistas;
 
 /**
- * Vista en la que los Pokemons se atacan y se defienden.
- * Se implementan todos los metodos de Pokemon,
- * 
- * @author Daniel Gutiérrez Duque
- * @author Sebastián Cordero Ramírez
- * @version 20190221
- * @since 2.0
+ *
+ * @author ASUS
  */
 public class VistaArena extends javax.swing.JFrame {
 
-    
     VistaInstrucciones instrucciones;
     /**
-     * Creates new form VistaArenas
+     * Creates new form VistaArenaa
      */
     public VistaArena() {
         initComponents();
@@ -40,6 +34,10 @@ public class VistaArena extends javax.swing.JFrame {
         bConocer = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jProgressBar2 = new javax.swing.JProgressBar();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +49,7 @@ public class VistaArena extends javax.swing.JFrame {
                 bVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 470, -1, -1));
+        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, -1, -1));
 
         bConocer.setText("Yo sé quién eres!");
         bConocer.addActionListener(new java.awt.event.ActionListener() {
@@ -59,25 +57,41 @@ public class VistaArena extends javax.swing.JFrame {
                 bConocerActionPerformed(evt);
             }
         });
-        getContentPane().add(bConocer, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
+        getContentPane().add(bConocer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/International_Pokémon_logo.svg (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 110));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Snap ITC", 2, 18)); // NOI18N
         jLabel2.setText("Shadow Fight");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Charizard (1).png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 220, 220));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DiglettNegro.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 220, 220));
+
+        jProgressBar1.setForeground(new java.awt.Color(255, 51, 51));
+        jProgressBar1.setMaximum(10);
+        jProgressBar1.setValue(10);
+        jProgressBar1.setString("10/10");
+        jProgressBar1.setStringPainted(true);
+        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 220, 30));
+
+        jProgressBar2.setMaximum(10);
+        jProgressBar2.setToolTipText("");
+        jProgressBar2.setValue(10);
+        jProgressBar2.setString("10/10");
+        jProgressBar2.setStringPainted(true);
+        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 220, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 570));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Volver a la vista de instrucciones.
-     * @param evt 
-     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         dispose();
         instrucciones = new VistaInstrucciones();
@@ -88,47 +102,16 @@ public class VistaArena extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bConocerActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaArena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaArena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaArena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaArena.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaArena().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
     // End of variables declaration//GEN-END:variables
 }
