@@ -5,10 +5,12 @@
  */
 package Control;
 
+import Elementos.Jugador;
 import Elementos.Pokemon;
 import Elementos.PokemonAgua;
 import Elementos.PokemonFuego;
 import Elementos.PokemonTierra;
+import Elementos.Usuario;
 import Vistas.VistaPrincipal;
 import javax.swing.JOptionPane;
 
@@ -36,6 +38,8 @@ public class Arena {
         System.out.println("Atacar: " + squirtle.atacar(bulbasaur)+ " y "+ squirtle.getNumeroAleatorio() + " enemigo: " + squirtle.getTipoEnemigo() +
                                                     "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
         
+        Usuario daniel = new Usuario("Daniel", true);
+        System.out.println(daniel.getUsuario() + daniel.elegirPokemon());
         
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
