@@ -22,6 +22,69 @@ public abstract class Jugador {
         this.usuario = usuario;
         this.turno = turno;
     }
+    /**
+     * Se genera un pokemon aleatoriamente, se genera su tipo, 
+     * y de acuerdo a éste se le asigna el nombre del Pokemon,
+     * para luego poder generar la imagen
+     * @return pokemonAleatorio 
+     */
+    public String elegirPokemon() {
+        String pokemonAleatorio = "";
+        int numeroAleatorio = (int)Math.random() * 4;
+        int tipoAleatorio = (int)Math.random() * 2;
+        String tipo = "";
+        String nombre = "";
+        
+        switch (numeroAleatorio) {
+            case 1:
+                tipo = "Agua";
+                switch(tipoAleatorio) {
+                    case 1:
+                        nombre = "Squirtle";
+                    break;
+                    case 2:
+                        nombre = "Piplup";
+                    break;
+                }
+            break;
+            case 2:
+                tipo = "Fuego";
+                switch(tipoAleatorio) {
+                    case 1:
+                        nombre = "Charizard";
+                    break;
+                    case 2:
+                        nombre = "Eevee";
+                    break;
+                }
+            break;
+            case 3:
+                tipo = "Tierra";
+                switch(tipoAleatorio) {
+                    case 1:
+                        nombre = "Diglett";
+                    break;
+                    case 2:
+                        nombre = "Sandshrew";
+                    break;
+                }
+            break;
+            case 4:
+                tipo = "Viento";
+                switch(tipoAleatorio) {
+                    case 1:
+                        nombre = "Nidorina";
+                    break;
+                    case 2:
+                        nombre = "Nidorino";
+                    break;
+                }
+            break;
+        }
+        pokemonAleatorio = tipo + ", " + nombre;
+        
+        return pokemonAleatorio;
+    }
     
     public String getUsuario() {
         return usuario;
