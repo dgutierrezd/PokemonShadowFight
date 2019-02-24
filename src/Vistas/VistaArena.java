@@ -201,6 +201,7 @@ public class VistaArena extends javax.swing.JFrame {
                 strEnemy = strEnemy / 2;
                 String strE = Integer.toString(strEnemy);
                 barPokemonEnemigo.setString(strE);
+                bConocer.setEnabled(false);
             } else {
                 if(!saberQuienEs()) {
                     barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
@@ -208,6 +209,7 @@ public class VistaArena extends javax.swing.JFrame {
                     strUser = strUser / 2;
                     String strU = Integer.toString(strUser);
                     barPokemonJugador.setString(strU);
+                    bConocer.setEnabled(false);
                 }
             }
     }
