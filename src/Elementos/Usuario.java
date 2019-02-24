@@ -13,6 +13,16 @@ public class Usuario extends Jugador {
     
     public Usuario(String usuario, boolean turno) {
         super(usuario, turno);
+        
+    }
+
+    public void elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
+        pokemon.atacar(enemyPokemon);
+    }
+
+    public void elegirDefender(Pokemon pokemon){
+        pokemon.defender();
+              
     }
     
 }

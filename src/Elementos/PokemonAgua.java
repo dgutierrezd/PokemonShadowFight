@@ -21,7 +21,7 @@ public class PokemonAgua extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_AGUA = 50;
 
     public PokemonAgua(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(10, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
         arrayProbabilidades = new int[]{100,100,60,30};
     }  
     

@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import Elementos.Pokemon;
+import Elementos.Usuario;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,6 +19,9 @@ import javax.swing.ImageIcon;
  */
 public class VistaArena extends javax.swing.JFrame {
 
+    Usuario usuario;
+    Pokemon pokemon;
+    Pokemon enemyPokemon;
     VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaArenaa
@@ -46,6 +51,8 @@ public class VistaArena extends javax.swing.JFrame {
         barPokemonJugador = new javax.swing.JProgressBar();
         lblTipoPokemonJugador = new javax.swing.JLabel();
         lblNombrePokemonJugador = new javax.swing.JLabel();
+        btnAtacar = new javax.swing.JButton();
+        btnDefender = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,6 +106,22 @@ public class VistaArena extends javax.swing.JFrame {
         lblNombrePokemonJugador.setText("Nombre");
         getContentPane().add(lblNombrePokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
 
+        btnAtacar.setText("Atacar");
+        btnAtacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtacarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtacar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 90, -1));
+
+        btnDefender.setText("Defender");
+        btnDefender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDefenderActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDefender, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 90, -1));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -123,17 +146,27 @@ public class VistaArena extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bConocerActionPerformed
 
+    private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
+       usuario.elegirAtacar(pokemon, enemyPokemon);
+    }//GEN-LAST:event_btnAtacarActionPerformed
+
+    private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
+        usuario.elegirDefender(pokemon);
+    }//GEN-LAST:event_btnDefenderActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
-    private javax.swing.JProgressBar barPokemonEnemigo;
-    private javax.swing.JProgressBar barPokemonJugador;
+    public javax.swing.JProgressBar barPokemonEnemigo;
+    public javax.swing.JProgressBar barPokemonJugador;
+    private javax.swing.JButton btnAtacar;
+    private javax.swing.JButton btnDefender;
     private javax.swing.JLabel fondo;
     public javax.swing.JLabel ipokemonPc;
     public javax.swing.JLabel ipokemonUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lblNombrePokemonJugador;
-    private javax.swing.JLabel lblTipoPokemonJugador;
+    public javax.swing.JLabel lblNombrePokemonJugador;
+    public javax.swing.JLabel lblTipoPokemonJugador;
     // End of variables declaration//GEN-END:variables
 }

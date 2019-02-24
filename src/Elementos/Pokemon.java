@@ -27,6 +27,14 @@ public abstract class Pokemon {
      * 
      */
     private int resistenciaVida;
+
+    public int getResistenciaVida() {
+        return resistenciaVida;
+    }
+
+    public void setResistenciaVida(int resistenciaVida) {
+        this.resistenciaVida = resistenciaVida;
+    }
     /**
      * Cantida de probabilidad al atacar al oponente, esta varia dependiendo.
      * del Pokemon atacante.

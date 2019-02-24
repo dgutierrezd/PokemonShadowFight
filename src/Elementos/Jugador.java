@@ -22,6 +22,7 @@ public abstract class Jugador {
         this.usuario = usuario;
         this.turno = turno;
     }
+    
     /**
      * Se genera un pokemon aleatoriamente, se genera su tipo, 
      * y de acuerdo a éste se le asigna el nombre del Pokemon,
