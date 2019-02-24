@@ -29,8 +29,18 @@ public abstract class Jugador {
      */
     public void  elegirPokemon() {
         String pokemonAleatorio = "";
+<<<<<<< HEAD
         int numeroAleatorio = ((int) Math.random() * 4);
         int tipoAleatorioRandom = ((int) Math.random() * 2);
+=======
+        /**
+         * Variables que generan numeros aleatorios
+         */
+        int numeroAleatorio = (int)Math.random() * 4;
+        int tipoAleatorio = (int)Math.random() * 2;
+        String tipo = "";
+        String nombre = "";
+>>>>>>> 4b71355c1c2032c08d567c0e04aeca0fc522dcc2
         
         switch (numeroAleatorio) {
             case 1:
