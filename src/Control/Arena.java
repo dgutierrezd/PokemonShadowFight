@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Elementos.Computadora;
 import Elementos.Jugador;
 import Elementos.Pokemon;
 import Elementos.PokemonAgua;
@@ -48,7 +49,7 @@ public class Arena {
         
         }
         public void generarPokemones(){
-            
+            Computadora computadora = new Computadora("Pc", true);
             Usuario usuario = new Usuario("Dani", true);
             Pokemon pokemon = usuario.elegirPokemon();
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
@@ -78,9 +79,13 @@ public class Arena {
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
             vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
             
-            
+            determinarAtaques(usuario, computadora, pokemon, enemyPokemon);
             //pelearPokemons(pokemon, enemyPokemon, vistaArena);
             
+        }
+        
+        public void determinarAtaques(Usuario usuario, Computadora computadora,Pokemon pokemon , Pokemon enemyPokemon){
+            System.out.println("Estado ataque jugador: "+usuario.elegirAtacar(pokemon, enemyPokemon));
         }
         public void pelearPokemons(Pokemon pokemon , Pokemon enemyPokemon, VistaArena vistaArena){
             if(pokemon.atacar(enemyPokemon) & enemyPokemon.defender()){
@@ -93,7 +98,6 @@ public class Arena {
                 JOptionPane.showMessageDialog(null, "El pokemon " + pokemon.getNombre()+" atacó, el "+enemyPokemon.getNombre()+" no se defendió, "
                                                 + "por lo tanto "+pokemon.getNombre()+" le baja un punto de vida a "+enemyPokemon.getNombre()+".");
             }
-            JOptionPane.showMessageDialog(null,"No hay nadaa");
         }
         /**
          * Cambia el nombre y el tipo del pokemon del jugador en la VistaArena,

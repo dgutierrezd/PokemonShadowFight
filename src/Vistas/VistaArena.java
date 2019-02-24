@@ -145,16 +145,15 @@ public class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
-        
         restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-       usuario.elegirAtacar(pokemonUsuario, enemyPokemon);
+       pokemonUsuario.atacar(enemyPokemon);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        usuario.elegirDefender(pokemonUsuario);
+        pokemonUsuario.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     public boolean saberQuienEs(){
