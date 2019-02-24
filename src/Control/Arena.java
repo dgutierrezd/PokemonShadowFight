@@ -49,7 +49,7 @@ public class Arena {
         }
         public void generarPokemones(){
             
-            Usuario usuario = new Usuario("Sebas", true);
+            Usuario usuario = new Usuario("Dani", true);
             Pokemon pokemon = usuario.elegirPokemon();
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
 
@@ -58,7 +58,7 @@ public class Arena {
 
             System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ pokemon2.getNombre());
             System.out.println("Estado Ataque: "+pokemon.atacar(pokemon2)+" con un numero random de: "+pokemon.getNumeroAleatorio());
-            
+            System.out.println("Usuario = " + usuario.getUsuario() );
             
             String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
             String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+pokemon2.getNombre()+"Negro.png";

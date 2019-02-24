@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import Elementos.Jugador;
+import Elementos.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -120,6 +122,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if(tNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre antes de continuar.");
         }else{
+            Usuario usuario = new Usuario("", rootPaneCheckingEnabled);
+            usuario.setUsuario(tNombre.getText());
             VistaInstrucciones instrucciones = new VistaInstrucciones();
             instrucciones.setVisible(true);
             dispose();
