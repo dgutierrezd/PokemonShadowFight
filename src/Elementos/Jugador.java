@@ -14,75 +14,70 @@ package Elementos;
  * @version 20190220
  * @since 1.0
  */
-public abstract class Jugador extends Pokemon {
+public abstract class Jugador {
     private String usuario;
     private boolean turno;
 
-    public Jugador(String usuario, boolean turno, int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
-        arrayProbabilidades = new int[]{100,100,60,30};
+    public Jugador(String usuario, boolean turno) {
         this.usuario = usuario;
         this.turno = turno;
     }
-
     /**
-     * Se genera un pokemon aleatoriamente, se genera su nombre, y 
-     * @return pokemonAleatorio 
+     * Se genera un pokemon aleatoriamente, se genera su tipo, 
+     * y de acuerdo a éste se le asigna el nombre del Pokemon,
+     * para luego poder generar la imagen.
      */
-    public String elegirPokemon() {
+    public void  elegirPokemon() {
         String pokemonAleatorio = "";
-        int numeroAleatorio = (int)Math.random() * 4;
-        int tipoAleatorio = (int)Math.random() * 2;
-     
+        int numeroAleatorio = ((int) Math.random() * 4);
+        int tipoAleatorioRandom = ((int) Math.random() * 2);
+        
         switch (numeroAleatorio) {
             case 1:
-                setTipo("Agua");
-                switch(tipoAleatorio) {
+                PokemonAgua pokemonAgua = new PokemonAgua(10, 0, "", "Agua", 0, "", new int[]{100,100,60,30});
+                switch(tipoAleatorioRandom) {
                     case 1:
-                        setNombre("Squirtle");
+                        pokemonAgua.setNombre("Squirtle"); 
                     break;
                     case 2:
-                        setNombre("Piplup");
+                        pokemonAgua.setNombre("Piplup");
                     break;
                 }
             break;
             case 2:
-                setTipo("Fuego");
-                switch(tipoAleatorio) {
+                PokemonFuego pokemonFuego = new PokemonFuego(10, 0, "", "Fuego", 0, "", new int []{100,100,100,100});
+                switch(tipoAleatorioRandom) {
                     case 1:
-                        setNombre("Charizard");
+                        pokemonFuego.setNombre("Charizard");
                     break;
                     case 2:
-                        setNombre("Eevee");
+                        pokemonFuego.setNombre("Eevee");
                     break;
                 }
             break;
             case 3:
-                setTipo("Tierra");
-                switch(tipoAleatorio) {
+                PokemonTierra pokemonTierra = new PokemonTierra(10, 0, "", "Tierra", 0, "", new int []{30,60,100,100});
+                switch(tipoAleatorioRandom) {
                     case 1:
-                        setNombre("Diglett");
+                        pokemonTierra.setNombre("Diglett");
                     break;
                     case 2:
-                        setNombre("Sandshrew");
+                        pokemonTierra.setNombre("Sandshrew");
                     break;
                 }
             break;
             case 4:
-                setTipo("Viento");
-                switch(tipoAleatorio) {
+                PokemonViento pokemonViento = new PokemonViento(10, 0, "", "Viento", 0, "", new int []{100,30,60,100});
+                switch(tipoAleatorioRandom) {
                     case 1:
-                        setNombre("Nidorina");
+                        pokemonViento.setNombre("Nidorina");
                     break;
                     case 2:
-                        setNombre("Nidorino");
+                        pokemonViento.setNombre("Nidorino");
                     break;
                 }
             break;
         }
-        pokemonAleatorio = getTipo() + ", " + getNombre();
-        
-        return pokemonAleatorio;
     }
     
     public String getUsuario() {
