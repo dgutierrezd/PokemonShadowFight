@@ -38,9 +38,6 @@ public class Arena {
         System.out.println("Atacar: " + squirtle.atacar(bulbasaur)+ " y "+ squirtle.getNumeroAleatorio() + " enemigo: " + squirtle.getTipoEnemigo() +
                                                     "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
         
-        Usuario daniel = new Usuario("Daniel", true);
-        System.out.println(daniel.getUsuario() + daniel.elegirPokemon());
-        
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
     }
