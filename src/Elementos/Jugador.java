@@ -27,15 +27,13 @@ public abstract class Jugador {
      * y de acuerdo a éste se le asigna el nombre del Pokemon,
      * para luego poder generar la imagen.
      */
-    public void  elegirPokemon() {
-        int numeroAleatorio = ((int) Math.random() * 4);
-        int tipoAleatorioRandom = ((int) Math.random() * 2);
-
+    public Pokemon  elegirPokemon() {
+        int numeroAleatorio = ((int) (Math.random() * 4 + 1));
+        int tipoAleatorioRandom = ((int) (Math.random() * 2 + 1));
         
-        switch (numeroAleatorio) {
-            case 1:
+        if(numeroAleatorio == 1){
                 PokemonAgua pokemonAgua = new PokemonAgua(10, 0, "", "Agua", 0, "", new int[]{100,100,60,30});
-                switch(tipoAleatorioRandom) {
+                switch(tipoAleatorioRandom){
                     case 1:
                         pokemonAgua.setNombre("Squirtle"); 
                     break;
@@ -43,8 +41,9 @@ public abstract class Jugador {
                         pokemonAgua.setNombre("Piplup");
                     break;
                 }
-            break;
-            case 2:
+                return pokemonAgua;
+        }
+        if(numeroAleatorio == 2){
                 PokemonFuego pokemonFuego = new PokemonFuego(10, 0, "", "Fuego", 0, "", new int []{100,100,100,100});
                 switch(tipoAleatorioRandom) {
                     case 1:
@@ -54,8 +53,9 @@ public abstract class Jugador {
                         pokemonFuego.setNombre("Eevee");
                     break;
                 }
-            break;
-            case 3:
+                return pokemonFuego;
+        }
+        if(numeroAleatorio == 3){
                 PokemonTierra pokemonTierra = new PokemonTierra(10, 0, "", "Tierra", 0, "", new int []{30,60,100,100});
                 switch(tipoAleatorioRandom) {
                     case 1:
@@ -65,8 +65,9 @@ public abstract class Jugador {
                         pokemonTierra.setNombre("Sandshrew");
                     break;
                 }
-            break;
-            case 4:
+                return pokemonTierra;
+        }
+        if(numeroAleatorio == 4){
                 PokemonViento pokemonViento = new PokemonViento(10, 0, "", "Viento", 0, "", new int []{100,30,60,100});
                 switch(tipoAleatorioRandom) {
                     case 1:
@@ -76,8 +77,9 @@ public abstract class Jugador {
                         pokemonViento.setNombre("Nidorino");
                     break;
                 }
-            break;
+                return pokemonViento;
         }
+        return null;
     }
     
     public String getUsuario() {

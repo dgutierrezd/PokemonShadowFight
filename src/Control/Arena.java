@@ -26,17 +26,22 @@ import javax.swing.JOptionPane;
 public class Arena {
     public static void main(String args[]) {
         
-        //Borrar esto al finalizar programa. Pruebas de ataque y defensa a los pokemones.
-        PokemonTierra bulbasaur = new PokemonTierra(0, 0, "Bulbasaur ", "Tierra", 0, "",new int []{30,60,100,100});
-        System.out.println(bulbasaur.defender()+ " y " + bulbasaur.getNumeroAleatorio() );
+//        //Borrar esto al finalizar programa. Pruebas de ataque y defensa a los pokemones.
+//        PokemonTierra bulbasaur = new PokemonTierra(0, 0, "Bulbasaur ", "Tierra", 0, "",new int []{30,60,100,100});
+//        System.out.println(bulbasaur.defender()+ " y " + bulbasaur.getNumeroAleatorio() );
+//        
+//        PokemonFuego charizard = new PokemonFuego(0, 0, "Charizard","Fuego", 0, "",new int []{100,100,100,100});
+//        System.out.println(charizard.atacar(bulbasaur)+ " y " + charizard.getNumeroAleatorio() + " enemigo: " + charizard.getTipoEnemigo() +
+//                                                    "  tipo: " + charizard.getTipoEnemigo() + "  probabilidad:  " + charizard.determinarProbabilidad(bulbasaur));
+//
+//        PokemonAgua squirtle = new PokemonAgua(0, 0, "Michael", "Agua", 0, "",new int[]{100,100,60,30});
+//        System.out.println("Atacar: " + squirtle.atacar(bulbasaur)+ " y "+ squirtle.getNumeroAleatorio() + " enemigo: " + squirtle.getTipoEnemigo() +
+//                                                    "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
         
-        PokemonFuego charizard = new PokemonFuego(0, 0, "Charizard","Fuego", 0, "",new int []{100,100,100,100});
-        System.out.println(charizard.atacar(bulbasaur)+ " y " + charizard.getNumeroAleatorio() + " enemigo: " + charizard.getTipoEnemigo() +
-                                                    "  tipo: " + charizard.getTipoEnemigo() + "  probabilidad:  " + charizard.determinarProbabilidad(bulbasaur));
-
-        PokemonAgua squirtle = new PokemonAgua(0, 0, "Michael", "Agua", 0, "",new int[]{100,100,60,30});
-        System.out.println("Atacar: " + squirtle.atacar(bulbasaur)+ " y "+ squirtle.getNumeroAleatorio() + " enemigo: " + squirtle.getTipoEnemigo() +
-                                                    "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
+        Usuario usuario = new Usuario("Sebas", true);
+        Pokemon pokemon = usuario.elegirPokemon();
+        System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
+        
         
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);

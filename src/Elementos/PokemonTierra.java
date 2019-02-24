@@ -21,7 +21,7 @@ public class PokemonTierra extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_TIERRA = 70;
 
     public PokemonTierra(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        super(10, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
         arrayProbabilidades = new int []{30,60,100,100};
     }
     

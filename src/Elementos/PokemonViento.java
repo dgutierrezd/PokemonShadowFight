@@ -21,7 +21,7 @@ public class PokemonViento extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_VIENTO = 60;
 
     public PokemonViento(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        super(10, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
         arrayProbabilidades = new int []{100,30,60,100};
     }
 

@@ -23,7 +23,7 @@ public class PokemonFuego extends Pokemon {
     public static final int PROBABILIDAD_DEFENSA_FUEGO = 90;
 
     public PokemonFuego(int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
-        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        super(10, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
         arrayProbabilidades = new int []{100,100,100,100};
     } 
     
