@@ -8,6 +8,7 @@ package Vistas;
 import Control.Arena;
 import Elementos.Pokemon;
 import Elementos.Usuario;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -212,6 +213,26 @@ public class VistaArena extends javax.swing.JFrame {
                 }
             }
     }
+    
+    public void cambiarColorVida() {
+        int vidaJugador = Integer.parseInt(barPokemonJugador.getString());
+        if(vidaJugador <= 7 && vidaJugador > 3) {
+            barPokemonJugador.setForeground(Color.yellow);
+        }else {
+            if(vidaJugador <= 3) {
+                barPokemonJugador.setForeground(Color.red);
+            }
+        }
+        int vidaEnemigo = Integer.parseInt(barPokemonEnemigo.getString());
+        if(vidaEnemigo <= 7 && vidaEnemigo > 3) {
+            barPokemonEnemigo.setForeground(Color.yellow);
+        } else {
+            if(vidaEnemigo <= 3) {
+                barPokemonEnemigo.setForeground(Color.red);
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
