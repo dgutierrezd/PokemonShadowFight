@@ -170,7 +170,7 @@ public class VistaArena extends javax.swing.JFrame {
 
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(94, pokemon.length()-9);
+        pokemon = pokemon.substring(91, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         System.out.println(pokemonOponente);
@@ -188,8 +188,8 @@ public class VistaArena extends javax.swing.JFrame {
             
             if(saberQuienEs()){
                 String pokemon = ipokemonPc.getIcon().toString();
-                pokemon = pokemon.substring(94, pokemon.length()-9);
-                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
+                pokemon = pokemon.substring(91, pokemon.length()-9);
+                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
                 ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                 ipokemonPc.setIcon(imagenPokemonPc);
                 lblNombrePokemonComputador.setText(pokemon);
