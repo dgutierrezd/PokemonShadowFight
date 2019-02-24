@@ -11,7 +11,9 @@ import Elementos.PokemonAgua;
 import Elementos.PokemonFuego;
 import Elementos.PokemonTierra;
 import Elementos.Usuario;
+import Vistas.VistaArena;
 import Vistas.VistaPrincipal;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,8 +26,11 @@ import javax.swing.JOptionPane;
  * 
  */
 public class Arena {
+    
     public static void main(String args[]) {
         
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
 //        //Borrar esto al finalizar programa. Pruebas de ataque y defensa a los pokemones.
 //        PokemonTierra bulbasaur = new PokemonTierra(0, 0, "Bulbasaur ", "Tierra", 0, "",new int []{30,60,100,100});
 //        System.out.println(bulbasaur.defender()+ " y " + bulbasaur.getNumeroAleatorio() );
@@ -38,12 +43,32 @@ public class Arena {
 //        System.out.println("Atacar: " + squirtle.atacar(bulbasaur)+ " y "+ squirtle.getNumeroAleatorio() + " enemigo: " + squirtle.getTipoEnemigo() +
 //                                                    "  tipo: " + squirtle.getTipoEnemigo() + "  probabilidad:  " + squirtle.determinarProbabilidad(bulbasaur));
         
-        Usuario usuario = new Usuario("Sebas", true);
-        Pokemon pokemon = usuario.elegirPokemon();
-        System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
         
         
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
-    }
+        
+        }
+        public void generarPokemones(){
+            
+            Usuario usuario = new Usuario("Sebas", true);
+            Pokemon pokemon = usuario.elegirPokemon();
+            System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
+
+            Pokemon pokemon2 = usuario.elegirPokemon();
+            System.out.println(pokemon2.getNombre() + " , " +  pokemon2.getTipo());
+
+            System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ pokemon2.getNombre());
+            System.out.println("Estado Ataque: "+pokemon.atacar(pokemon2)+" con un numero random de: "+pokemon.getNumeroAleatorio());
+            
+            
+            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+pokemon2.getNombre()+"Negro.png";
+            ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
+            ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+            
+            VistaArena vistaArena = new VistaArena();
+            vistaArena.setVisible(true);
+            vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
+            vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
+        }
+        
 }

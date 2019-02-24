@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.ImageIcon;
+
 /**
  * Vista donde se realiza las acciones de ataque y defensa, 
  * donde sucede la lucha entre los Pokemones.
@@ -38,8 +40,8 @@ public class VistaArena extends javax.swing.JFrame {
         bConocer = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        ipokemonUsuario = new javax.swing.JLabel();
+        ipokemonPc = new javax.swing.JLabel();
         barPokemonEnemigo = new javax.swing.JProgressBar();
         barPokemonJugador = new javax.swing.JProgressBar();
         lblTipoPokemonJugador = new javax.swing.JLabel();
@@ -71,12 +73,8 @@ public class VistaArena extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Snap ITC", 2, 18)); // NOI18N
         jLabel2.setText("Shadow Fight");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Charizard (1).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 220));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DiglettNegro.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 220, 220));
+        getContentPane().add(ipokemonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 220));
+        getContentPane().add(ipokemonPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 220, 220));
 
         barPokemonEnemigo.setForeground(new java.awt.Color(255, 51, 51));
         barPokemonEnemigo.setMaximum(10);
@@ -131,10 +129,10 @@ public class VistaArena extends javax.swing.JFrame {
     private javax.swing.JProgressBar barPokemonEnemigo;
     private javax.swing.JProgressBar barPokemonJugador;
     private javax.swing.JLabel fondo;
+    public javax.swing.JLabel ipokemonPc;
+    public javax.swing.JLabel ipokemonUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblNombrePokemonJugador;
     private javax.swing.JLabel lblTipoPokemonJugador;
     // End of variables declaration//GEN-END:variables
