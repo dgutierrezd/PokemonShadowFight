@@ -50,21 +50,13 @@ public class Arena {
         }
         public void generarPokemones(){
             Computadora computadora = new Computadora("Pc", true);
-            Usuario usuario = new Usuario("Dani", true);
+            Usuario usuario = new Usuario("Sebas", true);
             Pokemon pokemon = usuario.elegirPokemon();
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
 
             Pokemon enemyPokemon = usuario.elegirPokemon();
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
 
-
-            System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
-            System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
-            
-
-            System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
-            System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
-            System.out.println("Usuario = " + usuario.getUsuario() );
             
             String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
             String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
@@ -78,27 +70,9 @@ public class Arena {
             
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
             vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
-            
-            determinarAtaques(usuario, computadora, pokemon, enemyPokemon);
-            //pelearPokemons(pokemon, enemyPokemon, vistaArena);
-            
+              
         }
         
-        public void determinarAtaques(Usuario usuario, Computadora computadora,Pokemon pokemon , Pokemon enemyPokemon){
-            System.out.println("Estado ataque jugador: "+usuario.elegirAtacar(pokemon, enemyPokemon));
-        }
-        public void pelearPokemons(Pokemon pokemon , Pokemon enemyPokemon, VistaArena vistaArena){
-            if(pokemon.atacar(enemyPokemon) & enemyPokemon.defender()){
-                JOptionPane.showMessageDialog(null, "El pokemon " + pokemon.getNombre()+" atacó, el "+enemyPokemon.getNombre()+" se defendió, "
-                                             + "por lo tanto no se hacen daño.");
-            }
-            if((pokemon.atacar(enemyPokemon)) & !(enemyPokemon.defender())){
-                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()-1);
-                vistaArena.barPokemonEnemigo.setString(""+enemyPokemon.getResistenciaVida()+"/10");
-                JOptionPane.showMessageDialog(null, "El pokemon " + pokemon.getNombre()+" atacó, el "+enemyPokemon.getNombre()+" no se defendió, "
-                                                + "por lo tanto "+pokemon.getNombre()+" le baja un punto de vida a "+enemyPokemon.getNombre()+".");
-            }
-        }
         /**
          * Cambia el nombre y el tipo del pokemon del jugador en la VistaArena,
          * para tener la informacion completa.

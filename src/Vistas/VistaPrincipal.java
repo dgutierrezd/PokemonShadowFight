@@ -23,6 +23,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * Creates new form Index
      */
     VistaPrincipal principal;
+    Usuario usuario;
     public VistaPrincipal() {
         setResizable(false);
         initComponents();
@@ -122,8 +123,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if(tNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debes ingresar tu nombre antes de continuar.");
         }else{
-            Usuario usuario = new Usuario("", true);
-            usuario.setUsuario(tNombre.getText());
+            
             VistaInstrucciones instrucciones = new VistaInstrucciones();
             instrucciones.setVisible(true);
             dispose();
@@ -138,7 +138,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void tNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombreActionPerformed
         
     }//GEN-LAST:event_tNombreActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
