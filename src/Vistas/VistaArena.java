@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Control.Arena;
 import Elementos.Pokemon;
 import Elementos.Usuario;
 import javax.swing.ImageIcon;
@@ -19,9 +20,9 @@ import javax.swing.JOptionPane;
  * @since 2.0 
  */
 public class VistaArena extends javax.swing.JFrame {
-
+    Arena arena;
     Usuario usuario;
-    Pokemon pokemon;
+    Pokemon pokemonUsuario;
     Pokemon enemyPokemon;
     VistaInstrucciones instrucciones;
     /**
@@ -145,6 +146,18 @@ public class VistaArena extends javax.swing.JFrame {
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         
+        restaurarImagenPc();
+    }//GEN-LAST:event_bConocerActionPerformed
+
+    private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
+       usuario.elegirAtacar(pokemonUsuario, enemyPokemon);
+    }//GEN-LAST:event_btnAtacarActionPerformed
+
+    private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
+        usuario.elegirDefender(pokemonUsuario);
+    }//GEN-LAST:event_btnDefenderActionPerformed
+
+    public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
         pokemon = pokemon.substring(91, pokemon.length()-9);
         System.out.println(pokemon);
@@ -153,20 +166,24 @@ public class VistaArena extends javax.swing.JFrame {
         
         if(pokemonOponente.equalsIgnoreCase(pokemon)) {
             JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
+            return true;
         } else {
             if(pokemonOponente != pokemon)
             JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
+            return false;
         }
-    }//GEN-LAST:event_bConocerActionPerformed
-
-    private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-       usuario.elegirAtacar(pokemon, enemyPokemon);
-    }//GEN-LAST:event_btnAtacarActionPerformed
-
-    private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        usuario.elegirDefender(pokemon);
-    }//GEN-LAST:event_btnDefenderActionPerformed
-
+    }
+    public void restaurarImagenPc(){
+            
+            if(saberQuienEs()){
+                String pokemon = ipokemonPc.getIcon().toString();
+                pokemon = pokemon.substring(91, pokemon.length()-9);
+                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
+                ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+                ipokemonPc.setIcon(imagenPokemonPc);
+                
+            }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;

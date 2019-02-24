@@ -78,7 +78,8 @@ public class Arena {
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
             vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
             
-            pelearPokemons(pokemon, enemyPokemon, vistaArena);
+            
+            //pelearPokemons(pokemon, enemyPokemon, vistaArena);
             
         }
         public void pelearPokemons(Pokemon pokemon , Pokemon enemyPokemon, VistaArena vistaArena){
