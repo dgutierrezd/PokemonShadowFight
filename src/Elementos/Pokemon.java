@@ -81,7 +81,6 @@ public abstract class Pokemon {
      */
     public abstract int determinarProbabilidad(Pokemon enemyPokemon);
 
-
     public int getProbabilidadAtaque() {
         return probabilidadAtaque;
     }
@@ -125,7 +124,4 @@ public abstract class Pokemon {
     public int[] getArrayProbabilidades() {
         return arrayProbabilidades;
     }
-
-    
-    
 }

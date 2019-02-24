@@ -14,15 +14,77 @@ package Elementos;
  * @version 20190220
  * @since 1.0
  */
-public abstract class Jugador {
+public abstract class Jugador extends Pokemon {
     private String usuario;
     private boolean turno;
 
-    public Jugador(String usuario, boolean turno) {
+    public Jugador(String usuario, boolean turno, int resistenciaVida, int probabilidadAtaque, String nombre, String tipo, int numeroAleatorio, String tipoEnemigo, int[] arrayProbabilidades) {
+        super(resistenciaVida, probabilidadAtaque, nombre, tipo, numeroAleatorio, tipoEnemigo, arrayProbabilidades);
+        arrayProbabilidades = new int[]{100,100,60,30};
         this.usuario = usuario;
         this.turno = turno;
     }
 
+    /**
+     * Se genera un pokemon aleatoriamente, se genera su nombre, y 
+     * @return pokemonAleatorio 
+     */
+    public String elegirPokemon() {
+        String pokemonAleatorio = "";
+        int numeroAleatorio = (int)Math.random() * 4;
+        int tipoAleatorio = (int)Math.random() * 2;
+     
+        switch (numeroAleatorio) {
+            case 1:
+                setTipo("Agua");
+                switch(tipoAleatorio) {
+                    case 1:
+                        setNombre("Squirtle");
+                    break;
+                    case 2:
+                        setNombre("Piplup");
+                    break;
+                }
+            break;
+            case 2:
+                setTipo("Fuego");
+                switch(tipoAleatorio) {
+                    case 1:
+                        setNombre("Charizard");
+                    break;
+                    case 2:
+                        setNombre("Eevee");
+                    break;
+                }
+            break;
+            case 3:
+                setTipo("Tierra");
+                switch(tipoAleatorio) {
+                    case 1:
+                        setNombre("Diglett");
+                    break;
+                    case 2:
+                        setNombre("Sandshrew");
+                    break;
+                }
+            break;
+            case 4:
+                setTipo("Viento");
+                switch(tipoAleatorio) {
+                    case 1:
+                        setNombre("Nidorina");
+                    break;
+                    case 2:
+                        setNombre("Nidorino");
+                    break;
+                }
+            break;
+        }
+        pokemonAleatorio = getTipo() + ", " + getNombre();
+        
+        return pokemonAleatorio;
+    }
+    
     public String getUsuario() {
         return usuario;
     }

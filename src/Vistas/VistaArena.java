@@ -6,8 +6,12 @@
 package Vistas;
 
 /**
- *
- * @author ASUS
+ * Vista donde se realiza las acciones de ataque y defensa, 
+ * donde sucede la lucha entre los Pokemones.
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version  20192102
+ * @since 2.0 
  */
 public class VistaArena extends javax.swing.JFrame {
 
@@ -103,17 +107,24 @@ public class VistaArena extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Volver a la vista anterior (Instrucciones).
+     * @param evt 
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         dispose();
         instrucciones = new VistaInstrucciones();
         instrucciones.setVisible(true);
     }//GEN-LAST:event_bVolverActionPerformed
 
+    /**
+     * Si se conoce quien es el Pokemon oponente, y se revela su identidad.
+     * @param evt 
+     */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
 
     }//GEN-LAST:event_bConocerActionPerformed
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
