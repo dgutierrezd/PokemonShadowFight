@@ -55,7 +55,10 @@ public class VistaArena extends javax.swing.JFrame {
         lblNombrePokemonJugador = new javax.swing.JLabel();
         btnAtacar = new javax.swing.JButton();
         btnDefender = new javax.swing.JButton();
+        lblNombrePokemonComputador = new javax.swing.JLabel();
+        lblTipoPokemonComputador = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
+        lblTipoPokemonComputadorEscondido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,18 +88,20 @@ public class VistaArena extends javax.swing.JFrame {
         getContentPane().add(ipokemonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 220));
         getContentPane().add(ipokemonPc, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 220, 220));
 
+        barPokemonEnemigo.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         barPokemonEnemigo.setForeground(new java.awt.Color(255, 51, 51));
         barPokemonEnemigo.setMaximum(10);
         barPokemonEnemigo.setValue(10);
-        barPokemonEnemigo.setString("10/10");
+        barPokemonEnemigo.setString("10");
         barPokemonEnemigo.setStringPainted(true);
         getContentPane().add(barPokemonEnemigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 220, 30));
 
+        barPokemonJugador.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         barPokemonJugador.setForeground(new java.awt.Color(51, 102, 255));
         barPokemonJugador.setMaximum(10);
         barPokemonJugador.setToolTipText("");
         barPokemonJugador.setValue(10);
-        barPokemonJugador.setString("10/10");
+        barPokemonJugador.setString("10");
         barPokemonJugador.setStringPainted(true);
         getContentPane().add(barPokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 30));
 
@@ -124,8 +129,15 @@ public class VistaArena extends javax.swing.JFrame {
         });
         getContentPane().add(btnDefender, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 90, -1));
 
+        lblNombrePokemonComputador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        getContentPane().add(lblNombrePokemonComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
+
+        lblTipoPokemonComputador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        getContentPane().add(lblTipoPokemonComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(lblTipoPokemonComputadorEscondido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,7 +170,7 @@ public class VistaArena extends javax.swing.JFrame {
 
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(91, pokemon.length()-9);
+        pokemon = pokemon.substring(94, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         System.out.println(pokemonOponente);
@@ -176,11 +188,26 @@ public class VistaArena extends javax.swing.JFrame {
             
             if(saberQuienEs()){
                 String pokemon = ipokemonPc.getIcon().toString();
-                pokemon = pokemon.substring(91, pokemon.length()-9);
-                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
+                pokemon = pokemon.substring(94, pokemon.length()-9);
+                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
                 ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                 ipokemonPc.setIcon(imagenPokemonPc);
+                lblNombrePokemonComputador.setText(pokemon);
+                lblTipoPokemonComputador.setText(lblTipoPokemonComputadorEscondido.getText());
                 
+                barPokemonEnemigo.setValue(barPokemonEnemigo.getValue()/2);
+                int strEnemy = Integer.parseInt(barPokemonEnemigo.getString());
+                strEnemy = strEnemy / 2;
+                String strE = Integer.toString(strEnemy);
+                barPokemonEnemigo.setString(strE);
+            } else {
+                if(!saberQuienEs()) {
+                    barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
+                    int strUser = Integer.parseInt(barPokemonJugador.getString());
+                    strUser = strUser / 2;
+                    String strU = Integer.toString(strUser);
+                    barPokemonJugador.setString(strU);
+                }
             }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -195,7 +222,10 @@ public class VistaArena extends javax.swing.JFrame {
     public javax.swing.JLabel ipokemonUsuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel lblNombrePokemonComputador;
     public javax.swing.JLabel lblNombrePokemonJugador;
+    public javax.swing.JLabel lblTipoPokemonComputador;
+    public javax.swing.JLabel lblTipoPokemonComputadorEscondido;
     public javax.swing.JLabel lblTipoPokemonJugador;
     // End of variables declaration//GEN-END:variables
 }
