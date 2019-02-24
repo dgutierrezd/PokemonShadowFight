@@ -36,9 +36,11 @@ public class VistaArena extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
-        jLabel1 = new javax.swing.JLabel();
+        barPokemonEnemigo = new javax.swing.JProgressBar();
+        barPokemonJugador = new javax.swing.JProgressBar();
+        lblTipoPokemonJugador = new javax.swing.JLabel();
+        lblNombrePokemonJugador = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,27 +69,36 @@ public class VistaArena extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Charizard (1).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 220, 220));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 220));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DiglettNegro.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 220, 220));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 220, 220));
 
-        jProgressBar1.setForeground(new java.awt.Color(255, 51, 51));
-        jProgressBar1.setMaximum(10);
-        jProgressBar1.setValue(10);
-        jProgressBar1.setString("10/10");
-        jProgressBar1.setStringPainted(true);
-        getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 220, 30));
+        barPokemonEnemigo.setForeground(new java.awt.Color(255, 51, 51));
+        barPokemonEnemigo.setMaximum(10);
+        barPokemonEnemigo.setValue(10);
+        barPokemonEnemigo.setString("10/10");
+        barPokemonEnemigo.setStringPainted(true);
+        getContentPane().add(barPokemonEnemigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 220, 30));
 
-        jProgressBar2.setMaximum(10);
-        jProgressBar2.setToolTipText("");
-        jProgressBar2.setValue(10);
-        jProgressBar2.setString("10/10");
-        jProgressBar2.setStringPainted(true);
-        getContentPane().add(jProgressBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 220, 30));
+        barPokemonJugador.setForeground(new java.awt.Color(51, 102, 255));
+        barPokemonJugador.setMaximum(10);
+        barPokemonJugador.setToolTipText("");
+        barPokemonJugador.setValue(10);
+        barPokemonJugador.setString("10/10");
+        barPokemonJugador.setStringPainted(true);
+        getContentPane().add(barPokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblTipoPokemonJugador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        lblTipoPokemonJugador.setText("Tipo:");
+        getContentPane().add(lblTipoPokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
+
+        lblNombrePokemonJugador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        lblNombrePokemonJugador.setText("Nombre");
+        getContentPane().add(lblNombrePokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,12 +117,14 @@ public class VistaArena extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar barPokemonEnemigo;
+    private javax.swing.JProgressBar barPokemonJugador;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JLabel lblNombrePokemonJugador;
+    private javax.swing.JLabel lblTipoPokemonJugador;
     // End of variables declaration//GEN-END:variables
 }
