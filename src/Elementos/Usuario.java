@@ -16,13 +16,12 @@ public class Usuario extends Jugador {
         
     }
 
-    public void elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
-        pokemon.atacar(enemyPokemon);
+    public boolean elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
+        return pokemon.atacar(enemyPokemon);
     }
 
-    public void elegirDefender(Pokemon pokemon){
-        pokemon.defender();
-              
+    public boolean elegirDefender(Pokemon pokemon){
+        return pokemon.defender();      
     }
     
 }

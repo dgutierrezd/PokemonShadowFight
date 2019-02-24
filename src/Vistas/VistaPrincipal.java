@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Elementos.Jugador;
 import Elementos.Usuario;
 import javax.swing.JOptionPane;
 

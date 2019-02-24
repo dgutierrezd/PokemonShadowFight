@@ -49,22 +49,27 @@ public class Arena {
         }
         public void generarPokemones(){
             
-            Usuario usuario = new Usuario("Sebas", true);
+            Usuario usuario = new Usuario("Dani", true);
             Pokemon pokemon = usuario.elegirPokemon();
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
 
             Pokemon enemyPokemon = usuario.elegirPokemon();
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
 
+
             System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
             System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
             
+
+            System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
+            System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
+            System.out.println("Usuario = " + usuario.getUsuario() );
             
             String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
             String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-            
+                        
             VistaArena vistaArena = new VistaArena();
             vistaArena.setVisible(true);
             
