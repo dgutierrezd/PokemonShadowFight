@@ -6,6 +6,7 @@
 package Vistas;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  * Vista donde se realiza las acciones de ataque y defensa, 
@@ -120,7 +121,18 @@ public class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
-
+        
+        String pokemon = ipokemonPc.getIcon().toString();
+        pokemon = pokemon.substring(91, pokemon.length()-9);
+        System.out.println(pokemon);
+        String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
+        System.out.println(pokemonOponente);
+        if(pokemonOponente.equals(pokemon)) {
+            JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
+        } else {
+            if(pokemonOponente != pokemon)
+            JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
+        }
     }//GEN-LAST:event_bConocerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

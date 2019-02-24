@@ -64,7 +64,7 @@ public class Arena {
             String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+pokemon2.getNombre()+"Negro.png";
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-            
+                        
             VistaArena vistaArena = new VistaArena();
             vistaArena.setVisible(true);
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
