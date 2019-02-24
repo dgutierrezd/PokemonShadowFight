@@ -65,15 +65,15 @@ public class Arena {
             System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
             System.out.println("Usuario = " + usuario.getUsuario() );
             
-            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+            String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                         
             VistaArena vistaArena = new VistaArena();
             vistaArena.setVisible(true);
             
-            actualizarPokemonVista(vistaArena, pokemon);
+            actualizarPokemonVista(vistaArena, pokemon, enemyPokemon);
             
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
             vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
@@ -101,9 +101,11 @@ public class Arena {
          * @param vistaArena Vista en la cual se realizan los cambios.
          * @param pokemon Pokemon del jugador.
          */
-        public void actualizarPokemonVista(VistaArena vistaArena, Pokemon pokemon){
+        public void actualizarPokemonVista(VistaArena vistaArena, Pokemon pokemon, Pokemon enemyPokemon){
             vistaArena.lblNombrePokemonJugador.setText(pokemon.getNombre());
             vistaArena.lblTipoPokemonJugador.setText(pokemon.getTipo());
+            
+            vistaArena.lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
         }
         
 }
