@@ -169,6 +169,10 @@ public class VistaArena extends javax.swing.JFrame {
         pokemonUsuario.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
+    /**
+     * Adivinar el nombre del Pokemon contrincante.
+     * @return se adivinó el nombre del Pokemon (boolean)
+     */
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
         pokemon = pokemon.substring(91, pokemon.length()-9);
@@ -184,6 +188,11 @@ public class VistaArena extends javax.swing.JFrame {
             return false;
         }
     }
+    
+    /**
+     * Si se adivina el nombre del Pokemon contrario, se modifica a la imagen
+     * original y se mostrarán el nombre y el tipo de Pokemon.
+     */
     public void restaurarImagenPc(){
             
             if(saberQuienEs()){
@@ -213,6 +222,10 @@ public class VistaArena extends javax.swing.JFrame {
             }
     }
     
+    /**
+     * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
+     * para poder tener una experiencia más gratificante.
+     */
     public void cambiarColorVida() {
         int vidaJugador = Integer.parseInt(barPokemonJugador.getString());
         if(vidaJugador <= 7 && vidaJugador > 3) {
