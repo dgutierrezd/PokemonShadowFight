@@ -56,19 +56,13 @@ public class Arena {
 
             Pokemon enemyPokemon = usuario.elegirPokemon();
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
-
             
-<<<<<<< HEAD
-
             System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
             System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
             
             String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
             String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
-=======
-            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
->>>>>>> c5b3108189c49a737b6fd299bd0ab4ccbbf534dd
+
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                         
