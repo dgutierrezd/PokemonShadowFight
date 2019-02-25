@@ -6,6 +6,7 @@
 package Vistas;
 
 import Control.Arena;
+import Elementos.Computadora;
 import Elementos.Pokemon;
 import Elementos.Usuario;
 import java.awt.Color;
@@ -22,9 +23,10 @@ import javax.swing.JOptionPane;
  */
 public class VistaArena extends javax.swing.JFrame {
     Arena arena;
-    Usuario usuario;
-    Pokemon pokemonUsuario;
-    Pokemon enemyPokemon;
+    Usuario usuario = new Usuario("Daniel", true);
+    Pokemon pokemon = usuario.elegirPokemon();
+    Pokemon enemyPokemon = usuario.elegirPokemon();
+    
     VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaArenaa
@@ -33,6 +35,8 @@ public class VistaArena extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        generarPokemones();
+        cambiarColorVida();
     }
 
     /**
@@ -162,20 +166,23 @@ public class VistaArena extends javax.swing.JFrame {
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-       pokemonUsuario.atacar(enemyPokemon);
+        
+        pokemon.atacar(enemyPokemon);
+        System.out.println("Pokemon: "+pokemon.getNombre()+", PokemonEnemigo: "+enemyPokemon.getNombre()+".  Ambos creados por: "+usuario.getNombre());
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        pokemonUsuario.defender();
+        pokemon.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     /**
-     * Adivinar el nombre del Pokemon contrincante.
-     * @return se adivinó el nombre del Pokemon (boolean)
+     * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
+     * enemigo.
+     * @return El resultado booleano de la comparacion de los nombres de los pokemon's.
      */
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(91, pokemon.length()-9);
+        pokemon = pokemon.substring(94, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         
@@ -190,18 +197,19 @@ public class VistaArena extends javax.swing.JFrame {
     }
     
     /**
-     * Si se adivina el nombre del Pokemon contrario, se modifica a la imagen
-     * original y se mostrarán el nombre y el tipo de Pokemon.
+     * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
+     * si fue incorrecto, la deja como estaba originalmente.
+     * Ademas le rebaja el 50% de vida al pokemon, dependiendo el resultado.
      */
     public void restaurarImagenPc(){
             
             if(saberQuienEs()){
-                String pokemon = ipokemonPc.getIcon().toString();
-                pokemon = pokemon.substring(91, pokemon.length()-9);
-                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
+                String pokemonImage = ipokemonPc.getIcon().toString();
+                pokemonImage = pokemonImage.substring(94, pokemonImage.length()-9);
+                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
                 ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                 ipokemonPc.setIcon(imagenPokemonPc);
-                lblNombrePokemonComputador.setText(pokemon);
+                lblNombrePokemonComputador.setText(pokemonImage);
                 lblTipoPokemonComputador.setText(lblTipoPokemonComputadorEscondido.getText());
                 
                 barPokemonEnemigo.setValue(barPokemonEnemigo.getValue()/2);
@@ -244,7 +252,35 @@ public class VistaArena extends javax.swing.JFrame {
             }
         }
     }
-    
+    /**
+     * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
+     */
+    public void generarPokemones(){
+            Computadora computadora = new Computadora("Pc", true);
+            
+            System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
+            System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
+
+            
+            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+            ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
+            ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+                        
+            ipokemonUsuario.setIcon(imagenPokemonUsuario);
+            ipokemonPc.setIcon(imagenPokemonPc);
+            
+            actualizarPokemonVista();       
+        }
+        /**
+         * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
+         */
+        public void actualizarPokemonVista(){
+            lblNombrePokemonJugador.setText(pokemon.getNombre());
+            lblTipoPokemonJugador.setText(pokemon.getTipo());
+            lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
+            
+        }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;

@@ -10,14 +10,15 @@ package Elementos;
  * @author USUARIO
  */
 public class Usuario extends Jugador {
-    
-    public Usuario(String usuario, boolean turno) {
-        super(usuario, turno);
-        
-    }
 
-    public boolean elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
-        return pokemon.atacar(enemyPokemon);
+    public Usuario(String nombre, boolean turno) {
+        super(nombre, turno);
+    }
+    
+    
+
+    public void elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
+        pokemon.atacar(enemyPokemon);
     }
 
     public boolean elegirDefender(Pokemon pokemon){

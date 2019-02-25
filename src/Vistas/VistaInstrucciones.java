@@ -26,6 +26,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
         setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -138,9 +139,10 @@ public class VistaInstrucciones extends javax.swing.JFrame {
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         dispose();
-        
-        Arena arena = new Arena();
-        arena.generarPokemones();
+        VistaArena vistaArena = new VistaArena();
+        vistaArena.setVisible(true);
+//        Arena arena = new Arena();
+//        arena.generarPokemones();
     }//GEN-LAST:event_bComenzarActionPerformed
 
     /**
