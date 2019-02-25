@@ -15,11 +15,11 @@ package Elementos;
  * @since 1.0
  */
 public abstract class Jugador {
-    private String usuario;
+    private String nombre;
     private boolean turno;
 
     public Jugador(String usuario, boolean turno) {
-        this.usuario = usuario;
+        this.nombre = usuario;
         this.turno = turno;
     }
     
@@ -83,12 +83,12 @@ public abstract class Jugador {
         return null;
     }
     
-    public String getUsuario() {
-        return usuario;
+    public String getName() {
+        return nombre;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public boolean isTurno() {

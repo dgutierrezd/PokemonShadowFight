@@ -6,6 +6,7 @@
 package Vistas;
 
 import Control.Arena;
+import Elementos.Usuario;
 
 /**
  * Vista donde se conocen las instrucciones y la manera en que funciona el juego
@@ -16,7 +17,7 @@ import Control.Arena;
  * @since 2.0
  */
 public class VistaInstrucciones extends javax.swing.JFrame {
-    
+    VistaPrincipal vistaPrincipal;
     VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaInstruccion
@@ -137,6 +138,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         dispose();
+        
         Arena arena = new Arena();
         arena.generarPokemones();
     }//GEN-LAST:event_bComenzarActionPerformed

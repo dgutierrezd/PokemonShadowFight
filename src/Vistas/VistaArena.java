@@ -158,21 +158,20 @@ public class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
-        
         restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-       usuario.elegirAtacar(pokemonUsuario, enemyPokemon);
+       pokemonUsuario.atacar(enemyPokemon);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        usuario.elegirDefender(pokemonUsuario);
+        pokemonUsuario.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(94, pokemon.length()-9);
+        pokemon = pokemon.substring(91, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         
@@ -189,8 +188,8 @@ public class VistaArena extends javax.swing.JFrame {
             
             if(saberQuienEs()){
                 String pokemon = ipokemonPc.getIcon().toString();
-                pokemon = pokemon.substring(94, pokemon.length()-9);
-                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
+                pokemon = pokemon.substring(91, pokemon.length()-9);
+                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon+".png";
                 ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                 ipokemonPc.setIcon(imagenPokemonPc);
                 lblNombrePokemonComputador.setText(pokemon);
