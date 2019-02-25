@@ -56,10 +56,13 @@ public class Arena {
 
             Pokemon enemyPokemon = crearPokemonComputadora(usuario);
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
-
             
-            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+            System.out.println("Pokemon: "+pokemon.getNombre()+" , ataca a "+ enemyPokemon.getNombre());
+            System.out.println("Estado Ataque: "+pokemon.atacar(enemyPokemon)+" con un numero random de: "+pokemon.getNumeroAleatorio());
+            
+            String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                         
@@ -91,6 +94,7 @@ public class Arena {
          * para tener la informacion completa.
          * @param vistaArena Vista en la cual se realizan los cambios.
          * @param pokemon Pokemon del jugador.
+         * @param enemyPokemon Pokemon del computador.
          */
         public void actualizarPokemonVista(VistaArena vistaArena, Pokemon pokemon, Pokemon enemyPokemon){
             vistaArena.lblNombrePokemonJugador.setText(pokemon.getNombre());
