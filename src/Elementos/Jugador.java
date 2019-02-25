@@ -18,8 +18,8 @@ public abstract class Jugador {
     private String nombre;
     private boolean turno;
 
-    public Jugador(String usuario, boolean turno) {
-        this.nombre = usuario;
+    public Jugador(String nombre, boolean turno) {
+        this.nombre = nombre;
         this.turno = turno;
     }
     
@@ -83,7 +83,7 @@ public abstract class Jugador {
         return null;
     }
     
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 

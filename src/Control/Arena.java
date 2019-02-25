@@ -50,11 +50,11 @@ public class Arena {
         }
         public void generarPokemones(){
             Computadora computadora = new Computadora("Pc", true);
-            Usuario usuario = new Usuario("Sebas", true);
-            Pokemon pokemon = usuario.elegirPokemon();
+            Usuario usuario = crearJugador();
+            Pokemon pokemon = crearPokemonUsuario(usuario);
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
 
-            Pokemon enemyPokemon = usuario.elegirPokemon();
+            Pokemon enemyPokemon = crearPokemonComputadora(usuario);
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
 
             
@@ -70,7 +70,20 @@ public class Arena {
             
             vistaArena.ipokemonUsuario.setIcon(imagenPokemonUsuario);
             vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
+            
               
+        }
+        public Pokemon crearPokemonUsuario(Usuario usuario){
+            Pokemon pokemon = usuario.elegirPokemon();
+            return pokemon;
+        }
+        public Pokemon crearPokemonComputadora(Usuario usuario){
+            Pokemon enemyPokemon = usuario.elegirPokemon();
+            return enemyPokemon;
+        }
+        public Usuario crearJugador(){
+            Usuario usuario = new Usuario("Daniel", true);
+            return usuario;
         }
         
         /**

@@ -32,8 +32,10 @@ public class PokemonFuego extends Pokemon {
         setNumeroAleatorio((int) (Math.random() * 100));
         if(getNumeroAleatorio()>0 & getNumeroAleatorio() <=100){
             if(getNumeroAleatorio() <= determinarProbabilidad(enemyPokemon)){
+                System.out.println("Ataco");
                 return true;
             }
+            System.out.println(" Fallo Ataque"); 
             return false;
         }
         return false;
