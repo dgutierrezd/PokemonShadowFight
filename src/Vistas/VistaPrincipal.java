@@ -48,6 +48,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         bComenzar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -80,13 +81,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         bComenzar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        bComenzar.setText("Comenzar");
+        bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
         bComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bComenzarActionPerformed(evt);
             }
         });
-        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/International_Pokémon_logo.svg (1).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 110));
@@ -98,6 +99,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButton3.setText("Instrucciones");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ce9eeb5b1114993b7f9676a11d7d8d4e72e4ea9c_hq.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 360));
@@ -111,7 +121,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/BatallasGalacticas.wav"));
         musica.loop();
-        System.out.println("Sonando Canción");
     }
     
     /**
@@ -123,13 +132,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
-     * Dirigirse a la vista de instrucciones
+     * Ir a la Vista Arena para poder comenzar el juego.
      * @param evt 
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
-        VistaInstrucciones instrucciones = new VistaInstrucciones();
-        instrucciones.setVisible(true);
+        VistaArena arena = new VistaArena();
+        arena.setVisible(true);
         dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
 
@@ -144,6 +153,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        musica.stop();
+        VistaInstrucciones instrucciones = new VistaInstrucciones();
+        instrucciones.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,6 +167,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton bSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

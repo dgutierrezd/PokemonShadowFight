@@ -29,7 +29,6 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
         musica.loop();
-        System.out.println("Sonando Canción");
     }
     
     /**
@@ -100,7 +99,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 405, 459));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 459));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

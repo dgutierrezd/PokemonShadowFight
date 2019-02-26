@@ -28,7 +28,6 @@ public class VistaArena extends javax.swing.JFrame {
     Pokemon pokemon = usuario.elegirPokemon();
     Pokemon enemyPokemon = usuario.elegirPokemon();
     
-    VistaInstrucciones instrucciones;
     /**
      * Creates new form VistaArenaa
      */
@@ -163,9 +162,9 @@ public class VistaArena extends javax.swing.JFrame {
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
         dispose();
-        instrucciones = new VistaInstrucciones();
-        instrucciones.setVisible(true);
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**

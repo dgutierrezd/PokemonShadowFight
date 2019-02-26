@@ -55,7 +55,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        bComenzar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -108,22 +107,13 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         jLabel2.setText("Instrucciones");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
-        bComenzar.setToolTipText("");
-        bComenzar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bComenzarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 110, 40));
-
         bVolver.setText("Volver");
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
+        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
@@ -136,22 +126,8 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
         musica.loop();
-        System.out.println("Sonando Canción");
     }
     
-    /**
-     * Ir a la Vista Arena para poder comenzar el juego.
-     * @param evt 
-     */
-    private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
-        dispose();
-        VistaArena vistaArena = new VistaArena();
-        vistaArena.setVisible(true);
-        musica.stop();
-//        Arena arena = new Arena();
-//        arena.generarPokemones();
-    }//GEN-LAST:event_bComenzarActionPerformed
-
     /**
      * Volver a la vista principal
      * @param evt 
@@ -164,7 +140,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bComenzar;
     private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
