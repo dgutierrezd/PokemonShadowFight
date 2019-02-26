@@ -149,10 +149,11 @@ public class VistaArena extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    AudioClip musica;
     public void GenerarMusica() {
-        AudioClip musica;
-        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.mp3"));
-        musica.play();
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.wav"));
+        musica.loop();
         System.out.println("Sonando Canción");
     }
     
@@ -161,6 +162,7 @@ public class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        musica.stop();
         dispose();
         instrucciones = new VistaInstrucciones();
         instrucciones.setVisible(true);

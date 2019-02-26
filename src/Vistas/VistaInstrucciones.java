@@ -7,6 +7,7 @@ package Vistas;
 
 import Control.Arena;
 import Elementos.Usuario;
+import java.applet.AudioClip;
 
 /**
  * Vista donde se conocen las instrucciones y la manera en que funciona el juego
@@ -25,6 +26,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     public VistaInstrucciones() {
         setResizable(false);
         initComponents();
+        GenerarMusica();
         setLocationRelativeTo(this);
         
     }
@@ -129,6 +131,14 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    AudioClip musica;
+    public void GenerarMusica() {
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
+        musica.loop();
+        System.out.println("Sonando Canción");
+    }
+    
     /**
      * Ir a la Vista Arena para poder comenzar el juego.
      * @param evt 
@@ -137,6 +147,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         dispose();
         VistaArena vistaArena = new VistaArena();
         vistaArena.setVisible(true);
+        musica.stop();
 //        Arena arena = new Arena();
 //        arena.generarPokemones();
     }//GEN-LAST:event_bComenzarActionPerformed
@@ -146,6 +157,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        musica.stop();
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
         dispose();

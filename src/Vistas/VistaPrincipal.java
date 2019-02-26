@@ -7,6 +7,7 @@ package Vistas;
 
 import Elementos.Jugador;
 import Elementos.Usuario;
+import java.applet.AudioClip;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +28,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public VistaPrincipal() {
         setResizable(false);
         initComponents();
+        GenerarMusica();
         setLocationRelativeTo(null);
     }
 
@@ -103,6 +105,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    AudioClip musica;
+    public void GenerarMusica() {
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/BatallasGalacticas.wav"));
+        musica.loop();
+        System.out.println("Sonando Canción");
+    }
+    
     /**
      * Salir del juego
      * @param evt 
@@ -116,7 +127,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param evt 
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
-        
+        musica.stop();
         VistaInstrucciones instrucciones = new VistaInstrucciones();
         instrucciones.setVisible(true);
         dispose();
@@ -127,6 +138,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        musica.stop();
         VistaSobreNosotros sobreNosotros = new VistaSobreNosotros(this, true);
         sobreNosotros.setVisible(true);
         dispose();

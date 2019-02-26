@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.applet.AudioClip;
+
 /**
  *
  * @author USUARIO
@@ -18,9 +20,18 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         super(parent, modal);
         setResizable(false);
         initComponents();
+        GenerarMusica();
         setLocationRelativeTo(this);
     }
 
+    AudioClip musica;
+    public void GenerarMusica() {
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
+        musica.loop();
+        System.out.println("Sonando Canción");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +62,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        musica.stop();
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
         dispose();
