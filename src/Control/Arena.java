@@ -16,6 +16,8 @@ import Vistas.VistaArena;
 import Vistas.VistaPrincipal;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.io.*;
+import sun.audio.*;
 
 /**
  * Encuentro de los dos Pokemones a luchar, donde se llevan a atacar o defender.
@@ -28,8 +30,13 @@ import javax.swing.JOptionPane;
  */
 public class Arena {
     
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception{
         
+//        String musica = "C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Musica/Pokemon-AtrapalosYa.mp3";
+//        InputStream in = new FileInputStream(musica);
+//        AudioStream audio = new AudioStream(in);
+//        AudioPlayer.player.start(audio);
+
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
 //        //Borrar esto al finalizar programa. Pruebas de ataque y defensa a los pokemones.

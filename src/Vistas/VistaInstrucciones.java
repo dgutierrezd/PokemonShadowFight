@@ -38,7 +38,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -61,26 +60,23 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel33.setText("simplemente debes dar click sobre tu pokemon.");
-        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 223, -1, -1));
-
         jLabel34.setText("Al iniciar el juego, empiezas con 10 vidas, las cuales se irán disminuyendo ");
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 252, -1, -1));
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         jLabel35.setText("dependiendo de tus jugadas.");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 275, -1, -1));
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel36.setText("Conociendo estas simples instrucciones, te dejamos y que empiece la lucha!");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 379, -1, -1));
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel37.setText("Que la fuerza esté de tu lado...");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 408, -1, -1));
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         jLabel38.setText("No podrás conocer que pokemon es tu oponente, solamente conocerás su");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 304, -1, -1));
+        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jLabel39.setText("cantidad de resistencia, pero, si adivinas que pokemon es tu oponente, nada");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 327, -1, -1));
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         jLabel24.setText("Hola luchador! Bienvenido a la gran lucha Pokemon, estamos muy cerca");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 56, -1, -1));
@@ -101,14 +97,14 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 177, -1, -1));
 
         jLabel40.setText("más dale click al botón \"Yo sé quién eres!\".");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 350, -1, -1));
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabel32.setText("atacar debes dar click sobre el pokemon de tu oponente y para adefenderte");
+        jLabel32.setText("atacar o defenderte, debes dar click sobre los botones correspondientes.");
         getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 200, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         jLabel2.setText("Instrucciones");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
         bComenzar.setToolTipText("");
@@ -117,7 +113,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
                 bComenzarActionPerformed(evt);
             }
         });
-        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 110, 40));
+        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 110, 40));
 
         bVolver.setText("Volver");
         bVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -125,10 +121,10 @@ public class VistaInstrucciones extends javax.swing.JFrame {
                 bVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,7 +163,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;

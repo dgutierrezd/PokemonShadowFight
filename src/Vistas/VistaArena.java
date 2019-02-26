@@ -12,6 +12,7 @@ import Elementos.Usuario;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.applet.AudioClip;
 
 /**
  * Vista donde se realiza las acciones de ataque y defensa, 
@@ -33,6 +34,7 @@ public class VistaArena extends javax.swing.JFrame {
      */
     public VistaArena() {
         initComponents();
+        GenerarMusica();
         setResizable(false);
         setLocationRelativeTo(null);
         generarPokemones();
@@ -147,6 +149,13 @@ public class VistaArena extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void GenerarMusica() {
+        AudioClip musica;
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.mp3"));
+        musica.play();
+        System.out.println("Sonando Canción");
+    }
+    
     /**
      * Volver a la vista anterior (Instrucciones).
      * @param evt 
@@ -219,14 +228,12 @@ public class VistaArena extends javax.swing.JFrame {
                 barPokemonEnemigo.setString(strE);
                 bConocer.setEnabled(false);
             } else {
-                if(!saberQuienEs()) {
-                    barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
-                    int strUser = Integer.parseInt(barPokemonJugador.getString());
-                    strUser = strUser / 2;
-                    String strU = Integer.toString(strUser);
-                    barPokemonJugador.setString(strU);
-                    bConocer.setEnabled(false);
-                }
+                barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
+                int strUser = Integer.parseInt(barPokemonJugador.getString());
+                strUser = strUser / 2;
+                String strU = Integer.toString(strUser);
+                barPokemonJugador.setString(strU);
+                bConocer.setEnabled(false);
             }
     }
     
@@ -262,8 +269,8 @@ public class VistaArena extends javax.swing.JFrame {
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
 
             
-            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+            String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                         
