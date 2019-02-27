@@ -18,7 +18,7 @@ public abstract class Pokemon {
     /**
      * Cantidad de resistincia disminuida al realizar un ataque exitoso.
      */
-    public static final int ATAQUE = 1;
+    public static final int ATAQUE = -1;
     /**
      * Cantidad de resistencia con la cual inicia el juego cada Pokemon.
      */
@@ -76,12 +76,12 @@ public abstract class Pokemon {
      * @param enemyPokemon usado para saber contra que Pokemon sera enfrentado.
      * @return si la opción fue escogida o no.
      */
-    public abstract boolean atacar(Pokemon enemyPokemon);
+    public abstract int atacar(Pokemon enemyPokemon);
     /**
      * Opción al obtener el turno, y poder defenderse de los ataques del oponente.
      * @return si la opción escogida o no
      */
-    public abstract boolean defender();
+    public abstract int defender();
     /**
      * Calcula la probabilidad que tiene el pokemon elegido frente al pokemon a combatir.
      * @param enemyPokemon usado para determinar el tipo de Pokemon.

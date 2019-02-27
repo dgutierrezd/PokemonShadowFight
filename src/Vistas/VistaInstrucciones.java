@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Control.Arena;
+import Elementos.Arena;
 import Elementos.Usuario;
 import java.applet.AudioClip;
 
@@ -20,6 +20,7 @@ import java.applet.AudioClip;
 public class VistaInstrucciones extends javax.swing.JFrame {
     VistaPrincipal vistaPrincipal;
     VistaInstrucciones instrucciones;
+    Arena arena;
     /**
      * Creates new form VistaInstruccion
      */
@@ -28,7 +29,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         initComponents();
         GenerarMusica();
         setLocationRelativeTo(this);
-        
     }
 
     /**
@@ -120,6 +120,16 @@ public class VistaInstrucciones extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * Ir a la Vista Arena para poder comenzar el juego.
+     * @param evt 
+     */
+    private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
+        dispose();
+        VistaArena vistaArena = new VistaArena();
+        vistaArena.setVisible(true);
+    }//GEN-LAST:event_bComenzarActionPerformed
 
     AudioClip musica;
     public void GenerarMusica() {

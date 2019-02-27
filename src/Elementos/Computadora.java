@@ -15,7 +15,18 @@ public class Computadora extends Jugador {
         super(usuario, turno);
     }
   
-    
+    public int seleccionarAccion(Pokemon pokemon ,  Pokemon enemyPokemon){
+        int numRandom = (int)(Math.random()*1);
+        if(numRandom == 0){
+            return pokemon.atacar(enemyPokemon);    
+        }
+        else{
+            if(numRandom == 1){
+            return  pokemon.defender();
+            }
+        }
+        return -1;
+    }
     
     
 }

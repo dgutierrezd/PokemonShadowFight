@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Control.Arena;
+import Elementos.Arena;
 import Elementos.Computadora;
 import Elementos.Pokemon;
 import Elementos.Usuario;
@@ -24,6 +24,7 @@ import java.applet.AudioClip;
  */
 public class VistaArena extends javax.swing.JFrame {
     Arena arena;
+    VistaInstrucciones instrucciones;
     Usuario usuario = new Usuario("Daniel", true);
     Pokemon pokemon = usuario.elegirPokemon();
     Pokemon enemyPokemon = usuario.elegirPokemon();
@@ -36,8 +37,7 @@ public class VistaArena extends javax.swing.JFrame {
         GenerarMusica();
         setResizable(false);
         setLocationRelativeTo(null);
-        generarPokemones();
-        cambiarColorVida();
+        
     }
 
     /**
@@ -177,14 +177,19 @@ public class VistaArena extends javax.swing.JFrame {
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         
-        pokemon.atacar(enemyPokemon);
-        System.out.println("Pokemon: "+pokemon.getNombre()+", PokemonEnemigo: "+enemyPokemon.getNombre()+".  Ambos creados por: "+usuario.getNombre());
+//        pokemon.atacar(enemyPokemon);
+//        System.out.println("Pokemon: "+pokemon.getNombre()+", PokemonEnemigo: "+enemyPokemon.getNombre()+".  Ambos creados por: "+usuario.getNombre());
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        pokemon.defender();
+//        pokemon.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
+    
+    public void elegirAtacar(Pokemon pokemon , Pokemon enemyPokemon, Usuario usuario){
+        pokemon.atacar(enemyPokemon);
+        usuario.setTurno(true);
+    }
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
@@ -241,9 +246,12 @@ public class VistaArena extends javax.swing.JFrame {
     /**
      * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
      * para poder tener una experiencia más gratificante.
+     * @param pokemon Para utilizar la barra de vida del pokemon del Usuario.
+     * @param enemyPokemon Para utilizar la barra de vida del pokemon de la Computadora.
      */
-    public void cambiarColorVida() {
-        int vidaJugador = Integer.parseInt(barPokemonJugador.getString());
+    public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
+        int vidaJugador = pokemon.getResistenciaVida();
+    
         if(vidaJugador <= 7 && vidaJugador > 3) {
             barPokemonJugador.setForeground(Color.yellow);
         }else {
@@ -251,7 +259,7 @@ public class VistaArena extends javax.swing.JFrame {
                 barPokemonJugador.setForeground(Color.red);
             }
         }
-        int vidaEnemigo = Integer.parseInt(barPokemonEnemigo.getString());
+        int vidaEnemigo = enemyPokemon.getResistenciaVida();
         if(vidaEnemigo <= 7 && vidaEnemigo > 3) {
             barPokemonEnemigo.setForeground(Color.yellow);
         } else {
@@ -263,7 +271,7 @@ public class VistaArena extends javax.swing.JFrame {
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
      */
-    public void generarPokemones(){
+    public void pintarPokemones(Pokemon pokemon, Pokemon enemyPokemon){
             Computadora computadora = new Computadora("Pc", true);
             
             System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
@@ -278,12 +286,12 @@ public class VistaArena extends javax.swing.JFrame {
             ipokemonUsuario.setIcon(imagenPokemonUsuario);
             ipokemonPc.setIcon(imagenPokemonPc);
             
-            actualizarPokemonVista();       
+            actualizarPokemonVista(pokemon, enemyPokemon);       
         }
         /**
          * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
          */
-        public void actualizarPokemonVista(){
+        public void actualizarPokemonVista(Pokemon pokemon, Pokemon enemyPokemon){
             lblNombrePokemonJugador.setText(pokemon.getNombre());
             lblTipoPokemonJugador.setText(pokemon.getTipo());
             lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());

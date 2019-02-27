@@ -26,30 +26,30 @@ public class PokemonTierra extends Pokemon {
     }
     
     @Override
-    public boolean atacar(Pokemon enemyPokemon) {
+    public int atacar(Pokemon enemyPokemon) {
         setNumeroAleatorio((int) (Math.random() * 100));
         if(getNumeroAleatorio()>0 & getNumeroAleatorio() <=100){
             if(getNumeroAleatorio() <= determinarProbabilidad(enemyPokemon)){
                 System.out.println("Ataco");
-                return true;
+                return 1;
             }
             System.out.println("Fallo Ataque");
-            return false;
+            return 0;
         }
-        return false;
+        return 0;
     }
 
     @Override
-    public boolean defender() {
+    public int defender() {
         setNumeroAleatorio((int) (Math.random() * 100));
          if(getNumeroAleatorio() <= PROBABILIDAD_DEFENSA_TIERRA & getNumeroAleatorio() > 0){
-             return true;
+             return 3;
          }else{
              if(getNumeroAleatorio() > PROBABILIDAD_DEFENSA_TIERRA & getNumeroAleatorio() <= 100){
-                 return false;
+                 return 4;
              }
          }
-        return false;
+        return 4;
     }  
 
     @Override
