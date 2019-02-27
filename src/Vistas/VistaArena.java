@@ -24,14 +24,11 @@ import java.applet.AudioClip;
  */
 public class VistaArena extends javax.swing.JFrame {
     Arena arena;
-<<<<<<< HEAD
     VistaInstrucciones instrucciones;
-=======
     Usuario usuario = new Usuario("Daniel", true);
     Pokemon pokemon = usuario.elegirPokemon();
     Pokemon enemyPokemon = usuario.elegirPokemon();
     
->>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
     /**
      * Creates new form VistaArenaa
      */
@@ -187,15 +184,12 @@ public class VistaArena extends javax.swing.JFrame {
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
 //        pokemon.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
-<<<<<<< HEAD
+
     
     public void elegirAtacar(Pokemon pokemon , Pokemon enemyPokemon, Usuario usuario){
         pokemon.atacar(enemyPokemon);
         usuario.setTurno(true);
     }
-=======
-
->>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
@@ -249,17 +243,15 @@ public class VistaArena extends javax.swing.JFrame {
             }
     }
     
-<<<<<<< HEAD
-    public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
-        int vidaJugador = pokemon.getResistenciaVida();
-=======
     /**
      * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
      * para poder tener una experiencia más gratificante.
+     * @param pokemon Para utilizar la barra de vida del pokemon del Usuario.
+     * @param enemyPokemon Para utilizar la barra de vida del pokemon de la Computadora.
      */
-    public void cambiarColorVida() {
-        int vidaJugador = Integer.parseInt(barPokemonJugador.getString());
->>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
+    public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
+        int vidaJugador = pokemon.getResistenciaVida();
+    
         if(vidaJugador <= 7 && vidaJugador > 3) {
             barPokemonJugador.setForeground(Color.yellow);
         }else {

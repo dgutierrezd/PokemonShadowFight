@@ -121,7 +121,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     /**
      * Ir a la Vista Arena para poder comenzar el juego.
      * @param evt 
@@ -132,7 +131,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         vistaArena.setVisible(true);
     }//GEN-LAST:event_bComenzarActionPerformed
 
-=======
     AudioClip musica;
     public void GenerarMusica() {
         
@@ -140,7 +138,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         musica.loop();
     }
     
->>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
     /**
      * Volver a la vista principal
      * @param evt 
