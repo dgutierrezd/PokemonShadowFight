@@ -12,6 +12,7 @@ import Elementos.Usuario;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import java.applet.AudioClip;
 
 /**
  * Vista donde se realiza las acciones de ataque y defensa, 
@@ -23,12 +24,20 @@ import javax.swing.JOptionPane;
  */
 public class VistaArena extends javax.swing.JFrame {
     Arena arena;
+<<<<<<< HEAD
     VistaInstrucciones instrucciones;
+=======
+    Usuario usuario = new Usuario("Daniel", true);
+    Pokemon pokemon = usuario.elegirPokemon();
+    Pokemon enemyPokemon = usuario.elegirPokemon();
+    
+>>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
     /**
      * Creates new form VistaArenaa
      */
     public VistaArena() {
         initComponents();
+        GenerarMusica();
         setResizable(false);
         setLocationRelativeTo(null);
         
@@ -142,14 +151,23 @@ public class VistaArena extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    AudioClip musica;
+    public void GenerarMusica() {
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.wav"));
+        musica.loop();
+        System.out.println("Sonando Canción");
+    }
+    
     /**
      * Volver a la vista anterior (Instrucciones).
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        musica.stop();
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
         dispose();
-        instrucciones = new VistaInstrucciones();
-        instrucciones.setVisible(true);
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**
@@ -169,11 +187,15 @@ public class VistaArena extends javax.swing.JFrame {
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
 //        pokemon.defender();
     }//GEN-LAST:event_btnDefenderActionPerformed
+<<<<<<< HEAD
     
     public void elegirAtacar(Pokemon pokemon , Pokemon enemyPokemon, Usuario usuario){
         pokemon.atacar(enemyPokemon);
         usuario.setTurno(true);
     }
+=======
+
+>>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
@@ -181,7 +203,7 @@ public class VistaArena extends javax.swing.JFrame {
      */
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(91, pokemon.length()-9);
+        pokemon = pokemon.substring(94, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         
@@ -194,6 +216,7 @@ public class VistaArena extends javax.swing.JFrame {
             return false;
         }
     }
+    
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
      * si fue incorrecto, la deja como estaba originalmente.
@@ -203,8 +226,8 @@ public class VistaArena extends javax.swing.JFrame {
             
             if(saberQuienEs()){
                 String pokemonImage = ipokemonPc.getIcon().toString();
-                pokemonImage = pokemonImage.substring(91, pokemonImage.length()-9);
-                String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
+                pokemonImage = pokemonImage.substring(94, pokemonImage.length()-9);
+                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
                 ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                 ipokemonPc.setIcon(imagenPokemonPc);
                 lblNombrePokemonComputador.setText(pokemonImage);
@@ -217,19 +240,26 @@ public class VistaArena extends javax.swing.JFrame {
                 barPokemonEnemigo.setString(strE);
                 bConocer.setEnabled(false);
             } else {
-                if(!saberQuienEs()) {
-                    barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
-                    int strUser = Integer.parseInt(barPokemonJugador.getString());
-                    strUser = strUser / 2;
-                    String strU = Integer.toString(strUser);
-                    barPokemonJugador.setString(strU);
-                    bConocer.setEnabled(false);
-                }
+                barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
+                int strUser = Integer.parseInt(barPokemonJugador.getString());
+                strUser = strUser / 2;
+                String strU = Integer.toString(strUser);
+                barPokemonJugador.setString(strU);
+                bConocer.setEnabled(false);
             }
     }
     
+<<<<<<< HEAD
     public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
         int vidaJugador = pokemon.getResistenciaVida();
+=======
+    /**
+     * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
+     * para poder tener una experiencia más gratificante.
+     */
+    public void cambiarColorVida() {
+        int vidaJugador = Integer.parseInt(barPokemonJugador.getString());
+>>>>>>> 8dcfb2c09ecc13c4ec3f8cdde613dc8118132421
         if(vidaJugador <= 7 && vidaJugador > 3) {
             barPokemonJugador.setForeground(Color.yellow);
         }else {
@@ -247,7 +277,7 @@ public class VistaArena extends javax.swing.JFrame {
         }
     }
     /**
-     * Genera las imagenes de loss Pokemons que estan combatiendo en la Arena.
+     * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
      */
     public void pintarPokemones(Pokemon pokemon, Pokemon enemyPokemon){
             Computadora computadora = new Computadora("Pc", true);
@@ -256,8 +286,8 @@ public class VistaArena extends javax.swing.JFrame {
             System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
 
             
-            String pokemonUsuario = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\ASUS\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
+            String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
+            String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
             ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
             ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
                         
