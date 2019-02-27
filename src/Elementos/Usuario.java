@@ -12,7 +12,7 @@ package Elementos;
 public class Usuario extends Jugador {
 
     public Usuario(String nombre, boolean turno) {
-        super(nombre, turno);
+        super(nombre, false);
     }
     
     
@@ -21,8 +21,8 @@ public class Usuario extends Jugador {
         pokemon.atacar(enemyPokemon);
     }
 
-    public boolean elegirDefender(Pokemon pokemon){
-        return pokemon.defender();      
+    public void elegirDefender(Pokemon pokemon){
+        pokemon.defender();      
     }
     
 }

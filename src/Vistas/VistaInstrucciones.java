@@ -5,7 +5,7 @@
  */
 package Vistas;
 
-import Control.Arena;
+import Elementos.Arena;
 import Elementos.Usuario;
 
 /**
@@ -19,6 +19,7 @@ import Elementos.Usuario;
 public class VistaInstrucciones extends javax.swing.JFrame {
     VistaPrincipal vistaPrincipal;
     VistaInstrucciones instrucciones;
+    Arena arena;
     /**
      * Creates new form VistaInstruccion
      */
@@ -26,7 +27,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         setResizable(false);
         initComponents();
         setLocationRelativeTo(this);
-        
     }
 
     /**
@@ -141,8 +141,6 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         dispose();
         VistaArena vistaArena = new VistaArena();
         vistaArena.setVisible(true);
-//        Arena arena = new Arena();
-//        arena.generarPokemones();
     }//GEN-LAST:event_bComenzarActionPerformed
 
     /**
