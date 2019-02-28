@@ -74,7 +74,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         jLabel3.setText("Aplicación desarrollada por Daniel Gutiérrez y Sebastián Cordero,");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jLabel4.setText("estudiante del programa de Ingeniería de Sistemas de la ");
+        jLabel4.setText("estudiantes del programa de Ingeniería de Sistemas de la ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel5.setText("Universidad Autónoma de Manizales.");
