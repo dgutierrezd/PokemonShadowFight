@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Control.Mundo;
 import Elementos.Arena;
 import Elementos.Computadora;
 import Elementos.Pokemon;
@@ -24,10 +25,12 @@ import java.applet.AudioClip;
  */
 public class VistaArena extends javax.swing.JFrame {
     Arena arena;
-    VistaInstrucciones instrucciones;
-    Usuario usuario = new Usuario("Daniel", true);
-    Pokemon pokemon = usuario.elegirPokemon();
-    Pokemon enemyPokemon = usuario.elegirPokemon();
+    
+
+    public void setArena(Arena arena) {
+        this.arena = arena;
+    }
+    
     
     /**
      * Creates new form VistaArenaa
@@ -186,10 +189,6 @@ public class VistaArena extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     
-    public void elegirAtacar(Pokemon pokemon , Pokemon enemyPokemon, Usuario usuario){
-        pokemon.atacar(enemyPokemon);
-        usuario.setTurno(true);
-    }
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
@@ -271,32 +270,20 @@ public class VistaArena extends javax.swing.JFrame {
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
      */
-    public void pintarPokemones(Pokemon pokemon, Pokemon enemyPokemon){
-            Computadora computadora = new Computadora("Pc", true);
-            
-            System.out.println(pokemon.getNombre() + " , " +  pokemon.getTipo());
-            System.out.println(enemyPokemon.getNombre() + " , " +  enemyPokemon.getTipo());
+    public void pintarPokemones(ImageIcon imagenPokemonUsuario, ImageIcon imagenPokemonPc)
+   {
+        ipokemonUsuario.setIcon(imagenPokemonUsuario);
+        ipokemonPc.setIcon(imagenPokemonPc);
+    }
+    /**
+     * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
+     */
+    public void actualizarPokemonVista(Pokemon pokemon, Pokemon enemyPokemon){
+        lblNombrePokemonJugador.setText(pokemon.getNombre());
+        lblTipoPokemonJugador.setText(pokemon.getTipo());
+        lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
 
-            
-            String pokemonUsuario = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
-            String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
-            ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
-            ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-                        
-            ipokemonUsuario.setIcon(imagenPokemonUsuario);
-            ipokemonPc.setIcon(imagenPokemonPc);
-            
-            actualizarPokemonVista(pokemon, enemyPokemon);       
-        }
-        /**
-         * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
-         */
-        public void actualizarPokemonVista(Pokemon pokemon, Pokemon enemyPokemon){
-            lblNombrePokemonJugador.setText(pokemon.getNombre());
-            lblTipoPokemonJugador.setText(pokemon.getTipo());
-            lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
-            
-        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;

@@ -5,9 +5,13 @@
  */
 package Vistas;
 
+import Control.Mundo;
+import Elementos.Arena;
 import Elementos.Jugador;
+import Elementos.Pokemon;
 import Elementos.Usuario;
 import java.applet.AudioClip;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,12 +23,16 @@ import javax.swing.JOptionPane;
  * @since 1.0
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+    
 
+    private Arena arena;
+
+    public void setArena(Arena arena) {
+        this.arena = arena;
+    }
     /**
      * Creates new form Index
      */
-    VistaPrincipal principal;
-    Usuario usuario;
     public VistaPrincipal() {
         setResizable(false);
         initComponents();
@@ -82,6 +90,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         bComenzar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
+        bComenzar.setBorder(null);
+        bComenzar.setBorderPainted(false);
         bComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bComenzarActionPerformed(evt);
@@ -137,11 +147,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
-        VistaArena arena = new VistaArena();
-        arena.setVisible(true);
+        
+        VistaArena vistaArena = new VistaArena();
+        vistaArena.setVisible(true );
+        Pokemon pokemon = arena.generarPokemon();
+        Pokemon enemyPokemon = arena.generarPokemon();
+        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
+        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
+        vistaArena.pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
         dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
 
+    
+    
+        
+    
     /**
      * Dirigirse a la Vista para conocer sobre la aplicación.
      * @param evt 

@@ -18,9 +18,7 @@ import java.applet.AudioClip;
  * @since 2.0
  */
 public class VistaInstrucciones extends javax.swing.JFrame {
-    VistaPrincipal vistaPrincipal;
-    VistaInstrucciones instrucciones;
-    Arena arena;
+    
     /**
      * Creates new form VistaInstruccion
      */
@@ -40,6 +38,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -56,56 +55,41 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel34.setText("Al iniciar el juego, empiezas con 10 vidas, las cuales se irán disminuyendo ");
-        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         jLabel35.setText("dependiendo de tus jugadas.");
-        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel36.setText("Conociendo estas simples instrucciones, te dejamos y que empiece la lucha!");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel37.setText("Que la fuerza esté de tu lado...");
-        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         jLabel38.setText("No podrás conocer que pokemon es tu oponente, solamente conocerás su");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jLabel39.setText("cantidad de resistencia, pero, si adivinas que pokemon es tu oponente, nada");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         jLabel24.setText("Hola luchador! Bienvenido a la gran lucha Pokemon, estamos muy cerca");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 56, -1, -1));
 
         jLabel25.setText("del gran momento, solo debes conocer un poco sobre las reglas del");
-        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 79, -1, -1));
 
         jLabel27.setText("juego, para que seas un gran luchador y le ganes a todos tus enemigos.");
-        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 102, -1, -1));
 
         jLabel28.setText("Debes tener en cuenta que no eres tu quien escoge tu Pokemon, éste");
-        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 131, -1, -1));
 
         jLabel29.setText("es seleccionado por nosotros, pero no te preocupes nos aseguraremos");
-        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 154, -1, -1));
 
         jLabel31.setText("Puedes realizar dos acciones al estar en juego, atacar o defenderte, para");
-        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 177, -1, -1));
 
         jLabel40.setText("más dale click al botón \"Yo sé quién eres!\".");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         jLabel32.setText("atacar o defenderte, debes dar click sobre los botones correspondientes.");
-        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 200, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         jLabel2.setText("Instrucciones");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         bVolver.setText("Volver");
         bVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -113,10 +97,110 @@ public class VistaInstrucciones extends javax.swing.JFrame {
                 bVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(bVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2 (1).jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 520));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel25))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel36))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(bVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel32))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel38))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel28)))
+                .addGap(2, 2, 2))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel24)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel25)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel29)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel31)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel35)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel39)
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel36)
+                        .addGap(84, 84, 84)
+                        .addComponent(bVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel32))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(370, 370, 370)
+                        .addComponent(jLabel37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel38))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel28)))
+                .addGap(45, 45, 45))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,8 +211,8 @@ public class VistaInstrucciones extends javax.swing.JFrame {
      */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         dispose();
-        VistaArena vistaArena = new VistaArena();
-        vistaArena.setVisible(true);
+//        VistaArena vistaArena = new VistaArena;
+//        vistaArena.setVisible(true);
     }//GEN-LAST:event_bComenzarActionPerformed
 
     AudioClip musica;

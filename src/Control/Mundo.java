@@ -5,6 +5,7 @@
  */
 package Control;
 
+import Elementos.Arena;
 import Elementos.Pokemon;
 import Elementos.PokemonAgua;
 import Elementos.PokemonFuego;
@@ -19,24 +20,30 @@ import java.util.ArrayList;
  */
 public class Mundo {
     
+   
     
-    ArrayList <Pokemon> pokemons = new ArrayList<Pokemon>();
+    ArrayList <Pokemon> pokemons = new ArrayList<>();
+    
     public static void main(String args[]) {
         
+        Mundo mundo = new Mundo();
         VistaPrincipal principal = new VistaPrincipal();
         principal.setVisible(true);
-        
+        Arena arena = new Arena();
+        arena.setMundo(mundo);
+        principal.setArena(arena);
+        mundo.poblarMundoPokemons();
     }
-    //GENERAR LOS POKEMONS Y METERLOS EN ARRAYLIST
+          
     public void poblarMundoPokemons(){
-                PokemonAgua Squirtle = new PokemonAgua(10, 0, "Squirtle", "Agua", 0, "", new int[]{100,100,60,30});
-                PokemonAgua Piplup = new PokemonAgua(10, 0, "Piplup", "Agua", 0, "", new int[]{100,100,60,30});
-                PokemonFuego Charizard = new PokemonFuego(10, 0, "Charizard", "Fuego", 0, "", new int []{100,100,100,100});
-                PokemonFuego Eeevee = new PokemonFuego(10, 0, "Eevee", "Fuego", 0, "", new int []{100,100,100,100});
-                PokemonTierra Diglett = new PokemonTierra(10, 0, "Diglett", "Tierra", 0, "", new int []{30,60,100,100});
-                PokemonTierra Sandshrew = new PokemonTierra(10, 0, "Sandshrew", "Tierra", 0, "", new int []{30,60,100,100});
-                PokemonViento Nidorina = new PokemonViento(10, 0, "Nidorina", "Viento", 0, "", new int []{100,30,60,100});
-                PokemonViento Nidorino = new PokemonViento(10, 0, "Nidorino", "Viento", 0, "", new int []{100,30,60,100});
+                Pokemon Squirtle = new PokemonAgua(10, 0, "Squirtle", "Agua", 0, "", new int[]{100,100,60,30});
+                Pokemon Piplup = new PokemonAgua(10, 0, "Piplup", "Agua", 0, "", new int[]{100,100,60,30});
+                Pokemon Charizard = new PokemonFuego(10, 0, "Charizard", "Fuego", 0, "", new int []{100,100,100,100});
+                Pokemon Eeevee = new PokemonFuego(10, 0, "Eevee", "Fuego", 0, "", new int []{100,100,100,100});
+                Pokemon Diglett = new PokemonTierra(10, 0, "Diglett", "Tierra", 0, "", new int []{30,60,100,100});
+                Pokemon Sandshrew = new PokemonTierra(10, 0, "Sandshrew", "Tierra", 0, "", new int []{30,60,100,100});
+                Pokemon Nidorina = new PokemonViento(10, 0, "Nidorina", "Viento", 0, "", new int []{100,30,60,100});
+                Pokemon Nidorino = new PokemonViento(10, 0, "Nidorino", "Viento", 0, "", new int []{100,30,60,100});
                 
                 pokemons.add(Squirtle);
                 pokemons.add(Piplup);
@@ -56,6 +63,4 @@ public class Mundo {
         this.pokemons = pokemons;
     }
 
-    
-    
 }

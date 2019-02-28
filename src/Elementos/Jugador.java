@@ -23,65 +23,8 @@ public abstract class Jugador {
         this.turno = turno;
     }
     
-    /**
-     * Se genera un pokemon aleatoriamente, se genera su tipo, 
-     * y de acuerdo a éste se le asigna el nombre del Pokemon,
-     * para luego poder generar la imagen.
-     */
-    public Pokemon  elegirPokemon() {
-        int numeroAleatorio = ((int) (Math.random() * 4 + 1));
-        int tipoAleatorioRandom = ((int) (Math.random() * 2 + 1));
-        
-        if(numeroAleatorio == 1){
-                PokemonAgua pokemonAgua = new PokemonAgua(10, 0, "", "Agua", 0, "", new int[]{100,100,60,30});
-                switch(tipoAleatorioRandom){
-                    case 1:
-                        pokemonAgua.setNombre("Squirtle"); 
-                    break;
-                    case 2:
-                        pokemonAgua.setNombre("Piplup");
-                    break;
-                }
-                return pokemonAgua;
-        }
-        if(numeroAleatorio == 2){
-                PokemonFuego pokemonFuego = new PokemonFuego(10, 0, "", "Fuego", 0, "", new int []{100,100,100,100});
-                switch(tipoAleatorioRandom) {
-                    case 1:
-                        pokemonFuego.setNombre("Charizard");
-                    break;
-                    case 2:
-                        pokemonFuego.setNombre("Eevee");
-                    break;
-                }
-                return pokemonFuego;
-        }
-        if(numeroAleatorio == 3){
-                PokemonTierra pokemonTierra = new PokemonTierra(10, 0, "", "Tierra", 0, "", new int []{30,60,100,100});
-                switch(tipoAleatorioRandom) {
-                    case 1:
-                        pokemonTierra.setNombre("Diglett");
-                    break;
-                    case 2:
-                        pokemonTierra.setNombre("Sandshrew");
-                    break;
-                }
-                return pokemonTierra;
-        }
-        if(numeroAleatorio == 4){
-                PokemonViento pokemonViento = new PokemonViento(10, 0, "", "Viento", 0, "", new int []{100,30,60,100});
-                switch(tipoAleatorioRandom) {
-                    case 1:
-                        pokemonViento.setNombre("Nidorina");
-                    break;
-                    case 2:
-                        pokemonViento.setNombre("Nidorino");
-                    break;
-                }
-                return pokemonViento;
-        }
-        return null;
-    }
+    
+    
     
     public String getNombre() {
         return nombre;
