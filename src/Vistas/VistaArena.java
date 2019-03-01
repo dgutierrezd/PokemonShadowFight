@@ -28,7 +28,7 @@ public final class VistaArena extends javax.swing.JFrame {
 
     
     private Arena arena;
-
+    private VistaPrincipal vistaPrincipal;
     public void setArena(Arena arena) {
         this.arena = arena;
     }
@@ -39,13 +39,18 @@ public final class VistaArena extends javax.swing.JFrame {
     public VistaArena() {
         initComponents();
         setVisible(false);
+        vistaPrincipal = new VistaPrincipal(this, true, this);
         crearPartida();// HASTA AQUI ESTABA BIEN :)
         
 
         
     }
-    
-    public void porquesi(){
+    public void crearPartida(){
+        vistaPrincipal.setVisible(true);
+        vistaPrincipal.setResizable(false);
+        decidirBotones(vistaPrincipal);
+    }
+    public void crearImagenes(){
         Pokemon pokemon = arena.generarPokemon();
         Pokemon enemyPokemon = arena.generarPokemon();
         crearImagenes(pokemon,enemyPokemon);
@@ -165,15 +170,13 @@ public final class VistaArena extends javax.swing.JFrame {
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
     }
+    
     public void decidirBotones(VistaPrincipal vistaPrincipal){
-        
         switch(vistaPrincipal.getEstado()){
             case 1:
-                System.out.println("Jonny careverga");
                 setVisible(true);
             break;
             case 2:
-                System.out.println("s bg  gbb");
                 VistaInstrucciones vistaInstrucciones = new VistaInstrucciones(null, true);
                 vistaInstrucciones.setVisible(true);
                 vistaInstrucciones.setLocationRelativeTo(null);
@@ -189,8 +192,6 @@ public final class VistaArena extends javax.swing.JFrame {
                 System.out.println("Gracias por jugar.");
                 System.exit(0);
             break;
-            
-            
         }
     }
     AudioClip musica;
@@ -200,12 +201,7 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
-    public void crearPartida(){
-        VistaPrincipal vistaPrincipal = new VistaPrincipal(this, true);
-        vistaPrincipal.setVisible(true);
-        vistaPrincipal.setResizable(false);
-        decidirBotones(vistaPrincipal);
-    }
+    
     
     /**
      * Volver a la vista anterior (Instrucciones).
@@ -213,8 +209,10 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         //musica.stop();
+        
         this.setVisible(false);
         crearPartida();
+        
         
     }//GEN-LAST:event_bVolverActionPerformed
 

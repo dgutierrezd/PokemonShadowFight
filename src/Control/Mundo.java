@@ -29,13 +29,14 @@ public class Mundo {
         Mundo mundo = new Mundo();
         mundo.poblarMundoPokemons();
         Arena arena = new Arena();
+        
         arena.setMundo(mundo);
         VistaArena vistaArena = new VistaArena();
-        
         vistaArena.setArena(arena);
-        vistaArena.porquesi();
+        
+        vistaArena.crearImagenes();
         vistaArena.setLocationRelativeTo(null);
- 
+      
         
         
     }

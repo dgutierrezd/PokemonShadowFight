@@ -16,8 +16,13 @@ public class VistaPrincipal extends javax.swing.JDialog {
     
 
     
-    
+    private boolean estadoInicialPartida = false;
+
+    public boolean isEstadoInicialPartida() {
+        return estadoInicialPartida;
+    }
     private int estado = -1;
+    private VistaArena vistaArena;
 
     public int getEstado() {
         return estado;
@@ -26,11 +31,12 @@ public class VistaPrincipal extends javax.swing.JDialog {
     /**
      * Creates new form VistaPrincipall
      */
-    public VistaPrincipal(java.awt.Frame parent, boolean modal) {
+    public VistaPrincipal(java.awt.Frame parent, boolean modal, VistaArena v) {
         super(parent , modal);
         initComponents();
         setLocationRelativeTo(this);
         generarMusica();
+        vistaArena = v;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,7 +118,12 @@ public class VistaPrincipal extends javax.swing.JDialog {
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
         estado = 1;
+        //vistaArena.crearImagenes();
         dispose();
+        if(estadoInicialPartida){
+            vistaArena.crearImagenes();
+        }
+        estadoInicialPartida = true;
     }//GEN-LAST:event_bComenzarActionPerformed
 
     private void btnSobreNosotrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreNosotrosActionPerformed
