@@ -10,6 +10,7 @@ import Elementos.Arena;
 import Elementos.Computadora;
 import Elementos.Pokemon;
 import Elementos.Usuario;
+import Vistas.VistaSobreNosotros;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -27,6 +28,7 @@ public final class VistaArena extends javax.swing.JFrame {
     
 
     private int estadoVistaArena = -1;
+  
     
     
     private Arena arena;
@@ -48,6 +50,8 @@ public final class VistaArena extends javax.swing.JFrame {
         vistaPrincipal.setVisible(true);
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
+        //botonesNosotros(VistaSobreNosotros sobreNosotros);
+        GenerarMusica();
         
     }
     
@@ -56,6 +60,8 @@ public final class VistaArena extends javax.swing.JFrame {
         Pokemon enemyPokemon = entregarPokemonComputadora();
         crearImagenes(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
+        cambiarColorVida(pokemon, enemyPokemon);
+        
     }
     
     public void mostrarVida() {
@@ -193,13 +199,11 @@ public final class VistaArena extends javax.swing.JFrame {
             case 2:
                 VistaInstrucciones vistaInstrucciones = new VistaInstrucciones(null, true);
                 vistaInstrucciones.setVisible(true);
-                vistaInstrucciones.setLocationRelativeTo(null);
                 
             break;
             case 3:
                 VistaSobreNosotros vistaSobreNosotros = new VistaSobreNosotros(null, true);
                 vistaSobreNosotros.setVisible(true);
-                vistaSobreNosotros.setLocationRelativeTo(null);
                 
             break;
             case 4:
@@ -208,6 +212,15 @@ public final class VistaArena extends javax.swing.JFrame {
             break;
         }
     }
+    
+    public void botonesNosotros(VistaSobreNosotros sobreNosotros) {
+        switch(sobreNosotros.getEstado()) {
+            case 1:
+                vistaPrincipal.setVisible(true);
+            break;
+        }
+    }
+    
     AudioClip musica;
     public void GenerarMusica() {
         
@@ -222,7 +235,7 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        //musica.stop();
+        musica.stop();
         
         this.setVisible(false);
         crearPartida();
@@ -236,12 +249,12 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         estadoVistaArena = 3;
-        arena.restaurarImagenPc();
+
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         estadoVistaArena = 1;
-        arena.AccionarBotones(this);
+        arena.accionarBotones(this);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
@@ -294,6 +307,9 @@ public final class VistaArena extends javax.swing.JFrame {
                 barPokemonEnemigo.setForeground(Color.red);
             }
         }
+    }
+    public void actualizarBarraDeVida(){
+        arena.restaurarImagenPc();
     }
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.

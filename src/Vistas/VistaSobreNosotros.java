@@ -13,12 +13,15 @@ import java.applet.AudioClip;
  */
 public class VistaSobreNosotros extends javax.swing.JDialog {
 
+    private int estado = -1;
+    VistaArena vistaArena;
     /**
      * Creates new form VistaSobreNosotrosss
      */
     public VistaSobreNosotros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -96,11 +99,19 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     }
     
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        estado = 1;
         musica.stop();
         dispose();
     }//GEN-LAST:event_bVolverActionPerformed
 
+    public int getEstado() {
+        return estado;
+    }
 
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;

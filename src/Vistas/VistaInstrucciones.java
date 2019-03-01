@@ -19,6 +19,7 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     public VistaInstrucciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(this);
         //generarMusica();
     }
 
@@ -119,8 +120,9 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     }
     
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        musica.stop();
+        //musica.stop();
         dispose();
+            
     }//GEN-LAST:event_bVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

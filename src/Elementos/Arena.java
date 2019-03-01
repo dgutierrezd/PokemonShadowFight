@@ -85,7 +85,7 @@ public class Arena {
      * @param vistaArena
      * @return 
      */
-    public int AccionarBotones(VistaArena vistaArena) {
+    public int accionarBotones(VistaArena vistaArena) {
         Pokemon pokemon = vistaArena.entregarPokemonUsuario();
         Pokemon enemyPokemon = vistaArena.entregarPokemonComputadora();
 
