@@ -26,6 +26,8 @@ import java.applet.AudioClip;
 public final class VistaArena extends javax.swing.JFrame {
     
 
+    private int estadoVistaArena = -1;
+    
     
     private Arena arena;
     private VistaPrincipal vistaPrincipal;
@@ -49,14 +51,24 @@ public final class VistaArena extends javax.swing.JFrame {
         vistaPrincipal.setVisible(true);
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
+        
     }
+    
     public void crearImagenes(){
-        Pokemon pokemon = arena.generarPokemon();
-        Pokemon enemyPokemon = arena.generarPokemon();
+        Pokemon pokemon = entregarPokemonUsuario();
+        Pokemon enemyPokemon = entregarPokemonComputadora();
         crearImagenes(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
     }
-
+    
+    public Pokemon entregarPokemonUsuario() {
+        Pokemon pokemon = arena.generarPokemon();
+        return pokemon;
+    }
+    public Pokemon entregarPokemonComputadora() {
+        Pokemon enemyPokemon = arena.generarPokemon();
+        return enemyPokemon;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -221,17 +233,17 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
+        estadoVistaArena = 3;
         restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-        
-//        pokemon.atacar(enemyPokemon);
-//        System.out.println("Pokemon: "+pokemon.getNombre()+", PokemonEnemigo: "+enemyPokemon.getNombre()+".  Ambos creados por: "+usuario.getNombre());
+        estadoVistaArena = 1;
+        arena.AccionarBotones(this);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-//        pokemon.defender();
+        estadoVistaArena = 2;
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     
@@ -330,6 +342,11 @@ public final class VistaArena extends javax.swing.JFrame {
         lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
 
     }
+
+    public int getEstadoVistaArena() {
+        return estadoVistaArena;
+    }    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;

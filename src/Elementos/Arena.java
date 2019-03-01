@@ -6,6 +6,7 @@
 package Elementos;
 
 import Control.Mundo;
+import Vistas.VistaArena;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
@@ -20,7 +21,7 @@ import javax.swing.ImageIcon;
  */
 public class Arena {
 
-    
+    private Vistas.VistaArena vistaArena;
     
     private Mundo mundo;
     
@@ -28,6 +29,10 @@ public class Arena {
     public Pokemon generarPokemon(){
         Pokemon pokemon = generarPokemonRandom();
         return pokemon;
+    }
+
+    public void setVistaArena(VistaArena vistaArena) {
+        this.vistaArena = vistaArena;
     }
     
     /**
@@ -63,6 +68,40 @@ public class Arena {
     }
     public void setMundo(Mundo mundo) {
         this.mundo = mundo;
+    }
+    
+    /**
+     * Método cuando el Jugador ataca y el computador se defiende.
+     * @param pokemon
+     * @param enemyPokemon
+     * @return 
+     */
+//    public boolean AtacarDefender(Pokemon pokemon, Pokemon enemyPokemon) {
+//        
+//    }
+    
+    /**
+     * 
+     * @param vistaArena
+     * @return 
+     */
+    public int AccionarBotones(VistaArena vistaArena) {
+        Pokemon pokemon = vistaArena.entregarPokemonUsuario();
+        Pokemon enemyPokemon = vistaArena.entregarPokemonComputadora();
+
+        int status = vistaArena.getEstadoVistaArena();
+        if(status == 1) {
+            System.out.println("HHHhhh");
+            return pokemon.atacar(enemyPokemon);
+            
+        }
+        if(status == 2) {
+            return pokemon.defender();
+        }
+        if(status == 3) {
+            //return String.valueOf(enemyPokemon.getNombre());
+        }
+        return -1;
     }
         
 }

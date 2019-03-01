@@ -33,11 +33,11 @@ public class Mundo {
         arena.setMundo(mundo);
         VistaArena vistaArena = new VistaArena();
         vistaArena.setArena(arena);
-        
+        arena.setVistaArena(vistaArena);
         vistaArena.crearImagenes();
         vistaArena.setLocationRelativeTo(null);
       
-        
+       
         
     }
           
