@@ -23,24 +23,33 @@ import java.applet.AudioClip;
  * @version  20192102
  * @since 2.0 
  */
-public class VistaArena extends javax.swing.JFrame {
-    Arena arena;
+public final class VistaArena extends javax.swing.JFrame {
     
+
+    
+    private Arena arena;
 
     public void setArena(Arena arena) {
         this.arena = arena;
     }
-    
     
     /**
      * Creates new form VistaArenaa
      */
     public VistaArena() {
         initComponents();
-        GenerarMusica();
-        setResizable(false);
-        setLocationRelativeTo(null);
+        setVisible(false);
+        crearPartida();// HASTA AQUI ESTABA BIEN :)
         
+
+        
+    }
+    
+    public void porquesi(){
+        Pokemon pokemon = arena.generarPokemon();
+        Pokemon enemyPokemon = arena.generarPokemon();
+        crearImagenes(pokemon,enemyPokemon);
+        actualizarPokemonVista(pokemon, enemyPokemon);
     }
 
     /**
@@ -150,7 +159,40 @@ public class VistaArena extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void crearImagenes(Pokemon pokemon, Pokemon enemyPokemon){
+        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
+        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
+        pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
+    }
+    public void decidirBotones(VistaPrincipal vistaPrincipal){
+        
+        switch(vistaPrincipal.getEstado()){
+            case 1:
+                System.out.println("Jonny careverga");
+                setVisible(true);
+            break;
+            case 2:
+                System.out.println("s bg  gbb");
+                VistaInstrucciones vistaInstrucciones = new VistaInstrucciones(null, true);
+                vistaInstrucciones.setVisible(true);
+                vistaInstrucciones.setLocationRelativeTo(null);
+                
+            break;
+            case 3:
+                VistaSobreNosotros vistaSobreNosotros = new VistaSobreNosotros(null, true);
+                vistaSobreNosotros.setVisible(true);
+                vistaSobreNosotros.setLocationRelativeTo(null);
+                
+            break;
+            case 4:
+                System.out.println("Gracias por jugar.");
+                System.exit(0);
+            break;
+            
+            
+        }
+    }
     AudioClip musica;
     public void GenerarMusica() {
         
@@ -158,16 +200,22 @@ public class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
+    public void crearPartida(){
+        VistaPrincipal vistaPrincipal = new VistaPrincipal(this, true);
+        vistaPrincipal.setVisible(true);
+        vistaPrincipal.setResizable(false);
+        decidirBotones(vistaPrincipal);
+    }
     
     /**
      * Volver a la vista anterior (Instrucciones).
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        musica.stop();
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
-        dispose();
+        //musica.stop();
+        this.setVisible(false);
+        crearPartida();
+        
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**

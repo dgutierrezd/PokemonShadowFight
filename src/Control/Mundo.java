@@ -11,7 +11,7 @@ import Elementos.PokemonAgua;
 import Elementos.PokemonFuego;
 import Elementos.PokemonTierra;
 import Elementos.PokemonViento;
-import Vistas.VistaPrincipal;
+import Vistas.VistaArena;
 import java.util.ArrayList;
 
 /**
@@ -22,17 +22,22 @@ public class Mundo {
     
    
     
-    ArrayList <Pokemon> pokemons = new ArrayList<>();
+    private ArrayList <Pokemon> pokemons = new ArrayList<>();
     
     public static void main(String args[]) {
         
         Mundo mundo = new Mundo();
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
+        mundo.poblarMundoPokemons();
         Arena arena = new Arena();
         arena.setMundo(mundo);
-        principal.setArena(arena);
-        mundo.poblarMundoPokemons();
+        VistaArena vistaArena = new VistaArena();
+        
+        vistaArena.setArena(arena);
+        vistaArena.porquesi();
+        vistaArena.setLocationRelativeTo(null);
+ 
+        
+        
     }
           
     public void poblarMundoPokemons(){

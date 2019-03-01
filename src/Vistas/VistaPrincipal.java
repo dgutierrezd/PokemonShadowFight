@@ -5,41 +5,33 @@
  */
 package Vistas;
 
-import Control.Mundo;
-import Elementos.Arena;
-import Elementos.Jugador;
-import Elementos.Pokemon;
-import Elementos.Usuario;
 import java.applet.AudioClip;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
- * Vista Principal donde se ingresa el nombre de usuario o nickname
- * 
- * @author Daniel Gutiérrez Duque
- * @author Sebastián Cordero Ramírez
- * @version 20190221
- * @since 1.0
+ *
+ * @author ASUS
  */
-public class VistaPrincipal extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JDialog {
+
     
 
-    private Arena arena;
+    
+    
+    private int estado = -1;
 
-    public void setArena(Arena arena) {
-        this.arena = arena;
+    public int getEstado() {
+        return estado;
     }
+    
     /**
-     * Creates new form Index
+     * Creates new form VistaPrincipall
      */
-    public VistaPrincipal() {
-        setResizable(false);
+    public VistaPrincipal(java.awt.Frame parent, boolean modal) {
+        super(parent , modal);
         initComponents();
-        GenerarMusica();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(this);
+        generarMusica();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,44 +41,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        bSalir = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         bComenzar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnSobreNosotros = new javax.swing.JButton();
+        btnInstrucciones = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jButton1.setText("jButton1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(java.awt.SystemColor.activeCaption);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bSalir.setText("Salir");
-        bSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(bSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Snap ITC", 2, 24)); // NOI18N
-        jLabel1.setText("Shadow Fight");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         bComenzar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         bComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/start_button_png_1310741 (1).png"))); // NOI18N
@@ -97,100 +61,84 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 bComenzarActionPerformed(evt);
             }
         });
-        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, 40));
+        getContentPane().add(bComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 172, 110, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/International_Pokémon_logo.svg (1).png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 280, 110));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 22, -1, -1));
 
-        jButton2.setText("Sobre Nosotros");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSobreNosotros.setText("Sobre Nosotros");
+        btnSobreNosotros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSobreNosotrosActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        getContentPane().add(btnSobreNosotros, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 312, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton3.setText("Instrucciones");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnInstrucciones.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btnInstrucciones.setText("Instrucciones");
+        btnInstrucciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnInstruccionesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        getContentPane().add(btnInstrucciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 222, -1, -1));
+
+        bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 312, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 2, 24)); // NOI18N
+        jLabel1.setText("Shadow Fight");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 122, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ce9eeb5b1114993b7f9676a11d7d8d4e72e4ea9c_hq.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 360));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
-    AudioClip musica;
-    public void GenerarMusica() {
+     AudioClip musica;
+    public void generarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/BatallasGalacticas.wav"));
         musica.loop();
     }
     
-    /**
-     * Salir del juego
-     * @param evt 
-     */
-    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_bSalirActionPerformed
-
-    /**
-     * Ir a la Vista Arena para poder comenzar el juego.
-     * @param evt 
-     */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
-        
-        VistaArena vistaArena = new VistaArena();
-        vistaArena.setVisible(true );
-        Pokemon pokemon = arena.generarPokemon();
-        Pokemon enemyPokemon = arena.generarPokemon();
-        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
-        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
-        vistaArena.pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
+        estado = 1;
         dispose();
     }//GEN-LAST:event_bComenzarActionPerformed
 
-    
-    
-        
-    
-    /**
-     * Dirigirse a la Vista para conocer sobre la aplicación.
-     * @param evt 
-     */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSobreNosotrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreNosotrosActionPerformed
         musica.stop();
-        VistaSobreNosotros sobreNosotros = new VistaSobreNosotros(this, true);
-        sobreNosotros.setVisible(true);
+        estado = 3;
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSobreNosotrosActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnInstruccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstruccionesActionPerformed
         musica.stop();
-        VistaInstrucciones instrucciones = new VistaInstrucciones();
-        instrucciones.setVisible(true);
+        estado = 2;
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnInstruccionesActionPerformed
 
-   
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        estado = 4;
+        dispose();
+    }//GEN-LAST:event_bSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
     private javax.swing.JButton bSalir;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnInstrucciones;
+    private javax.swing.JButton btnSobreNosotros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

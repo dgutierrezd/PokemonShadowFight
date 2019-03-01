@@ -9,28 +9,18 @@ import java.applet.AudioClip;
 
 /**
  *
- * @author USUARIO
+ * @author ASUS
  */
 public class VistaSobreNosotros extends javax.swing.JDialog {
 
     /**
-     * Creates new form VistaSobreNosotros
+     * Creates new form VistaSobreNosotrosss
      */
     public VistaSobreNosotros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        setResizable(false);
         initComponents();
-        GenerarMusica();
-        setLocationRelativeTo(this);
     }
 
-    AudioClip musica;
-    public void GenerarMusica() {
-        
-        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
-        musica.loop();
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +30,6 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel10 = new javax.swing.JLabel();
         bVolver = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,12 +38,9 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-
-        jLabel10.setText("jLabel10");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,9 +75,6 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         jLabel8.setText("poder practicar la implementación de aplicaciones con GUI utilizando ");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        jLabel9.setText("Java. ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-
         jLabel11.setText("De igual manera, es hecha, para la clase de Programación Orientada");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
@@ -104,17 +87,23 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    AudioClip musica;
+    public void GenerarMusica() {
+        
+        musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
+        musica.loop();
+    }
+    
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
-        VistaPrincipal principal = new VistaPrincipal();
-        principal.setVisible(true);
         dispose();
     }//GEN-LAST:event_bVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -124,6 +113,5 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
