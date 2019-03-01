@@ -43,9 +43,6 @@ public final class VistaArena extends javax.swing.JFrame {
         setVisible(false);
         vistaPrincipal = new VistaPrincipal(this, true, this);
         crearPartida();// HASTA AQUI ESTABA BIEN :)
-        
-
-        
     }
     public void crearPartida(){
         vistaPrincipal.setVisible(true);
@@ -59,6 +56,11 @@ public final class VistaArena extends javax.swing.JFrame {
         Pokemon enemyPokemon = entregarPokemonComputadora();
         crearImagenes(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
+    }
+    
+    public void mostrarVida() {
+        barPokemonJugador.setString(entregarPokemonUsuario().getResistenciaVida() + "");
+        barPokemonEnemigo.setString(entregarPokemonComputadora().getResistenciaVida() + "");
     }
     
     public Pokemon entregarPokemonUsuario() {
@@ -127,7 +129,7 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonEnemigo.setForeground(new java.awt.Color(255, 51, 51));
         barPokemonEnemigo.setMaximum(10);
         barPokemonEnemigo.setValue(10);
-        barPokemonEnemigo.setString("10");
+        barPokemonEnemigo.setString("");
         barPokemonEnemigo.setStringPainted(true);
         getContentPane().add(barPokemonEnemigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 220, 30));
 
@@ -136,7 +138,7 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonJugador.setMaximum(10);
         barPokemonJugador.setToolTipText("");
         barPokemonJugador.setValue(10);
-        barPokemonJugador.setString("10");
+        barPokemonJugador.setString("");
         barPokemonJugador.setStringPainted(true);
         getContentPane().add(barPokemonJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 220, 30));
 
@@ -234,7 +236,7 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         estadoVistaArena = 3;
-        restaurarImagenPc();
+        arena.restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
@@ -254,7 +256,7 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     public boolean saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
-        pokemon = pokemon.substring(94, pokemon.length()-9);
+        pokemon = pokemon.substring(31, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?");
         
@@ -266,38 +268,6 @@ public final class VistaArena extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
             return false;
         }
-    }
-    
-    /**
-     * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
-     * si fue incorrecto, la deja como estaba originalmente.
-     * Ademas le rebaja el 50% de vida al pokemon, dependiendo el resultado.
-     */
-    public void restaurarImagenPc(){
-            
-            if(saberQuienEs()){
-                String pokemonImage = ipokemonPc.getIcon().toString();
-                pokemonImage = pokemonImage.substring(94, pokemonImage.length()-9);
-                String pokemonPc = "C:\\Users\\USUARIO\\Documents\\NetBeansProjects\\PokemonShadowFight\\src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
-                ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-                ipokemonPc.setIcon(imagenPokemonPc);
-                lblNombrePokemonComputador.setText(pokemonImage);
-                lblTipoPokemonComputador.setText(lblTipoPokemonComputadorEscondido.getText());
-                
-                barPokemonEnemigo.setValue(barPokemonEnemigo.getValue()/2);
-                int strEnemy = Integer.parseInt(barPokemonEnemigo.getString());
-                strEnemy = strEnemy / 2;
-                String strE = Integer.toString(strEnemy);
-                barPokemonEnemigo.setString(strE);
-                bConocer.setEnabled(false);
-            } else {
-                barPokemonJugador.setValue(barPokemonJugador.getValue()/2);
-                int strUser = Integer.parseInt(barPokemonJugador.getString());
-                strUser = strUser / 2;
-                String strU = Integer.toString(strUser);
-                barPokemonJugador.setString(strU);
-                bConocer.setEnabled(false);
-            }
     }
     
     /**
@@ -340,7 +310,7 @@ public final class VistaArena extends javax.swing.JFrame {
         lblNombrePokemonJugador.setText(pokemon.getNombre());
         lblTipoPokemonJugador.setText(pokemon.getTipo());
         lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
-
+        mostrarVida();
     }
 
     public int getEstadoVistaArena() {
@@ -348,7 +318,7 @@ public final class VistaArena extends javax.swing.JFrame {
     }    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bConocer;
+    public javax.swing.JButton bConocer;
     private javax.swing.JButton bVolver;
     public javax.swing.JProgressBar barPokemonEnemigo;
     public javax.swing.JProgressBar barPokemonJugador;
