@@ -81,9 +81,9 @@ public class Arena {
 //    }
      
     /**
-     * 
+     * Se asignan las acciones a la partida, dependiendo el botón seleccionado. 
      * @param vistaArena
-     * @return 
+     * @return accion
      */
     public int accionarBotones(VistaArena vistaArena) {
         Pokemon pokemon = vistaArena.entregarPokemonUsuario();

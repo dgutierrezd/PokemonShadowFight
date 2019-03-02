@@ -23,9 +23,6 @@ public abstract class Jugador {
         this.turno = turno;
     }
     
-    
-    
-    
     public String getNombre() {
         return nombre;
     }

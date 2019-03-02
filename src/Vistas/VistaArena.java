@@ -26,7 +26,9 @@ import java.applet.AudioClip;
  */
 public final class VistaArena extends javax.swing.JFrame {
     
-
+    /**
+     * Determinar el estado, ó botones seleccionados.
+     */
     private int estadoVistaArena = -1;
   
     private Arena arena;
@@ -44,6 +46,10 @@ public final class VistaArena extends javax.swing.JFrame {
         vistaPrincipal = new VistaPrincipal(this, true, this);
         crearPartida();// HASTA AQUI ESTABA BIEN :)
     }
+    
+    /**
+     * Iniciar la partida.
+     */
     public void crearPartida(){
         vistaPrincipal.setVisible(true);
         vistaPrincipal.setResizable(false);
@@ -51,27 +57,42 @@ public final class VistaArena extends javax.swing.JFrame {
         generarMusica();
     }
     
+    /**
+     * Se crean las impagenes de manera aleatoria.
+     */
     public void crearImagenes(){
         Pokemon pokemon = entregarPokemonUsuario();
         Pokemon enemyPokemon = entregarPokemonComputadora();
         crearImagenes(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
-        cambiarColorVida(pokemon, enemyPokemon);
     }
     
+    /**
+     * Se registra la cantidad de vida de los Pokémones en juego.
+     */
     public void mostrarVida() {
         barPokemonJugador.setString(entregarPokemonUsuario().getResistenciaVida() + "");
         barPokemonEnemigo.setString(entregarPokemonComputadora().getResistenciaVida() + "");
     }
     
+    /**
+     * Se obtiene el Pokemon del usuario.
+     * @return pokemon del jugador.
+     */
     public Pokemon entregarPokemonUsuario() {
         Pokemon pokemon = arena.generarPokemon();
         return pokemon;
     }
+    
+    /**
+     * Se obtiene el Pokemon manejado por el computador.
+     * @return pokemon del servidor.
+     */
     public Pokemon entregarPokemonComputadora() {
         Pokemon enemyPokemon = arena.generarPokemon();
         return enemyPokemon;
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,12 +201,21 @@ public final class VistaArena extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    /**
+     * Se generan las imágenes de los dos Pokémones de modo aleatorio.
+     * @param pokemon
+     * @param enemyPokemon 
+     */
     public void crearImagenes(Pokemon pokemon, Pokemon enemyPokemon){
         ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
     }
     
+    /**
+     * Se define las acciones de los botones de la Vista Principal.
+     * @param vistaPrincipal 
+     */
     public void decidirBotones(VistaPrincipal vistaPrincipal){
         switch(vistaPrincipal.getEstado()){
             case 1:
@@ -201,13 +231,16 @@ public final class VistaArena extends javax.swing.JFrame {
                 vistaSobreNosotros.setVisible(true);
             break;
             case 4:
-                System.out.println("Gracias por jugar.");
+                JOptionPane.showMessageDialog(null, "Gracias por jugar. \n Vuelve pronto!");
                 System.exit(0);
             break;
         }
     }
     
     AudioClip musica;
+    /**
+     * Se genera la música de batalla al iniciar el combate.
+     */
     public void generarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.wav"));
@@ -216,6 +249,10 @@ public final class VistaArena extends javax.swing.JFrame {
     }
     
     AudioClip conocerPokemon;
+    /**
+     * Se genera una canción predeterminada al presionar el botón para adivinar
+     * el nombre del Pokémon oponente.
+     */
     public void musicaConocer() {
         conocerPokemon = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/QuienEsPokemon.wav"));
         conocerPokemon.play();
@@ -223,7 +260,7 @@ public final class VistaArena extends javax.swing.JFrame {
     }
     
     /**
-     * Volver a la vista anterior (Instrucciones).
+     * Volver a la vista anterior (Principal).
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
@@ -231,8 +268,6 @@ public final class VistaArena extends javax.swing.JFrame {
         
         this.setVisible(false);
         crearPartida();
-        
-        
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**
@@ -245,13 +280,22 @@ public final class VistaArena extends javax.swing.JFrame {
         arena.restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
+    /**
+     * Se realiza el ataque al oponente.
+     * @param evt 
+     */
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         estadoVistaArena = 1;
         arena.accionarBotones(this);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
+    /**
+     * Se realiza ena defensa para el Pokemon.
+     * @param evt 
+     */
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
         estadoVistaArena = 2;
+        arena.accionarBotones(this);
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     

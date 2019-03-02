@@ -21,7 +21,9 @@ import java.util.ArrayList;
 public class Mundo {
     
    
-    
+    /**
+     * ArrayList donde se almacenarán los Pokemones.
+     */
     private ArrayList <Pokemon> pokemons = new ArrayList<>();
     
     public static void main(String args[]) {
@@ -41,6 +43,12 @@ public class Mundo {
         
     }
           
+    /**
+     * Se añaden los Pokémones al ArrayList, con su respectiva cantidad e vida,
+     * probabilidad de ataque inicial, su nombre, su tipo, número generado,
+     * su tipo de enemigo(desconocido al incio) y un arreglo, con las 
+     * probabilidades de ataque.
+     */
     public void poblarMundoPokemons(){
                 Pokemon Squirtle = new PokemonAgua(10, 0, "Squirtle", "Agua", 0, "", new int[]{100,100,60,30});
                 Pokemon Piplup = new PokemonAgua(10, 0, "Piplup", "Agua", 0, "", new int[]{100,100,60,30});

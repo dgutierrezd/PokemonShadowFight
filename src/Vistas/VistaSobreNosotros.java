@@ -92,12 +92,19 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
 
     
     AudioClip musica;
+    /**
+     * Se genera una música de fondo predeterminada.
+     */
     public void GenerarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
         musica.loop();
     }
     
+    /**
+     * Volver a la página principal y salir de ésta vista.
+     * @param evt 
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
         dispose();

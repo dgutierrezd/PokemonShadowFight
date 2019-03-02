@@ -15,12 +15,24 @@ public class Usuario extends Jugador {
         super(nombre, false);
     }
     
-    
-
+    /**
+     * Se determina que si el usuario escoge la opción de atacar, ésta opción se
+     * habilite automaticamente y ataque al enemigo ó pokemon manejado por el servidor.
+     * 
+     * @param pokemon
+     * @param enemyPokemon 
+     */
     public void elegirAtacar(Pokemon pokemon, Pokemon enemyPokemon) {
         pokemon.atacar(enemyPokemon);
     }
-
+    
+    /**
+     * Se determina que si el usuario escoge la opción de defender, ésta opción se
+     * habilite automaticamente éste Pokemon se defienda de algún ataque del 
+     * Pokémon enemigo.
+     * 
+     * @param pokemon 
+     */
     public void elegirDefender(Pokemon pokemon){
         pokemon.defender();      
     }

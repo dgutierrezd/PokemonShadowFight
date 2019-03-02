@@ -116,11 +116,18 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     AudioClip musica;
+    /**
+     * Se genera una música de fondo predeterminada.
+     */
     public void generarMusica() {
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
         musica.loop();
     }
     
+    /**
+     * Volver a la página Principal, salir de ésta vista.
+     * @param evt 
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         //musica.stop();
         dispose();

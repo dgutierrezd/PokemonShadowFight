@@ -15,12 +15,22 @@ public class VistaPrincipal extends javax.swing.JDialog {
 
     
 
-    
+    /**
+     * Conocer si la partida ha comenzado.
+     */
     private boolean estadoInicialPartida = false;
 
+    /**
+     * Se conoce el estado que tiene la partida.
+     * @return estado partida.
+     */
     public boolean isEstadoInicialPartida() {
         return estadoInicialPartida;
     }
+    
+    /**
+     * Estado de la vista, se modifica dependiendo de los botones.
+     */
     private int estado = -1;
     private VistaArena vistaArena;
 
@@ -108,13 +118,20 @@ public class VistaPrincipal extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-     AudioClip musica;
+    AudioClip musica;
+    /**
+     * Se genera una música de fondo predeterminada.
+     */
     public void generarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/BatallasGalacticas.wav"));
         musica.loop();
     }
     
+    /**
+     * Comenzar la partida (Play Now) botón.
+     * @param evt 
+     */
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
         estado = 1;
@@ -126,18 +143,30 @@ public class VistaPrincipal extends javax.swing.JDialog {
         
     }//GEN-LAST:event_bComenzarActionPerformed
 
+    /**
+     * Ir a la vista de SobreNosotros y conocer acerca de la aplicación.
+     * @param evt 
+     */
     private void btnSobreNosotrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreNosotrosActionPerformed
         musica.stop();
         estado = 3;
         dispose();
     }//GEN-LAST:event_btnSobreNosotrosActionPerformed
 
+    /**
+     * Ir a la vista de instrucciones y conocer las instrucciones del juego.
+     * @param evt 
+     */
     private void btnInstruccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstruccionesActionPerformed
         musica.stop();
         estado = 2;
         dispose();
     }//GEN-LAST:event_btnInstruccionesActionPerformed
 
+    /**
+     * Salir del juego.
+     * @param evt 
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         estado = 4;
         dispose();
