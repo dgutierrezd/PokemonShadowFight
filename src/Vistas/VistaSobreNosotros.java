@@ -19,6 +19,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     public VistaSobreNosotros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

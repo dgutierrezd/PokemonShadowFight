@@ -19,7 +19,8 @@ public class VistaInstrucciones extends javax.swing.JDialog {
     public VistaInstrucciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        //generarMusica();
+        generarMusica();
+        setLocationRelativeTo(this);
     }
 
     /**

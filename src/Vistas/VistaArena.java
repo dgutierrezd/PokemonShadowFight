@@ -48,7 +48,7 @@ public final class VistaArena extends javax.swing.JFrame {
         vistaPrincipal.setVisible(true);
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
-        
+        generarMusica();
     }
     
     public void crearImagenes(){
@@ -56,6 +56,7 @@ public final class VistaArena extends javax.swing.JFrame {
         Pokemon enemyPokemon = entregarPokemonComputadora();
         crearImagenes(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
+        cambiarColorVida(pokemon, enemyPokemon);
     }
     
     public void mostrarVida() {
@@ -193,14 +194,11 @@ public final class VistaArena extends javax.swing.JFrame {
             case 2:
                 VistaInstrucciones vistaInstrucciones = new VistaInstrucciones(null, true);
                 vistaInstrucciones.setVisible(true);
-                vistaInstrucciones.setLocationRelativeTo(null);
                 
             break;
             case 3:
                 VistaSobreNosotros vistaSobreNosotros = new VistaSobreNosotros(null, true);
                 vistaSobreNosotros.setVisible(true);
-                vistaSobreNosotros.setLocationRelativeTo(null);
-                
             break;
             case 4:
                 System.out.println("Gracias por jugar.");
@@ -209,13 +207,19 @@ public final class VistaArena extends javax.swing.JFrame {
         }
     }
     AudioClip musica;
-    public void GenerarMusica() {
+    public void generarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/Pokemon-AtrapalosYa.wav"));
         musica.loop();
         System.out.println("Sonando Canción");
     }
     
+    AudioClip conocerPokemon;
+    public void musicaConocer() {
+        conocerPokemon = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/QuienEsPokemon.wav"));
+        conocerPokemon.play();
+        System.out.println("Sonando Pokemon");
+    }
     
     /**
      * Volver a la vista anterior (Instrucciones).
@@ -236,12 +240,13 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         estadoVistaArena = 3;
+        musicaConocer();
         arena.restaurarImagenPc();
     }//GEN-LAST:event_bConocerActionPerformed
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         estadoVistaArena = 1;
-        arena.AccionarBotones(this);
+        arena.accionarBotones(this);
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
