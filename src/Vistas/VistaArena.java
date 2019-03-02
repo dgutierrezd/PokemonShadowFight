@@ -10,6 +10,7 @@ import Elementos.Arena;
 import Elementos.Computadora;
 import Elementos.Pokemon;
 import Elementos.Usuario;
+import Vistas.VistaSobreNosotros;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -27,8 +28,7 @@ public final class VistaArena extends javax.swing.JFrame {
     
 
     private int estadoVistaArena = -1;
-    
-    
+  
     private Arena arena;
     private VistaPrincipal vistaPrincipal;
     public void setArena(Arena arena) {
@@ -206,6 +206,7 @@ public final class VistaArena extends javax.swing.JFrame {
             break;
         }
     }
+    
     AudioClip musica;
     public void generarMusica() {
         
@@ -226,7 +227,7 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        //musica.stop();
+        musica.stop();
         
         this.setVisible(false);
         crearPartida();
@@ -299,6 +300,9 @@ public final class VistaArena extends javax.swing.JFrame {
                 barPokemonEnemigo.setForeground(Color.red);
             }
         }
+    }
+    public void actualizarBarraDeVida(){
+        arena.restaurarImagenPc();
     }
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.

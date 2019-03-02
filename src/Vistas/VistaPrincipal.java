@@ -118,12 +118,12 @@ public class VistaPrincipal extends javax.swing.JDialog {
     private void bComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComenzarActionPerformed
         musica.stop();
         estado = 1;
-        //vistaArena.crearImagenes();
         dispose();
         if(estadoInicialPartida){
             vistaArena.crearImagenes();
         }
         estadoInicialPartida = true;
+        
     }//GEN-LAST:event_bComenzarActionPerformed
 
     private void btnSobreNosotrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreNosotrosActionPerformed

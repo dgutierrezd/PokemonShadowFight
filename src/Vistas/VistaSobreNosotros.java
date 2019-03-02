@@ -13,6 +13,7 @@ import java.applet.AudioClip;
  */
 public class VistaSobreNosotros extends javax.swing.JDialog {
 
+    VistaArena vistaArena;
     /**
      * Creates new form VistaSobreNosotrosss
      */
@@ -20,6 +21,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -100,8 +102,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
         musica.stop();
         dispose();
     }//GEN-LAST:event_bVolverActionPerformed
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVolver;
     private javax.swing.JLabel jLabel1;
