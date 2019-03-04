@@ -25,14 +25,24 @@ import java.applet.AudioClip;
  * @since 2.0 
  */
 public final class VistaArena extends javax.swing.JFrame {
-    
+    /**
+     * Referencia del dialogo Instrucciones.
+     */
+    private VistaInstrucciones vistaInstrucciones;
+    /**
+     * Referencia del dialogo principal.
+     */
+    private VistaPrincipal vistaPrincipal;
+    /**
+     * Referencia del dialogo sobre nosotros.
+     */
+    private VistaSobreNosotros vistaSobreNosotros;
     /**
      * Determinar el estado, ó botones seleccionados.
      */
     private int estadoVistaArena = -1;
   
     private Arena arena;
-    private VistaPrincipal vistaPrincipal;
     public void setArena(Arena arena) {
         this.arena = arena;
     }
@@ -43,7 +53,7 @@ public final class VistaArena extends javax.swing.JFrame {
     public VistaArena() {
         initComponents();
         setVisible(false);
-        vistaPrincipal = new VistaPrincipal(this, true, this);
+        
         crearPartida();// HASTA AQUI ESTABA BIEN :)
     }
     
@@ -51,10 +61,9 @@ public final class VistaArena extends javax.swing.JFrame {
      * Iniciar la partida.
      */
     public void crearPartida(){
-        vistaPrincipal.setVisible(true);
+        iniciarDialogoPrincipal();
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
-        generarMusica();
     }
     
     /**
@@ -67,13 +76,7 @@ public final class VistaArena extends javax.swing.JFrame {
         actualizarPokemonVista(pokemon, enemyPokemon);
     }
     
-    /**
-     * Se registra la cantidad de vida de los Pokémones en juego.
-     */
-    public void mostrarVida() {
-        barPokemonJugador.setString(entregarPokemonUsuario().getResistenciaVida() + "");
-        barPokemonEnemigo.setString(entregarPokemonComputadora().getResistenciaVida() + "");
-    }
+    
     
     /**
      * Se obtiene el Pokemon del usuario.
@@ -211,32 +214,6 @@ public final class VistaArena extends javax.swing.JFrame {
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
     }
-    
-    /**
-     * Se define las acciones de los botones de la Vista Principal.
-     * @param vistaPrincipal 
-     */
-    public void decidirBotones(VistaPrincipal vistaPrincipal){
-        switch(vistaPrincipal.getEstado()){
-            case 1:
-                setVisible(true);
-            break;
-            case 2:
-                VistaInstrucciones vistaInstrucciones = new VistaInstrucciones(null, true);
-                vistaInstrucciones.setVisible(true);
-                
-            break;
-            case 3:
-                VistaSobreNosotros vistaSobreNosotros = new VistaSobreNosotros(null, true);
-                vistaSobreNosotros.setVisible(true);
-            break;
-            case 4:
-                JOptionPane.showMessageDialog(null, "Gracias por jugar. \n Vuelve pronto!");
-                System.exit(0);
-            break;
-        }
-    }
-    
     AudioClip musica;
     /**
      * Se genera la música de batalla al iniciar el combate.
@@ -247,18 +224,67 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
+    /**
+     * Se define las acciones de los botones de la Vista Principal.
+     * @param vistaPrincipal 
+     */
+    public void decidirBotones(VistaPrincipal vistaPrincipal){
+        switch(vistaPrincipal.getEstado()){
+            case 1:
+                generarMusica();
+                setVisible(true);                
+            break;
+            case 2:
+                vistaPrincipal.dispose();
+                iniciarDialogoInstrucciones();
+            break;
+            case 3:
+                vistaPrincipal.dispose();
+                iniciarDialogoSobreNosotros();
+            break;
+            case 4:
+                JOptionPane.showMessageDialog(null, "Gracias por jugar. \n Vuelve pronto!");
+                System.exit(0);
+            break;
+        }
+    }
+    
+    
     
     AudioClip conocerPokemon;
     /**
      * Se genera una canción predeterminada al presionar el botón para adivinar
      * el nombre del Pokémon oponente.
      */
-    public void musicaConocer() {
+    public void generarMusicaConocer() {
         conocerPokemon = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/QuienEsPokemon.wav"));
         conocerPokemon.play();
         System.out.println("Sonando Pokemon");
     }
     
+    /**
+     * Crea el dialogo Instrucciones y lo muestra al usuario.
+     */
+
+    public void iniciarDialogoInstrucciones(){
+        vistaInstrucciones = new VistaInstrucciones(this, true);
+        vistaInstrucciones.setVisible(true);
+    }
+    /**
+     * Crea el dialogo Sobre nosotros y lo muestra al usuario.
+     */
+
+    public void iniciarDialogoSobreNosotros(){
+        vistaSobreNosotros = new VistaSobreNosotros(this, true);
+        vistaSobreNosotros.setVisible(true);
+    }
+    /**
+     * Crea el dialogo Principal y lo muestra al usuario.
+     */
+    public void iniciarDialogoPrincipal(){
+        vistaPrincipal = new VistaPrincipal(this, true, this);
+        vistaPrincipal.setVisible(true);
+    }
     /**
      * Volver a la vista anterior (Principal).
      * @param evt 
@@ -275,8 +301,8 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         estadoVistaArena = 3;
-        musicaConocer();
-        arena.restaurarImagenPc();
+        generarMusicaConocer();
+        actualizarBarraDeVida();
     }//GEN-LAST:event_bConocerActionPerformed
 
     /**
@@ -361,7 +387,8 @@ public final class VistaArena extends javax.swing.JFrame {
         lblNombrePokemonJugador.setText(pokemon.getNombre());
         lblTipoPokemonJugador.setText(pokemon.getTipo());
         lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
-        mostrarVida();
+        barPokemonJugador.setString(pokemon.getResistenciaVida() + "");
+        barPokemonEnemigo.setString(enemyPokemon.getResistenciaVida() + "");
     }
 
     public int getEstadoVistaArena() {

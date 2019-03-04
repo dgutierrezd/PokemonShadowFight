@@ -13,16 +13,16 @@ import java.applet.AudioClip;
  */
 public class VistaInstrucciones extends javax.swing.JDialog {
 
+    private VistaArena vistaArena;
     /**
      * Creates new form VistaInstruccioness
      */
-    public VistaInstrucciones(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    VistaInstrucciones(java.awt.Frame parent, boolean modal) {
+        super(parent, true);
         initComponents();
         generarMusica();
         setLocationRelativeTo(this);
-        setLocationRelativeTo(this);
-        //generarMusica();
+        vistaArena = (VistaArena) parent;
     }
 
     /**
@@ -129,9 +129,10 @@ public class VistaInstrucciones extends javax.swing.JDialog {
      * @param evt 
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        //musica.stop();
+        musica.stop();
         dispose();
-            
+        vistaArena.iniciarDialogoPrincipal();
+        
     }//GEN-LAST:event_bVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
