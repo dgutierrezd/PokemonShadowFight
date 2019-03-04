@@ -37,6 +37,10 @@ public class VistaPrincipal extends javax.swing.JDialog {
     public int getEstado() {
         return estado;
     }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
     
     /**
      * Creates new form VistaPrincipall
@@ -172,6 +176,8 @@ public class VistaPrincipal extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_bSalirActionPerformed
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
     private javax.swing.JButton bSalir;

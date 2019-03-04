@@ -225,42 +225,6 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
-    String[] options = new String[] {"Salir", "Cancelar"};
-    /**
-     * Se define las acciones de los botones de la Vista Principal.
-     * @param vistaPrincipal 
-     */
-    public void decidirBotones(VistaPrincipal vistaPrincipal){
-        switch(vistaPrincipal.getEstado()){
-            case 1:
-                generarMusica();
-                setVisible(true);                
-            break;
-            case 2:
-                vistaPrincipal.dispose();
-                iniciarDialogoInstrucciones();
-            break;
-            case 3:
-                vistaPrincipal.dispose();
-                iniciarDialogoSobreNosotros();
-            break;
-            case 4:
-                int response = JOptionPane.showOptionDialog(null, "¿Seguro que deseas salir?", "Salir",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION,
-                null, options, options[0]);
-                if(response == 0) {
-                    System.exit(0);
-                } else if(response == 1) {
-                    vistaPrincipal.setVisible(true);
-                }
-                
-            break;
-        }
-        
-    }
-    
-    
-    
     AudioClip conocerPokemon;
     /**
      * Se genera una canción predeterminada al presionar el botón para adivinar
@@ -270,6 +234,39 @@ public final class VistaArena extends javax.swing.JFrame {
         conocerPokemon = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/QuienEsPokemon.wav"));
         conocerPokemon.play();
         System.out.println("Sonando Pokemon");
+    }
+    
+    String[] options = new String[] {"Salir", "Cancelar"};
+    /**
+     * Se define las acciones de los botones de la Vista Principal.
+     * @param vistaPrincipal 
+     */
+    public void decidirBotones(VistaPrincipal vistaPrincipal){
+        switch(vistaPrincipal.getEstado()){
+            case 1:
+                generarMusica();
+                setVisible(true);             
+            break;
+            case 2:
+                iniciarDialogoInstrucciones();
+            break;
+            case 3:
+                iniciarDialogoSobreNosotros();
+            break;
+            case 4:
+                int salida = JOptionPane.showOptionDialog(null, "¿Seguro que deseas salir?", "Salir",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION,
+                null, options, options[1]);
+                if(salida == 0) {
+                    System.exit(0);
+                } else if(salida == 1) {
+                    vistaPrincipal.musica.stop();
+                    crearPartida();
+                }
+                
+            break;
+        }
+        
     }
     
     /**

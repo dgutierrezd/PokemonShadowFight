@@ -110,7 +110,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
         dispose();
-        vistaArena.iniciarDialogoPrincipal();
+        vistaArena.crearPartida();
     }//GEN-LAST:event_bVolverActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
