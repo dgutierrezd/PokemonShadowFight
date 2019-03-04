@@ -265,8 +265,7 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
-        
-        this.setVisible(false);
+        dispose();
         crearPartida();
     }//GEN-LAST:event_bVolverActionPerformed
 
@@ -351,8 +350,7 @@ public final class VistaArena extends javax.swing.JFrame {
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
      */
-    public void pintarPokemones(ImageIcon imagenPokemonUsuario, ImageIcon imagenPokemonPc)
-   {
+    public void pintarPokemones(ImageIcon imagenPokemonUsuario, ImageIcon imagenPokemonPc){
         ipokemonUsuario.setIcon(imagenPokemonUsuario);
         ipokemonPc.setIcon(imagenPokemonPc);
     }
