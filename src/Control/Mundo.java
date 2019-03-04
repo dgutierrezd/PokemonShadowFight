@@ -15,8 +15,11 @@ import Vistas.VistaArena;
 import java.util.ArrayList;
 
 /**
- *
- * @author ASUS
+ * Se almacenan y se crean los Pokemones. 
+ * @author Daniel Gutiérrez Duque
+ * @author Sebastián Cordero Ramírez
+ * @version 20160228
+ * @since 1.0
  */
 public class Mundo {
     
