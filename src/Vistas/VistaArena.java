@@ -70,31 +70,31 @@ public final class VistaArena extends javax.swing.JFrame {
      * Se crean las impagenes de manera aleatoria.
      */
     public void crearImagenes(){
-        Pokemon pokemon = entregarPokemonUsuario();
-        Pokemon enemyPokemon = entregarPokemonComputadora();
-        crearImagenesPokemons(pokemon,enemyPokemon);
-        actualizarPokemonVista(pokemon, enemyPokemon);
+        Pokemon pokemon = arena.getPokemon();
+        Pokemon enemyPokemon = arena.getEnemyPokemon();
+        crearImagenesPokemons();
+        actualizarPokemonVista();
     }
     
     
     
-    /**
-     * Se obtiene el Pokemon del usuario.
-     * @return pokemon del jugador.
-     */
-    public Pokemon entregarPokemonUsuario() {
-        Pokemon pokemon = arena.generarPokemon();
-        return pokemon;
-    }
+//    /**
+//     * Se obtiene el Pokemon del usuario.
+//     * @return pokemon del jugador.
+//     */
+//    public Pokemon entregarPokemonUsuario() {
+//        Pokemon pokemon = arena.generarPokemon();
+//        return pokemon;
+//    }
     
-    /**
-     * Se obtiene el Pokemon manejado por el computador.
-     * @return pokemon del servidor.
-     */
-    public Pokemon entregarPokemonComputadora() {
-        Pokemon enemyPokemon = arena.generarPokemon();
-        return enemyPokemon;
-    }
+//    /**
+//     * Se obtiene el Pokemon manejado por el computador.
+//     * @return pokemon del servidor.
+//     */
+//    public Pokemon entregarPokemonComputadora() {
+//        Pokemon enemyPokemon = arena.generarPokemon();
+//        return enemyPokemon;
+//    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,14 +209,14 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param pokemon
      * @param enemyPokemon 
      */
-    public void crearImagenesPokemons(Pokemon pokemon, Pokemon enemyPokemon){
-        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
-        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
+    public void crearImagenesPokemons(){
+        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario();
+        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora();
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
         
     }
     
-    AudioClip musica;
+    private AudioClip musica;
     /**
      * Se genera la música de batalla al iniciar el combate.
      */
@@ -226,7 +226,7 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
-    AudioClip conocerPokemon;
+     private AudioClip conocerPokemon;
     /**
      * Se genera una canción predeterminada al presionar el botón para adivinar
      * el nombre del Pokémon oponente.
@@ -380,12 +380,12 @@ public final class VistaArena extends javax.swing.JFrame {
     /**
      * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
      */
-    public void actualizarPokemonVista(Pokemon pokemon, Pokemon enemyPokemon){
-        lblNombrePokemonJugador.setText(pokemon.getNombre());
-        lblTipoPokemonJugador.setText(pokemon.getTipo());
-        lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
-        barPokemonJugador.setString(pokemon.getResistenciaVida() + "");
-        barPokemonEnemigo.setString(enemyPokemon.getResistenciaVida() + "");
+    public void actualizarPokemonVista(){
+        lblNombrePokemonJugador.setText(arena.getPokemon().getNombre());
+        lblTipoPokemonJugador.setText(arena.getPokemon().getTipo());
+        lblTipoPokemonComputadorEscondido.setText(arena.getEnemyPokemon().getTipo());
+        barPokemonJugador.setString(arena.getPokemon().getResistenciaVida() + "");
+        barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida() + "");
         lblNombrePokemonComputador.setText("");
         lblTipoPokemonComputador.setText("");
     }

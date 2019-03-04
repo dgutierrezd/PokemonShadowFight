@@ -20,15 +20,16 @@ import javax.swing.ImageIcon;
  * 
  */
 public class Arena {
-
+    private Pokemon pokemon;
+    private Pokemon enemyPokemon;
     private Vistas.VistaArena vistaArena;
     
     private Mundo mundo;
     
     
-    public Pokemon generarPokemon(){
-        Pokemon pokemon = generarPokemonRandom();
-        return pokemon;
+    public void generarPokemon(){
+        pokemon = generarPokemonRandom();
+        enemyPokemon = generarPokemonRandom();
     }
 
     public void setVistaArena(VistaArena vistaArena) {
@@ -47,9 +48,8 @@ public class Arena {
     }
     /**
      * Genera la imagen del pokemon de el Usuario.
-     * @param pokemon Necesitamos saber el nombre del pokemon para poder pintarlo
      */
-    public ImageIcon pintarPokemonUsuario(Pokemon pokemon){
+    public ImageIcon pintarPokemonUsuario(){
             
         String pokemonUsuario = "src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
         ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
@@ -57,9 +57,8 @@ public class Arena {
     }
     /**
      * Genera la imagen de el pokemon de la computadora.
-     * @param enemyPokemon  Necesitamos saber el nombre del pokemon para poder pintarlo
      */
-    public ImageIcon pintarPokemonComputadora(Pokemon enemyPokemon){
+    public ImageIcon pintarPokemonComputadora(){
             
         String pokemonPc = "src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
         
@@ -86,14 +85,14 @@ public class Arena {
      * @return accion
      */
     public int accionarBotones(VistaArena vistaArena) {
-        Pokemon pokemon = vistaArena.entregarPokemonUsuario();
-        Pokemon enemyPokemon = vistaArena.entregarPokemonComputadora();
-
+       
         int status = vistaArena.getEstadoVistaArena();
         if(status == 1) {
+            System.out.println("Ataco");
             return pokemon.atacar(enemyPokemon);    
         }
         if(status == 2) {
+            System.out.println("Defendio");
             return pokemon.defender();
         }
         if(status == 3) {
@@ -120,7 +119,7 @@ public class Arena {
                 vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
                 vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
                 
-                int vidaPokemon = vistaArena.entregarPokemonComputadora().getResistenciaVida();
+                int vidaPokemon = enemyPokemon.getResistenciaVida();
                 vistaArena.barPokemonEnemigo.setValue(vidaPokemon/2);
                 int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
                 strEnemy = strEnemy / 2;
@@ -128,12 +127,20 @@ public class Arena {
                 vistaArena.barPokemonEnemigo.setString(strE);
                 vistaArena.bConocer.setEnabled(false);
             } else {
-                vistaArena.barPokemonJugador.setValue(vistaArena.entregarPokemonUsuario().getResistenciaVida()/2);
+                vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida()/2);
                 int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
                 strUser = strUser / 2;
                 String strU = Integer.toString(strUser);
                 vistaArena.barPokemonJugador.setString(strU);
             }
     }
-        
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public Pokemon getEnemyPokemon() {
+        return enemyPokemon;
+    }
+    
 }
