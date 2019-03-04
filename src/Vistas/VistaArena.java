@@ -212,6 +212,9 @@ public final class VistaArena extends javax.swing.JFrame {
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
     }
     
+    String[] options = new String[] {"Salir", "Cancelar"};
+    
+    
     /**
      * Se define las acciones de los botones de la Vista Principal.
      * @param vistaPrincipal 
@@ -231,10 +234,18 @@ public final class VistaArena extends javax.swing.JFrame {
                 vistaSobreNosotros.setVisible(true);
             break;
             case 4:
-                JOptionPane.showMessageDialog(null, "Gracias por jugar. \n Vuelve pronto!");
-                System.exit(0);
+                int response = JOptionPane.showOptionDialog(null, "¿Seguro que deseas salir?", "Salir",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION,
+                null, options, options[0]);
+                if(response == 0) {
+                    System.exit(0);
+                } else if(response == 1) {
+                    vistaPrincipal.setVisible(true);
+                }
+                
             break;
         }
+        
     }
     
     AudioClip musica;

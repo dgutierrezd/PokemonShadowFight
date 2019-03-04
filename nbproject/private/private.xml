@@ -3,12 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Vistas/VistaArena.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Pokemon.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Control/Mundo.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonTierra.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonFuego.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Arena.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Computadora.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Vistas/VistaSobreNosotros.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonViento.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Usuario.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Vistas/VistaArena.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/Jugador.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Control/Mundo.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Vistas/VistaInstrucciones.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Vistas/VistaPrincipal.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/PokemonShadowFight/src/Elementos/PokemonAgua.java</file>
         </group>
     </open-files>
 </project-private>
