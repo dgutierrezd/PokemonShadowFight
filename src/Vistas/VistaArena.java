@@ -214,12 +214,7 @@ public final class VistaArena extends javax.swing.JFrame {
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
     }
-<<<<<<< HEAD
     
-    String[] options = new String[] {"Salir", "Cancelar"};
-    
-    
-=======
     AudioClip musica;
     /**
      * Se genera la música de batalla al iniciar el combate.
@@ -230,7 +225,7 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
->>>>>>> 90617afa5255460ae55fe7cda5babb9308f88038
+    String[] options = new String[] {"Salir", "Cancelar"};
     /**
      * Se define las acciones de los botones de la Vista Principal.
      * @param vistaPrincipal 
