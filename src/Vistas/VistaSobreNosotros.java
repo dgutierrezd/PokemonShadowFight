@@ -13,15 +13,17 @@ import java.applet.AudioClip;
  */
 public class VistaSobreNosotros extends javax.swing.JDialog {
 
-    VistaArena vistaArena;
+    private VistaArena vistaArena;
     /**
      * Creates new form VistaSobreNosotrosss
      */
-    public VistaSobreNosotros(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    VistaSobreNosotros(java.awt.Frame parent, boolean modal) {
+        super(parent, true);
         initComponents();
         setLocationRelativeTo(this);
         setLocationRelativeTo(null);
+        generarMusica();
+        vistaArena = (VistaArena) parent;
     }
 
     /**
@@ -91,11 +93,11 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    AudioClip musica;
+    private AudioClip musica;
     /**
      * Se genera una música de fondo predeterminada.
      */
-    public void GenerarMusica() {
+    public void generarMusica() {
         
         musica = java.applet.Applet.newAudioClip(getClass().getResource("/Musica/PokemonPiano1.wav"));
         musica.loop();
@@ -108,6 +110,7 @@ public class VistaSobreNosotros extends javax.swing.JDialog {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         musica.stop();
         dispose();
+        vistaArena.iniciarDialogoPrincipal();
     }//GEN-LAST:event_bVolverActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

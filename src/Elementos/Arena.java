@@ -121,7 +121,8 @@ public class Arena {
                 vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
                 vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
                 
-                vistaArena.barPokemonEnemigo.setValue(vistaArena.entregarPokemonComputadora().getResistenciaVida()/2);
+                int vidaPokemon = vistaArena.entregarPokemonComputadora().getResistenciaVida();
+                vistaArena.barPokemonEnemigo.setValue(vidaPokemon/2);
                 int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
                 strEnemy = strEnemy / 2;
                 String strE = Integer.toString(strEnemy);
