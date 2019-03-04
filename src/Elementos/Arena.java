@@ -91,7 +91,6 @@ public class Arena {
 
         int status = vistaArena.getEstadoVistaArena();
         if(status == 1) {
-            System.out.println("HHHhhh");
             return pokemon.atacar(enemyPokemon);    
         }
         if(status == 2) {

@@ -6,6 +6,7 @@
 package Vistas;
 
 import java.applet.AudioClip;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -166,14 +167,18 @@ public class VistaPrincipal extends javax.swing.JDialog {
         estado = 2;
         dispose();
     }//GEN-LAST:event_btnInstruccionesActionPerformed
-
+    String[] options = new String[] {"Salir", "Cancelar"};
     /**
      * Salir del juego.
      * @param evt 
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
-        estado = 4;
-        dispose();
+        int salida = JOptionPane.showOptionDialog(null, "¿Seguro que deseas salir?", "Salir",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION,
+                null, options, options[1]);
+                if(salida == 0) {
+                    System.exit(0);
+                }
     }//GEN-LAST:event_bSalirActionPerformed
 
     

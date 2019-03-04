@@ -72,7 +72,7 @@ public final class VistaArena extends javax.swing.JFrame {
     public void crearImagenes(){
         Pokemon pokemon = entregarPokemonUsuario();
         Pokemon enemyPokemon = entregarPokemonComputadora();
-        crearImagenes(pokemon,enemyPokemon);
+        crearImagenesPokemons(pokemon,enemyPokemon);
         actualizarPokemonVista(pokemon, enemyPokemon);
     }
     
@@ -209,10 +209,11 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param pokemon
      * @param enemyPokemon 
      */
-    public void crearImagenes(Pokemon pokemon, Pokemon enemyPokemon){
+    public void crearImagenesPokemons(Pokemon pokemon, Pokemon enemyPokemon){
         ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
+        
     }
     
     AudioClip musica;
@@ -236,7 +237,7 @@ public final class VistaArena extends javax.swing.JFrame {
         System.out.println("Sonando Pokemon");
     }
     
-    String[] options = new String[] {"Salir", "Cancelar"};
+   
     /**
      * Se define las acciones de los botones de la Vista Principal.
      * @param vistaPrincipal 
@@ -245,7 +246,7 @@ public final class VistaArena extends javax.swing.JFrame {
         switch(vistaPrincipal.getEstado()){
             case 1:
                 generarMusica();
-                setVisible(true);             
+                setVisible(true);
             break;
             case 2:
                 iniciarDialogoInstrucciones();
@@ -253,18 +254,7 @@ public final class VistaArena extends javax.swing.JFrame {
             case 3:
                 iniciarDialogoSobreNosotros();
             break;
-            case 4:
-                int salida = JOptionPane.showOptionDialog(null, "¿Seguro que deseas salir?", "Salir",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION,
-                null, options, options[1]);
-                if(salida == 0) {
-                    System.exit(0);
-                } else if(salida == 1) {
-                    vistaPrincipal.musica.stop();
-                    crearPartida();
-                }
-                
-            break;
+            
         }
         
     }
@@ -396,6 +386,8 @@ public final class VistaArena extends javax.swing.JFrame {
         lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
         barPokemonJugador.setString(pokemon.getResistenciaVida() + "");
         barPokemonEnemigo.setString(enemyPokemon.getResistenciaVida() + "");
+        lblNombrePokemonComputador.setText("");
+        lblTipoPokemonComputador.setText("");
     }
 
     public int getEstadoVistaArena() {
