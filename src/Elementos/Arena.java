@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
 public class Arena {
     private Pokemon pokemon;
     private Pokemon enemyPokemon;
-    private Computadora computadora;
     private Vistas.VistaArena vistaArena;
     private Mundo mundo;
     
@@ -32,7 +31,7 @@ public class Arena {
      * Generar los Pokemones para asignarlos en la vista Arena.
      */
     public void generarPokemon() throws CloneNotSupportedException{
-        pokemon = generarPokemonRandom();
+        pokemon =  (Pokemon) generarPokemonRandom().clone();
         enemyPokemon = (Pokemon) generarPokemonRandom().clone();
     }
 
@@ -69,14 +68,8 @@ public class Arena {
         ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
         return imagenPokemonPc;
     }
-    public void setMundo(Mundo mundo) {
-        this.mundo = mundo;
-    }
     
-    public int entregarOpcionComputadora(){
-        int random = computadora.seleccionarAccion();
-        return random;
-    }
+    
     
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
@@ -149,14 +142,6 @@ public class Arena {
         }
     }
     
-    public Pokemon getPokemon() {
-        return pokemon;
-    }
-
-    public Pokemon getEnemyPokemon() {
-        return enemyPokemon;
-    }
-
     /**
      * Se determinan las acciones realizadas por los dos Pokemones en combate, 
      * y dependiendo de estas se disminuyen sus vidas.
@@ -218,5 +203,14 @@ public class Arena {
             }
         }
     }
-    
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public Pokemon getEnemyPokemon() {
+        return enemyPokemon;
+    }
+    public void setMundo(Mundo mundo) {
+        this.mundo = mundo;
+    }
 }

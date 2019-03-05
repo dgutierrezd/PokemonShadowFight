@@ -19,7 +19,7 @@ public class VistaPrincipal extends javax.swing.JDialog {
     /**
      * Conocer si la partida ha comenzado.
      */
-    private boolean estadoInicialPartida = false;
+    private boolean estadoInicialPartida = true;
 
     /**
      * Se conoce el estado que tiene la partida.
@@ -33,6 +33,9 @@ public class VistaPrincipal extends javax.swing.JDialog {
      * Estado de la vista, se modifica dependiendo de los botones.
      */
     private int estado = -1;
+    /**
+     * Referencia de la clase controladora de la logica de Presentacion.
+     */
     private VistaArena vistaArena;
 
     public int getEstado() {
@@ -123,7 +126,7 @@ public class VistaPrincipal extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    AudioClip musica;
+    private AudioClip musica;
     /**
      * Se genera una música de fondo predeterminada.
      */
@@ -141,10 +144,10 @@ public class VistaPrincipal extends javax.swing.JDialog {
         musica.stop();
         estado = 1;
         dispose();
-        if(estadoInicialPartida){
-            vistaArena.crearImagenes();
-        }
-        estadoInicialPartida = true;
+//        if(estadoInicialPartida == false){
+//            vistaArena.crearImagenes();
+//        }
+        estadoInicialPartida = false;
         
     }//GEN-LAST:event_bComenzarActionPerformed
 

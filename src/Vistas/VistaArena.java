@@ -7,9 +7,7 @@ package Vistas;
 
 import Control.Mundo;
 import Elementos.Arena;
-import Elementos.Computadora;
 import Elementos.Pokemon;
-import Elementos.Usuario;
 import Vistas.VistaSobreNosotros;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -235,11 +233,12 @@ public final class VistaArena extends javax.swing.JFrame {
      * Se define las acciones de los botones de la Vista Principal.
      * @param vistaPrincipal 
      */
-    public void decidirBotones(VistaPrincipal vistaPrincipal){
+   public void decidirBotones(VistaPrincipal vistaPrincipal){
         switch(vistaPrincipal.getEstado()){
             case 1:
                 generarMusica();
                 setVisible(true);
+                //arena.generarPokemon();
             break;
             case 2:
                 iniciarDialogoInstrucciones();

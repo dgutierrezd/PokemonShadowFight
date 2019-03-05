@@ -32,7 +32,6 @@ public class PokemonTierra extends Pokemon {
             if(getNumeroAleatorio() <= determinarProbabilidad(enemyPokemon)){
                 return 1;
             }
-            System.out.println("Fallo Ataque");
             return 0;
         }
         return 0;
