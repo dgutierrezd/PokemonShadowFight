@@ -332,9 +332,8 @@ public final class VistaArena extends javax.swing.JFrame {
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?", null);
         
-        if(pokemonOponente == null) {
+        if(pokemonOponente == null)
             return -1;
-        }
         
         if(pokemonOponente.equalsIgnoreCase(pokemon)) {
             JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
