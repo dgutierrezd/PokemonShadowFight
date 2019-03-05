@@ -153,11 +153,9 @@ public class Arena {
      * Al adivnar el nombre del Pokemon, se modifica la barra de vida.
      */
     public void modificarVidaEnemigo() {
-        vistaArena.barPokemonEnemigo.setValue(vistaArena.barPokemonEnemigo.getValue()/2);
-        int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
-        strEnemy = strEnemy / 2;
-        String strE = Integer.toString(strEnemy);
-        vistaArena.barPokemonEnemigo.setString(strE);
+        enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()/2);
+        vistaArena.barPokemonEnemigo.setValue(enemyPokemon.getResistenciaVida());
+        vistaArena.barPokemonEnemigo.setString(Integer.toString(enemyPokemon.getResistenciaVida()));
         vistaArena.bConocer.setEnabled(false);
     }
     
@@ -166,11 +164,9 @@ public class Arena {
      * se modificará.
      */
     public void modificarVidaJugador() {
-        vistaArena.barPokemonJugador.setValue(vistaArena.barPokemonJugador.getValue()/2);
-        int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
-        strUser = strUser / 2;
-        String strU = Integer.toString(strUser);
-        vistaArena.barPokemonJugador.setString(strU);
+        pokemon.setResistenciaVida(pokemon.getResistenciaVida()/2);
+        vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida());
+        vistaArena.barPokemonJugador.setString(Integer.toString(pokemon.getResistenciaVida()));
     }
     
     /**
