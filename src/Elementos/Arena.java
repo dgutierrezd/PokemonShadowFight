@@ -9,6 +9,7 @@ import Control.Mundo;
 import Vistas.VistaArena;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  * Encuentro de los dos Pokemones a luchar, donde se llevan a atacar o defender.
@@ -143,8 +144,8 @@ public class Arena {
                     modificarVidaJugador();
                 break;
                 case 1:
-                    obtenerPokemonEnemigo();
                     modificarVidaEnemigo();
+                    obtenerPokemonEnemigo();
                 break;
             }
     }
@@ -181,7 +182,30 @@ public class Arena {
         vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
         vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
     }
-
+    
+    /**
+     * se finaliza la partida cuando alguno de los dos jugadores obtengan su vida
+     * menor o igual a cero.
+     */
+    public void finalizarPartida() {
+        if(pokemon.getResistenciaVida() == 0 && enemyPokemon.getResistenciaVida() == 0) {
+            JOptionPane.showMessageDialog(null, "La partida ha terminado en un empate! \n "
+                                              + " Vuelve pronto...");
+            vistaArena.salirPartida();
+        } else {
+            if(enemyPokemon.getResistenciaVida() <= 0) {
+                JOptionPane.showMessageDialog(null, "Felicitaciones! Has ganado la partida! \n "
+                                                  + "Vuelve pronto e incrementa tu fuerza ganadora!");
+                vistaArena.salirPartida();
+            } else {
+                if(pokemon.getResistenciaVida() <= 0) {
+                    JOptionPane.showMessageDialog(null, "Rayos! has perdido esta partida \n ");
+                    vistaArena.salirPartida();
+                }
+            }
+        }
+    }
+    
     public Pokemon getPokemon() {
         return pokemon;
     }

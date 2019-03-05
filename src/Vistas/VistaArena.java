@@ -303,6 +303,7 @@ public final class VistaArena extends javax.swing.JFrame {
         accionUsuario = 1;
         arena.determinarCombate(accionUsuario);
         actualizarPokemonVista();
+        arena.finalizarPartida();
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     /**
@@ -312,6 +313,7 @@ public final class VistaArena extends javax.swing.JFrame {
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
         accionUsuario = 0;
         actualizarPokemonVista();
+        arena.finalizarPartida();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     /**
@@ -339,6 +341,7 @@ public final class VistaArena extends javax.swing.JFrame {
     
     public void actualizarBarraDeVida(){
         arena.restaurarImagenPc();
+        arena.finalizarPartida();
     }
     /**
      * Genera las imagenes de los Pokemons que estan combatiendo en la Arena.
@@ -358,8 +361,12 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonEnemigo.setValue(arena.getEnemyPokemon().getResistenciaVida());
         barPokemonJugador.setString(arena.getPokemon().getResistenciaVida()+"");
         barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida()+"");
-        lblNombrePokemonComputador.setText("");
-        lblTipoPokemonComputador.setText("");
+    }
+    
+    public void salirPartida() {
+        musica.stop();
+        dispose();
+        crearPartida();
     }
 
     public int getEstadoVistaArena() {
