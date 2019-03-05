@@ -120,8 +120,9 @@ public class Arena {
                 vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
                 vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
                 
-                int vidaPokemon = vistaArena.entregarPokemonComputadora().getResistenciaVida();
-                vistaArena.barPokemonEnemigo.setValue(vidaPokemon/2);
+                int vidaPokemon = vistaArena.entregarPokemonComputadora().getResistenciaVida()/2;
+                vistaArena.barPokemonEnemigo.setValue(vidaPokemon);
+                System.out.println(vidaPokemon);
                 int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
                 strEnemy = strEnemy / 2;
                 String strE = Integer.toString(strEnemy);
@@ -129,7 +130,7 @@ public class Arena {
                 vistaArena.bConocer.setEnabled(false);
             } else {
                 vistaArena.barPokemonJugador.setValue(vistaArena.entregarPokemonUsuario().getResistenciaVida()/2);
-                int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
+                int strUser = vistaArena.entregarPokemonUsuario().getResistenciaVida();
                 strUser = strUser / 2;
                 String strU = Integer.toString(strUser);
                 vistaArena.barPokemonJugador.setString(strU);
