@@ -326,19 +326,22 @@ public final class VistaArena extends javax.swing.JFrame {
      * enemigo.
      * @return El resultado booleano de la comparacion de los nombres de los pokemon's.
      */
-    public boolean saberQuienEs(){
+    public int saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
         pokemon = pokemon.substring(31, pokemon.length()-9);
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?", null);
         
+        if(pokemonOponente == null) {
+            return -1;
+        }
+        
         if(pokemonOponente.equalsIgnoreCase(pokemon)) {
             JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
-            return true;
+            return 0;
         } else {
-            if(pokemonOponente != pokemon)
             JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
-            return false;
+            return 1;
         }
     }
     

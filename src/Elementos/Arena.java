@@ -111,7 +111,7 @@ public class Arena {
      */
     public void restaurarImagenPc(){
             
-            if(vistaArena.saberQuienEs()){
+            if(vistaArena.saberQuienEs() == 0){
                 String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
                 pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
                 String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
@@ -129,11 +129,13 @@ public class Arena {
                 vistaArena.barPokemonEnemigo.setString(strE);
                 vistaArena.bConocer.setEnabled(false);
             } else {
-                vistaArena.barPokemonJugador.setValue(vistaArena.entregarPokemonUsuario().getResistenciaVida()/2);
-                int strUser = vistaArena.entregarPokemonUsuario().getResistenciaVida();
-                strUser = strUser / 2;
-                String strU = Integer.toString(strUser);
-                vistaArena.barPokemonJugador.setString(strU);
+                if(vistaArena.saberQuienEs() == 1) {
+                    vistaArena.barPokemonJugador.setValue(vistaArena.entregarPokemonUsuario().getResistenciaVida()/2);
+                    int strUser = vistaArena.entregarPokemonUsuario().getResistenciaVida();
+                    strUser = strUser / 2;
+                    String strU = Integer.toString(strUser);
+                    vistaArena.barPokemonJugador.setString(strU);
+                }
             }
     }
         
