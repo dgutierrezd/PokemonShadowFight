@@ -34,8 +34,9 @@ public class Mundo {
         Mundo mundo = new Mundo();
         mundo.poblarMundoPokemons();
         Arena arena = new Arena();
-        
         arena.setMundo(mundo);
+        arena.generarPokemon();
+        
         VistaArena vistaArena = new VistaArena();
         vistaArena.setArena(arena);
         arena.setVistaArena(vistaArena);

@@ -53,8 +53,8 @@ public final class VistaArena extends javax.swing.JFrame {
     public VistaArena() {
         initComponents();
         setVisible(false);
-        
         crearPartida();// HASTA AQUI ESTABA BIEN :)
+        
     }
     
     /**
@@ -70,30 +70,10 @@ public final class VistaArena extends javax.swing.JFrame {
      * Se crean las impagenes de manera aleatoria.
      */
     public void crearImagenes(){
-        Pokemon pokemon = entregarPokemonUsuario();
-        Pokemon enemyPokemon = entregarPokemonComputadora();
-        crearImagenesPokemons(pokemon,enemyPokemon);
-        actualizarPokemonVista(pokemon, enemyPokemon);
-    }
-    
-    
-    
-    /**
-     * Se obtiene el Pokemon del usuario.
-     * @return pokemon del jugador.
-     */
-    public Pokemon entregarPokemonUsuario() {
-        Pokemon pokemon = arena.generarPokemon();
-        return pokemon;
-    }
-    
-    /**
-     * Se obtiene el Pokemon manejado por el computador.
-     * @return pokemon del servidor.
-     */
-    public Pokemon entregarPokemonComputadora() {
-        Pokemon enemyPokemon = arena.generarPokemon();
-        return enemyPokemon;
+        Pokemon pokemon = arena.getPokemon();
+        Pokemon enemyPokemon = arena.getEnemyPokemon();
+        crearImagenesPokemons();
+        actualizarPokemonVista();
     }
     
     /**
@@ -209,14 +189,13 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param pokemon
      * @param enemyPokemon 
      */
-    public void crearImagenesPokemons(Pokemon pokemon, Pokemon enemyPokemon){
-        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario(pokemon);
-        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora(enemyPokemon);
+    public void crearImagenesPokemons(){
+        ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario();
+        ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora();
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
-        
     }
     
-    AudioClip musica;
+    private AudioClip musica;
     /**
      * Se genera la música de batalla al iniciar el combate.
      */
@@ -226,7 +205,7 @@ public final class VistaArena extends javax.swing.JFrame {
         musica.loop();
         System.out.println("Sonando Canción");
     }
-    AudioClip conocerPokemon;
+     private AudioClip conocerPokemon;
     /**
      * Se genera una canción predeterminada al presionar el botón para adivinar
      * el nombre del Pokémon oponente.
@@ -309,6 +288,7 @@ public final class VistaArena extends javax.swing.JFrame {
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         estadoVistaArena = 1;
         arena.accionarBotones(this);
+        arena.determinarLucha();
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     /**
@@ -318,13 +298,13 @@ public final class VistaArena extends javax.swing.JFrame {
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
         estadoVistaArena = 2;
         arena.accionarBotones(this);
+        arena.determinarLucha();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
-    
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
-     * @return El resultado booleano de la comparacion de los nombres de los pokemon's.
+     * @return Opción dada al adivinar pokemon.
      */
     public int saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
@@ -337,38 +317,13 @@ public final class VistaArena extends javax.swing.JFrame {
         
         if(pokemonOponente.equalsIgnoreCase(pokemon)) {
             JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
-            return 0;
+            return 1;
         } else {
             JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
-            return 1;
+            return 0;
         }
     }
     
-    /**
-     * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
-     * para poder tener una experiencia más gratificante.
-     * @param pokemon Para utilizar la barra de vida del pokemon del Usuario.
-     * @param enemyPokemon Para utilizar la barra de vida del pokemon de la Computadora.
-     */
-    public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
-        int vidaJugador = pokemon.getResistenciaVida();
-    
-        if(vidaJugador <= 7 && vidaJugador > 3) {
-            barPokemonJugador.setForeground(Color.yellow);
-        }else {
-            if(vidaJugador <= 3) {
-                barPokemonJugador.setForeground(Color.red);
-            }
-        }
-        int vidaEnemigo = enemyPokemon.getResistenciaVida();
-        if(vidaEnemigo <= 7 && vidaEnemigo > 3) {
-            barPokemonEnemigo.setForeground(Color.yellow);
-        } else {
-            if(vidaEnemigo <= 3) {
-                barPokemonEnemigo.setForeground(Color.red);
-            }
-        }
-    }
     public void actualizarBarraDeVida(){
         arena.restaurarImagenPc();
     }
@@ -382,12 +337,12 @@ public final class VistaArena extends javax.swing.JFrame {
     /**
      * Inicializar los valores de los labels segun el nombre y tipo de Pokemon.
      */
-    public void actualizarPokemonVista(Pokemon pokemon, Pokemon enemyPokemon){
-        lblNombrePokemonJugador.setText(pokemon.getNombre());
-        lblTipoPokemonJugador.setText(pokemon.getTipo());
-        lblTipoPokemonComputadorEscondido.setText(enemyPokemon.getTipo());
-        barPokemonJugador.setString(pokemon.getResistenciaVida() + "");
-        barPokemonEnemigo.setString(enemyPokemon.getResistenciaVida() + "");
+    public void actualizarPokemonVista(){
+        lblNombrePokemonJugador.setText(arena.getPokemon().getNombre());
+        lblTipoPokemonJugador.setText(arena.getPokemon().getTipo());
+        lblTipoPokemonComputadorEscondido.setText(arena.getEnemyPokemon().getTipo());
+        barPokemonJugador.setString(arena.getPokemon().getResistenciaVida() + "");
+        barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida() + "");
         lblNombrePokemonComputador.setText("");
         lblTipoPokemonComputador.setText("");
     }

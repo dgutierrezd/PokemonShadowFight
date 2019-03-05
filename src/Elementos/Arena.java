@@ -20,15 +20,17 @@ import javax.swing.ImageIcon;
  * 
  */
 public class Arena {
-
+    private Pokemon pokemon;
+    private Pokemon enemyPokemon;
+    private Computadora computadora;
     private Vistas.VistaArena vistaArena;
     
     private Mundo mundo;
     
     
-    public Pokemon generarPokemon(){
-        Pokemon pokemon = generarPokemonRandom();
-        return pokemon;
+    public void generarPokemon(){
+        pokemon = generarPokemonRandom();
+        enemyPokemon = generarPokemonRandom();
     }
 
     public void setVistaArena(VistaArena vistaArena) {
@@ -47,9 +49,8 @@ public class Arena {
     }
     /**
      * Genera la imagen del pokemon de el Usuario.
-     * @param pokemon Necesitamos saber el nombre del pokemon para poder pintarlo
      */
-    public ImageIcon pintarPokemonUsuario(Pokemon pokemon){
+    public ImageIcon pintarPokemonUsuario(){
             
         String pokemonUsuario = "src\\Imagenes\\Pokemons\\"+pokemon.getNombre()+".png";
         ImageIcon imagenPokemonUsuario = new ImageIcon(pokemonUsuario);
@@ -57,9 +58,8 @@ public class Arena {
     }
     /**
      * Genera la imagen de el pokemon de la computadora.
-     * @param enemyPokemon  Necesitamos saber el nombre del pokemon para poder pintarlo
      */
-    public ImageIcon pintarPokemonComputadora(Pokemon enemyPokemon){
+    public ImageIcon pintarPokemonComputadora(){
             
         String pokemonPc = "src\\Imagenes\\Pokemons\\Sliuetas\\"+enemyPokemon.getNombre()+"Negro.png";
         
@@ -86,14 +86,14 @@ public class Arena {
      * @return accion
      */
     public int accionarBotones(VistaArena vistaArena) {
-        Pokemon pokemon = vistaArena.entregarPokemonUsuario();
-        Pokemon enemyPokemon = vistaArena.entregarPokemonComputadora();
-
+       
         int status = vistaArena.getEstadoVistaArena();
         if(status == 1) {
+            System.out.println("Ataco");
             return pokemon.atacar(enemyPokemon);    
         }
         if(status == 2) {
+            System.out.println("Defendio");
             return pokemon.defender();
         }
         if(status == 3) {
@@ -103,7 +103,32 @@ public class Arena {
         }
         return -1;
     }
-    
+    public void determinarLucha(){
+        if((accionarBotones(vistaArena)== 1) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
+            
+            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 1)){
+                System.out.println("Los dos pokemons se atacaron.");
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+ pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 1)){
+                System.out.println("Solo "+pokemon.getNombre()+" se le baja la vida.");
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 0)){
+                System.out.println("Solo "+enemyPokemon.getNombre()+" se le baja la vida.");
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 0)){
+                System.out.println("Los dos fallaron el ataque.");
+            }
+            
+        }else{
+            if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
+                
+            }
+        }
+    }
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
      * si fue incorrecto, la deja como estaba originalmente.
@@ -111,32 +136,57 @@ public class Arena {
      */
     public void restaurarImagenPc(){
             
-            if(vistaArena.saberQuienEs() == 0){
-                String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
-                pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
-                String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
-                ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-                vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
-                vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
-                vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
-                
-                int vidaPokemon = vistaArena.entregarPokemonComputadora().getResistenciaVida()/2;
-                vistaArena.barPokemonEnemigo.setValue(vidaPokemon);
-                System.out.println(vidaPokemon);
-                int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
-                strEnemy = strEnemy / 2;
-                String strE = Integer.toString(strEnemy);
-                vistaArena.barPokemonEnemigo.setString(strE);
-                vistaArena.bConocer.setEnabled(false);
+            if(vistaArena.saberQuienEs() == 1){
+                obtenerPokemonEnemigo();
+                modificarVidaEnemigo();
             } else {
-                if(vistaArena.saberQuienEs() == 1) {
-                    vistaArena.barPokemonJugador.setValue(vistaArena.entregarPokemonUsuario().getResistenciaVida()/2);
-                    int strUser = vistaArena.entregarPokemonUsuario().getResistenciaVida();
-                    strUser = strUser / 2;
-                    String strU = Integer.toString(strUser);
-                    vistaArena.barPokemonJugador.setString(strU);
-                }
+                modificarVidaJugador();
             }
     }
-        
+    
+    /**
+     * Al adivnar el nombre del Pokemon, se modifica la barra de vida.
+     */
+    public void modificarVidaEnemigo() {
+        vistaArena.barPokemonEnemigo.setValue(vistaArena.barPokemonEnemigo.getValue()/2);
+        int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
+        strEnemy = strEnemy / 2;
+        String strE = Integer.toString(strEnemy);
+        vistaArena.barPokemonEnemigo.setString(strE);
+        vistaArena.bConocer.setEnabled(false);
+    }
+    
+    /**
+     * Si no se logra adivinar el nombre del Pokemon, la barra de vida del Jugador
+     * se modificará.
+     */
+    public void modificarVidaJugador() {
+        vistaArena.barPokemonJugador.setValue(vistaArena.barPokemonJugador.getValue()/2);
+        int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
+        strUser = strUser / 2;
+        String strU = Integer.toString(strUser);
+        vistaArena.barPokemonJugador.setString(strU);
+    }
+    
+    /**
+     * Obtener el nombre del Pokemon enemigo para poder adivnarlo.
+     */
+    public void obtenerPokemonEnemigo() {
+        String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
+        pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
+        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
+        ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+        vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
+        vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
+        vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
+    }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public Pokemon getEnemyPokemon() {
+        return enemyPokemon;
+    }
+    
 }
