@@ -97,6 +97,12 @@ public class Arena {
                 break;
             }
     }
+    
+    /**
+     * En el momento que se adivina el nombre del Pokemon enemigo, se genera
+     * su imagen original.
+     * @return 
+     */
     public String entregarImagenPokemonEnemigo(){
         String pokemonImage = enemyPokemon.getNombre();
         String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
@@ -151,6 +157,11 @@ public class Arena {
         return enemyPokemon;
     }
 
+    /**
+     * Se determinan las acciones realizadas por los dos Pokemones en combate, 
+     * y dependiendo de estas se disminuyen sus vidas.
+     * @param accionUsuario 
+     */
     public void determinarCombate(int accionUsuario) {
         int accionMaquina = (int)(Math.random()*2);
        
