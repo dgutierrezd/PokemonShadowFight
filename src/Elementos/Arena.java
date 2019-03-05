@@ -131,10 +131,12 @@ public class Arena {
      * menor o igual a cero.
      */
     public void finalizarPartida() {
+        
         if(pokemon.getResistenciaVida() == 0 && enemyPokemon.getResistenciaVida() == 0) {
             JOptionPane.showMessageDialog(null, "La partida ha terminado en un empate! \n "
                                               + " Vuelve pronto...");
             vistaArena.salirPartida();
+            
         } else {
             if(enemyPokemon.getResistenciaVida() <= 0) {
                 JOptionPane.showMessageDialog(null, "Felicitaciones! Has ganado la partida! \n "
