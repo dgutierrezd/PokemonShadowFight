@@ -27,7 +27,9 @@ public class Arena {
     
     private Mundo mundo;
     
-    
+    /**
+     * Generar los Pokemones para asignarlos en la vista Arena.
+     */
     public void generarPokemon(){
         pokemon = generarPokemonRandom();
         enemyPokemon = generarPokemonRandom();
