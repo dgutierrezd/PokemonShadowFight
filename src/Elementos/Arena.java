@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 public class Arena {
     private Pokemon pokemon;
     private Pokemon enemyPokemon;
+    private Computadora computadora;
     private Vistas.VistaArena vistaArena;
     
     private Mundo mundo;
@@ -102,7 +103,32 @@ public class Arena {
         }
         return -1;
     }
-    
+    public void determinarLucha(){
+        if((accionarBotones(vistaArena)== 1) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
+            
+            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 1)){
+                System.out.println("Los dos pokemons se atacaron.");
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+ pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 1)){
+                System.out.println("Solo "+pokemon.getNombre()+" se le baja la vida.");
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 0)){
+                System.out.println("Solo "+enemyPokemon.getNombre()+" se le baja la vida.");
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+pokemon.ATAQUE);
+            }
+            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 0)){
+                System.out.println("Los dos fallaron el ataque.");
+            }
+            
+        }else{
+            if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
+                
+            }
+        }
+    }
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
      * si fue incorrecto, la deja como estaba originalmente.
@@ -110,7 +136,7 @@ public class Arena {
      */
     public void restaurarImagenPc(){
             
-            if(vistaArena.saberQuienEs()){
+            if(vistaArena.saberQuienEs() == 0){
                 String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
                 pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
                 String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
@@ -119,19 +145,28 @@ public class Arena {
                 vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
                 vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
                 
-                int vidaPokemon = enemyPokemon.getResistenciaVida();
-                vistaArena.barPokemonEnemigo.setValue(vidaPokemon/2);
+
+
+                int vidaPokemon = enemyPokemon.getResistenciaVida()/2;
+                vistaArena.barPokemonEnemigo.setValue(vidaPokemon);
+                System.out.println(vidaPokemon);
                 int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
                 strEnemy = strEnemy / 2;
                 String strE = Integer.toString(strEnemy);
                 vistaArena.barPokemonEnemigo.setString(strE);
                 vistaArena.bConocer.setEnabled(false);
             } else {
-                vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida()/2);
-                int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
-                strUser = strUser / 2;
-                String strU = Integer.toString(strUser);
-                vistaArena.barPokemonJugador.setString(strU);
+
+                
+
+                if(vistaArena.saberQuienEs() == 1) {
+                    vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida()/2);
+                    int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
+                    strUser = strUser / 2;
+                    String strU = Integer.toString(strUser);
+                    vistaArena.barPokemonJugador.setString(strU);
+                }
+
             }
     }
 
