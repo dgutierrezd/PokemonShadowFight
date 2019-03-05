@@ -45,13 +45,13 @@ public class PokemonFuego extends Pokemon {
     public int defender() {
         setNumeroAleatorio((int) (Math.random() * 100));
          if(getNumeroAleatorio() <= PROBABILIDAD_DEFENSA_FUEGO & getNumeroAleatorio() > 0){
-             return 3;
+             return 1;
          }else{
              if(getNumeroAleatorio() > PROBABILIDAD_DEFENSA_FUEGO & getNumeroAleatorio() <= 100){
-                 return 4;
+                 return 0;
              }
          }
-        return 4;
+        return 0;
     }
 
     @Override

@@ -23,8 +23,7 @@ public class Arena {
     private Pokemon pokemon;
     private Pokemon enemyPokemon;
     private Computadora computadora;
-    private Vistas.VistaArena vistaArena; 
-    
+    private Vistas.VistaArena vistaArena;
     private Mundo mundo;
     
     
@@ -123,9 +122,11 @@ public class Arena {
 //            }
 //        }
 //    }
-    public void entregarOpcionComputadora(){
-        computadora.seleccionarAccion(pokemon, enemyPokemon);
+    public int entregarOpcionComputadora(){
+        int random = computadora.seleccionarAccion();
+        return random;
     }
+    
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,
      * si fue incorrecto, la deja como estaba originalmente.
@@ -173,6 +174,55 @@ public class Arena {
 
     public Pokemon getEnemyPokemon() {
         return enemyPokemon;
+    }
+
+    public void determinarCombate(int accionUsuario) {
+        int accionMaquina = (int)(Math.random()*2);
+       
+        
+        if((accionUsuario == 0) & (accionMaquina == 0)){
+            System.out.println("No pasa nada, ambos se defendieron.");
+            return;
+        }
+        
+        if((accionUsuario == 1) & (accionMaquina == 1)){
+            
+            int accionU = pokemon.atacar(enemyPokemon);
+            int enemyAccion = enemyPokemon.atacar(pokemon);
+            
+            if(accionU == 1){
+                System.out.println("El pokemon"+pokemon.getNombre()+" ataco correctamente a "+enemyPokemon.getNombre());
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }
+            
+            if(enemyAccion == 1){
+                System.out.println("El pokemon"+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre());
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }
+            System.out.println("VIDA POKEMON: "+pokemon.getResistenciaVida());
+            System.out.println("VIDA Enemy Pokemon: "+enemyPokemon.getResistenciaVida());
+        }
+        
+        
+        if((accionUsuario == 0) & (accionMaquina == 1)){
+            int accionU = pokemon.defender();
+            int enemyAccion = enemyPokemon.atacar(pokemon);
+
+            if(accionU == 0 & enemyAccion ==1){
+                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }
+        }
+        
+        
+        if((accionUsuario == 1) & (accionMaquina == 0)){
+            
+            int enemyAccion = pokemon.defender();
+            int accionU = enemyPokemon.atacar(pokemon);
+
+            if(accionU == 1 & enemyAccion ==0){
+                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }
+        }
     }
     
 }

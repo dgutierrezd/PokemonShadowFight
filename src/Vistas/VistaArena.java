@@ -47,6 +47,17 @@ public final class VistaArena extends javax.swing.JFrame {
     private int accionMaquina;
     
     private Arena arena;
+
+    public int getAccionUsuario() {
+        return accionUsuario;
+    }
+
+    public int getAccionMaquina() {
+        return accionMaquina;
+    }
+    
+    
+    
     public void setArena(Arena arena) {
         this.arena = arena;
     }
@@ -212,8 +223,7 @@ public final class VistaArena extends javax.swing.JFrame {
     
     /**
      * Se generan las imágenes de los dos Pokémones de modo aleatorio.
-     * @param pokemon
-     * @param enemyPokemon 
+
      */
     public void crearImagenesPokemons(){
         ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario();
@@ -303,7 +313,7 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
-        estadoVistaArena = 3;
+        arena.restaurarImagenPc();
         generarMusicaConocer();
         actualizarBarraDeVida();
     }//GEN-LAST:event_bConocerActionPerformed
@@ -315,7 +325,8 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         accionUsuario = 1;
-        
+        arena.determinarCombate(accionUsuario);
+        actualizarPokemonVista();
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     /**
@@ -324,7 +335,7 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
         accionUsuario = 0;
-        
+        actualizarPokemonVista();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     
@@ -394,8 +405,10 @@ public final class VistaArena extends javax.swing.JFrame {
         lblNombrePokemonJugador.setText(arena.getPokemon().getNombre());
         lblTipoPokemonJugador.setText(arena.getPokemon().getTipo());
         lblTipoPokemonComputadorEscondido.setText(arena.getEnemyPokemon().getTipo());
-        barPokemonJugador.setString(arena.getPokemon().getResistenciaVida() + "");
-        barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida() + "");
+        barPokemonJugador.setValue(arena.getPokemon().getResistenciaVida());
+        barPokemonEnemigo.setValue(arena.getEnemyPokemon().getResistenciaVida());
+        barPokemonJugador.setString(arena.getPokemon().getResistenciaVida()+"");
+        barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida()+"");
         lblNombrePokemonComputador.setText("");
         lblTipoPokemonComputador.setText("");
     }
@@ -403,6 +416,7 @@ public final class VistaArena extends javax.swing.JFrame {
     public int getEstadoVistaArena() {
         return estadoVistaArena;
     }    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bConocer;
