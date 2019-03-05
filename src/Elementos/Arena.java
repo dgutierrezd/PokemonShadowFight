@@ -144,20 +144,22 @@ public class Arena {
                     modificarVidaJugador();
                 break;
                 case 1:
-                    modificarVidaEnemigo();
-                    obtenerPokemonEnemigo();
+                    modificarResistenciaVidaEnemigo();
+                    vistaArena.obtenerPokemonEnemigo();
                 break;
             }
     }
-    
+    public String entregarImagenPokemonEnemigo(){
+        String pokemonImage = enemyPokemon.getNombre();
+        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
+        return pokemonPc;
+    }
     /**
      * Al adivnar el nombre del Pokemon, se modifica la barra de vida.
      */
-    public void modificarVidaEnemigo() {
+    public void modificarResistenciaVidaEnemigo() {
         enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()/2);
-        vistaArena.barPokemonEnemigo.setValue(enemyPokemon.getResistenciaVida());
-        vistaArena.barPokemonEnemigo.setString(Integer.toString(enemyPokemon.getResistenciaVida()));
-        vistaArena.bConocer.setEnabled(false);
+        vistaArena.modificarVidaEnemigo();
     }
     
     /**
@@ -168,19 +170,6 @@ public class Arena {
         pokemon.setResistenciaVida(pokemon.getResistenciaVida()/2);
         vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida());
         vistaArena.barPokemonJugador.setString(Integer.toString(pokemon.getResistenciaVida()));
-    }
-    
-    /**
-     * Obtener el nombre del Pokemon enemigo para poder adivnarlo.
-     */
-    public void obtenerPokemonEnemigo() {
-        String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
-        pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
-        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
-        ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-        vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
-        vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
-        vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
     }
     
     /**
