@@ -115,15 +115,13 @@ public class Arena {
         enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()/2);
         vistaArena.modificarVidaEnemigo();
     }
-    
     /**
-     * Si no se logra adivinar el nombre del Pokemon, la barra de vida del Jugador
-     * se modificará.
+     * Si no se logra adivinar el nombre del Pokemon, se le cambia la vida al 
+     * pokemon del jugador a la mitad.
      */
-    public void modificarVidaJugador() {
+    public void modificarVidaJugador(){
         pokemon.setResistenciaVida(pokemon.getResistenciaVida()/2);
-        vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida());
-        vistaArena.barPokemonJugador.setString(Integer.toString(pokemon.getResistenciaVida()));
+        vistaArena.modificarVidaPokemon();
     }
     
     /**
