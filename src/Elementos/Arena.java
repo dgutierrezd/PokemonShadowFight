@@ -214,6 +214,12 @@ public class Arena {
         return enemyPokemon;
     }
 
+    /**
+     * Se determinan las acciones indicadas en el momento que los dos 
+     * Pokemones generan alguna acción, ya sea atacar o defender, se 
+     * disminuye la cantidad de vida determinada.
+     * @param accionUsuario 
+     */
     public void determinarCombate(int accionUsuario) {
         int accionMaquina = (int)(Math.random()*2);
        
