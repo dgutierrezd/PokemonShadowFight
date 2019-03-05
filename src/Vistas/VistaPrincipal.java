@@ -19,7 +19,7 @@ public class VistaPrincipal extends javax.swing.JDialog {
     /**
      * Conocer si la partida ha comenzado.
      */
-    private boolean estadoInicialPartida = true;
+    private boolean estadoInicialPartida = false;
 
     /**
      * Se conoce el estado que tiene la partida.
@@ -37,14 +37,14 @@ public class VistaPrincipal extends javax.swing.JDialog {
      * Referencia de la clase controladora de la logica de Presentacion.
      */
     private VistaArena vistaArena;
-
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
-        this.estado = estado;
-    }
+    /**
+     * Opciones de botones al salir del juego.
+     */
+    private String[] options = new String[] {"Salir", "Cancelar"};
+    /**
+     * La musica que sonara durante la vista principal.
+     */
+    private AudioClip musica;
     
     /**
      * Creates new form VistaPrincipall
@@ -124,9 +124,7 @@ public class VistaPrincipal extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     
-    private AudioClip musica;
     /**
      * Se genera una música de fondo predeterminada.
      */
@@ -144,10 +142,10 @@ public class VistaPrincipal extends javax.swing.JDialog {
         musica.stop();
         estado = 1;
         dispose();
-//        if(estadoInicialPartida == false){
+//        if(estadoInicialPartida){
 //            vistaArena.crearImagenes();
 //        }
-        estadoInicialPartida = false;
+        estadoInicialPartida = true;
         
     }//GEN-LAST:event_bComenzarActionPerformed
 
@@ -170,7 +168,7 @@ public class VistaPrincipal extends javax.swing.JDialog {
         estado = 2;
         dispose();
     }//GEN-LAST:event_btnInstruccionesActionPerformed
-    String[] options = new String[] {"Salir", "Cancelar"};
+    
     /**
      * Salir del juego.
      * @param evt 
@@ -185,7 +183,13 @@ public class VistaPrincipal extends javax.swing.JDialog {
     }//GEN-LAST:event_bSalirActionPerformed
 
     
-    
+     public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bComenzar;
     private javax.swing.JButton bSalir;

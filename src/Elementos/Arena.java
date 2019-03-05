@@ -30,7 +30,7 @@ public class Arena {
     /**
      * Generar los Pokemones para asignarlos en la vista Arena.
      */
-    public void generarPokemon() throws CloneNotSupportedException{
+    public void generarPokemon() throws CloneNotSupportedException {
         pokemon =  (Pokemon) generarPokemonRandom().clone();
         enemyPokemon = (Pokemon) generarPokemonRandom().clone();
     }
@@ -162,7 +162,7 @@ public class Arena {
             int enemyAccion = enemyPokemon.atacar(pokemon);
             
             if(accionU == 1){
-                System.out.println("El pokemon"+pokemon.getNombre()+" ataco correctamente a "+enemyPokemon.getNombre());
+                System.out.println("El pokemon "+pokemon.getNombre()+" ataco correctamente a "+enemyPokemon.getNombre());
                 enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
             }else{
             
@@ -185,7 +185,7 @@ public class Arena {
                 System.out.println(""+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre()+" que fallo la defensa.");
                 pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
             }else{
-                System.out.println("No paso nada, "+pokemon.getNombre()+" se defendio y "+enemyPokemon.getNombre()+" fallo ataque.");
+                System.out.println("No paso nada, "+pokemon.getNombre()+" se defendio correctamente.");
             }
         }
         
@@ -199,7 +199,7 @@ public class Arena {
                 System.out.println(""+pokemon.getNombre()+" ataco a "+enemyPokemon.getNombre()+" que fallo en la defensa.");
                 enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
             }else{
-                System.out.println("No pasa nada, "+pokemon.getNombre()+" fallo el ataque ,"+enemyPokemon.getNombre()+" se defendio. ");
+                System.out.println("No pasa nada, "+enemyPokemon.getNombre()+" se defendio correctamente. ");
             }
         }
     }

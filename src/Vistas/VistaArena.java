@@ -39,31 +39,20 @@ public final class VistaArena extends javax.swing.JFrame {
      * Determinar el estado, ó botones seleccionados.
      */
     private int estadoVistaArena = -1;
-    
+    /**
+     * Atributo para trabajar en la clase Arena, en la cual me dice que eligio el usuario.
+     */
     private int accionUsuario;
-    
-    private int accionMaquina;
-    
+    /**
+     * Referencia de la Clase control Arena.
+     */
     private Arena arena;
 
-    public int getAccionUsuario() {
-        return accionUsuario;
-    }
-
-    public int getAccionMaquina() {
-        return accionMaquina;
-    }
-    
-    
-    
-    public void setArena(Arena arena) {
-        this.arena = arena;
-    }
     
     /**
      * Creates new form VistaArenaa
      */
-    public VistaArena() {
+    public VistaArena(){
         initComponents();
         setVisible(false);
         crearPartida();// HASTA AQUI ESTABA BIEN :)
@@ -77,6 +66,7 @@ public final class VistaArena extends javax.swing.JFrame {
         iniciarDialogoPrincipal();
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
+        
     }
     
     /**
@@ -199,7 +189,6 @@ public final class VistaArena extends javax.swing.JFrame {
     
     /**
      * Se generan las imágenes de los dos Pokémones de modo aleatorio.
-
      */
     public void crearImagenesPokemons(){
         ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario();
@@ -233,12 +222,11 @@ public final class VistaArena extends javax.swing.JFrame {
      * Se define las acciones de los botones de la Vista Principal.
      * @param vistaPrincipal 
      */
-   public void decidirBotones(VistaPrincipal vistaPrincipal){
+   public void decidirBotones(VistaPrincipal vistaPrincipal) {
         switch(vistaPrincipal.getEstado()){
             case 1:
                 generarMusica();
                 setVisible(true);
-                //arena.generarPokemon();
             break;
             case 2:
                 iniciarDialogoInstrucciones();
@@ -393,6 +381,14 @@ public final class VistaArena extends javax.swing.JFrame {
         return estadoVistaArena;
     }    
     
+    public int getAccionUsuario() {
+        return accionUsuario;
+    }
+
+    
+    public void setArena(Arena arena) {
+        this.arena = arena;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bConocer;
