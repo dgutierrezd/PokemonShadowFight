@@ -28,7 +28,8 @@ public class Computadora extends Jugador {
      * @return accion
      */
     public int seleccionarAccion(){
-        return 0;
+        int numRandom = (int)(Math.random()*2);
+        return numRandom;
     }
     
     
