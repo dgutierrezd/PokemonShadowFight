@@ -339,6 +339,18 @@ public final class VistaArena extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Obtener el nombre del Pokemon enemigo para poder adivnarlo.
+     */
+    public void obtenerPokemonEnemigo() {
+        String pokemonPc = arena.entregarImagenPokemonEnemigo();
+        ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+        ipokemonPc.setIcon(imagenPokemonPc);
+        lblNombrePokemonComputador.setText(arena.getEnemyPokemon().getNombre());
+        lblTipoPokemonComputador.setText(lblTipoPokemonComputadorEscondido.getText());
+        
+    }
+    
     public void actualizarBarraDeVida(){
         arena.restaurarImagenPc();
         arena.finalizarPartida();
@@ -362,7 +374,11 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonJugador.setString(arena.getPokemon().getResistenciaVida()+"");
         barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida()+"");
     }
-    
+    public void  modificarVidaEnemigo(){
+        barPokemonEnemigo.setValue(arena.getEnemyPokemon().getResistenciaVida());
+        barPokemonEnemigo.setString(Integer.toString(arena.getEnemyPokemon().getResistenciaVida()));
+        bConocer.setEnabled(false);
+    }
     public void salirPartida() {
         musica.stop();
         dispose();

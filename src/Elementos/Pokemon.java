@@ -14,7 +14,7 @@ package Elementos;
  * @version 20190220
  * @since 1.0
  */
-public abstract class Pokemon {
+public abstract class Pokemon implements Cloneable {
     /**
      * Cantidad de resistincia disminuida al realizar un ataque exitoso.
      */
@@ -132,4 +132,9 @@ public abstract class Pokemon {
     public int[] getArrayProbabilidades() {
         return arrayProbabilidades;
     }
+    public Object clone() throws
+                   CloneNotSupportedException 
+    { 
+        return super.clone(); 
+    } 
 }

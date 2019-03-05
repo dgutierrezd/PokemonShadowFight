@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -30,9 +31,9 @@ public class Arena {
     /**
      * Generar los Pokemones para asignarlos en la vista Arena.
      */
-    public void generarPokemon(){
+    public void generarPokemon() throws CloneNotSupportedException{
         pokemon = generarPokemonRandom();
-        enemyPokemon = generarPokemonRandom();
+        enemyPokemon = (Pokemon) generarPokemonRandom().clone();
     }
 
     public void setVistaArena(VistaArena vistaArena) {
@@ -72,59 +73,6 @@ public class Arena {
         this.mundo = mundo;
     }
     
-    /**
-     * Método cuando el Jugador ataca y el computador se defiende.
-     * @param pokemon
-     * @param enemyPokemon
-     * @return 
-     */
-//    public boolean AtacarDefender(Pokemon pokemon, Pokemon enemyPokemon) {
-//        
-//    }
-     
-    
-//    public void determinarLucha(){
-//        if((accionarBotones(vistaArena)== 1) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){//Atacar - Atacar
-//            
-//            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 1)){
-//                System.out.println("Los dos pokemons se atacaron.");
-//                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
-//                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+ pokemon.ATAQUE);
-//            }
-//            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 1)){
-//                System.out.println("Solo "+pokemon.getNombre()+" se le baja la vida.");
-//                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
-//            }
-//            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 0)){
-//                System.out.println("Solo "+enemyPokemon.getNombre()+" se le baja la vida.");
-//                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+pokemon.ATAQUE);
-//            }
-//            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 0)){
-//                System.out.println("Los dos fallaron el ataque.");
-//            }
-//            
-//        }else{
-//            if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 1 )){//Defender - defender
-//                if((pokemon.defender() == 3) & (enemyPokemon.defender() == 3)){
-//                    System.out.println("No pasa nada, los dos se defendieron.");
-//                }
-//                if((pokemon.defender() == 4) & (enemyPokemon.defender() == 4)){
-//                    System.out.println("No pasa nada, los dos se defendieron.");
-//                }
-//            }else{
-//                if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){ // Defender - atacar
-//                    if((pokemon.defender() == 3) & (enemyPokemon.atacar(pokemon) == 1)){
-//                        System.out.println("No pasa nada, "+pokemon.getNombre()+" se defendio exitosamente, pokemon "+enemyPokemon.getNombre()+
-//                                                            ", ataco exitosamente.");
-//                    }
-//                    if((pokemon.defender() == 4) & (enemyPokemon.atacar(pokemon) == 1)){
-//                        System.out.println(""+enemyPokemon.getNombre()+" ataco exitosamente a "+pokemon.getNombre()+" que no se defendio exitosamente.");
-//                        pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
-//                    }
-//                }
-//            }
-//        }
-//    }
     public int entregarOpcionComputadora(){
         int random = computadora.seleccionarAccion();
         return random;
@@ -144,20 +92,22 @@ public class Arena {
                     modificarVidaJugador();
                 break;
                 case 1:
-                    modificarVidaEnemigo();
-                    obtenerPokemonEnemigo();
+                    modificarResistenciaVidaEnemigo();
+                    vistaArena.obtenerPokemonEnemigo();
                 break;
             }
     }
-    
+    public String entregarImagenPokemonEnemigo(){
+        String pokemonImage = enemyPokemon.getNombre();
+        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
+        return pokemonPc;
+    }
     /**
      * Al adivnar el nombre del Pokemon, se modifica la barra de vida.
      */
-    public void modificarVidaEnemigo() {
+    public void modificarResistenciaVidaEnemigo() {
         enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()/2);
-        vistaArena.barPokemonEnemigo.setValue(enemyPokemon.getResistenciaVida());
-        vistaArena.barPokemonEnemigo.setString(Integer.toString(enemyPokemon.getResistenciaVida()));
-        vistaArena.bConocer.setEnabled(false);
+        vistaArena.modificarVidaEnemigo();
     }
     
     /**
@@ -168,19 +118,6 @@ public class Arena {
         pokemon.setResistenciaVida(pokemon.getResistenciaVida()/2);
         vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida());
         vistaArena.barPokemonJugador.setString(Integer.toString(pokemon.getResistenciaVida()));
-    }
-    
-    /**
-     * Obtener el nombre del Pokemon enemigo para poder adivnarlo.
-     */
-    public void obtenerPokemonEnemigo() {
-        String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
-        pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
-        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
-        ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-        vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
-        vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
-        vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
     }
     
     /**
@@ -214,12 +151,6 @@ public class Arena {
         return enemyPokemon;
     }
 
-    /**
-     * Se determinan las acciones indicadas en el momento que los dos 
-     * Pokemones generan alguna acción, ya sea atacar o defender, se 
-     * disminuye la cantidad de vida determinada.
-     * @param accionUsuario 
-     */
     public void determinarCombate(int accionUsuario) {
         int accionMaquina = (int)(Math.random()*2);
        
