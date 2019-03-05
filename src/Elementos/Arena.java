@@ -179,14 +179,16 @@ public class Arena {
             if(accionU == 1){
                 System.out.println("El pokemon"+pokemon.getNombre()+" ataco correctamente a "+enemyPokemon.getNombre());
                 enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }else{
+            
+                if(enemyAccion == 1){
+                    System.out.println("El pokemon"+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre());
+                    pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
+                }else{
+                    System.out.println("No paso nada, alguno de los pokemos fallo el ataque.");
+                }
             }
             
-            if(enemyAccion == 1){
-                System.out.println("El pokemon"+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre());
-                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
-            }
-            System.out.println("VIDA POKEMON: "+pokemon.getResistenciaVida());
-            System.out.println("VIDA Enemy Pokemon: "+enemyPokemon.getResistenciaVida());
         }
         
         
@@ -195,7 +197,10 @@ public class Arena {
             int enemyAccion = enemyPokemon.atacar(pokemon);
 
             if(accionU == 0 & enemyAccion ==1){
+                System.out.println(""+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre()+" que fallo la defensa.");
                 pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }else{
+                System.out.println("No paso nada, "+pokemon.getNombre()+" se defendio y "+enemyPokemon.getNombre()+" fallo ataque.");
             }
         }
         
@@ -205,8 +210,11 @@ public class Arena {
             int enemyAccion = pokemon.defender();
             int accionU = enemyPokemon.atacar(pokemon);
 
-            if(accionU == 1 & enemyAccion ==0){
+            if(accionU == 1 & enemyAccion == 0){
+                System.out.println(""+pokemon.getNombre()+" ataco a "+enemyPokemon.getNombre()+" que fallo en la defensa.");
                 enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
+            }else{
+                System.out.println("No pasa nada, "+pokemon.getNombre()+" fallo el ataque ,"+enemyPokemon.getNombre()+" se defendio. ");
             }
         }
     }

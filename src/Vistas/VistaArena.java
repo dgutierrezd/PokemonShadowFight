@@ -312,6 +312,7 @@ public final class VistaArena extends javax.swing.JFrame {
      */
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
         accionUsuario = 0;
+        arena.determinarCombate(accionUsuario);
         actualizarPokemonVista();
         arena.finalizarPartida();
     }//GEN-LAST:event_btnDefenderActionPerformed
