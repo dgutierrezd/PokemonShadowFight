@@ -290,7 +290,6 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
-        arena.restaurarImagenPc();
         generarMusicaConocer();
         actualizarBarraDeVida();
     }//GEN-LAST:event_bConocerActionPerformed
