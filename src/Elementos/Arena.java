@@ -167,7 +167,7 @@ public class Arena {
             }else{
             
                 if(enemyAccion == 1){
-                    System.out.println("El pokemon"+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre());
+                    System.out.println("El pokemon "+enemyPokemon.getNombre()+" ataco correctamente a "+pokemon.getNombre());
                     pokemon.setResistenciaVida(pokemon.getResistenciaVida()+Pokemon.ATAQUE);
                 }else{
                     System.out.println("No paso nada, alguno de los pokemos fallo el ataque.");
@@ -196,7 +196,7 @@ public class Arena {
             int accionU = enemyPokemon.atacar(pokemon);
 
             if(accionU == 1 & enemyAccion == 0){
-                System.out.println(""+pokemon.getNombre()+" ataco a "+enemyPokemon.getNombre()+" que fallo en la defensa.");
+                System.out.println(""+pokemon.getNombre()+" ataco correctamente a "+enemyPokemon.getNombre()+" que fallo en la defensa.");
                 enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+Pokemon.ATAQUE);
             }else{
                 System.out.println("No pasa nada, "+enemyPokemon.getNombre()+" se defendio correctamente. ");

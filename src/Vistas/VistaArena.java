@@ -373,8 +373,9 @@ public final class VistaArena extends javax.swing.JFrame {
     }
     public void salirPartida() {
         musica.stop();
+        JOptionPane.showMessageDialog(null, "Te esperaremos en otra oportunidad.");
         dispose();
-        crearPartida();
+        System.exit(0);
     }
 
     public int getEstadoVistaArena() {
