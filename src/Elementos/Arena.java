@@ -138,11 +138,16 @@ public class Arena {
      */
     public void restaurarImagenPc(){
             
-            if(vistaArena.saberQuienEs() == 1){
-                obtenerPokemonEnemigo();
-                modificarVidaEnemigo();
-            } else {
-                modificarVidaJugador();
+            switch(vistaArena.saberQuienEs()) {
+                case -1:
+                break;
+                case 0:
+                    modificarVidaJugador();
+                break;
+                case 1:
+                    obtenerPokemonEnemigo();
+                    modificarVidaEnemigo();
+                break;
             }
     }
     
