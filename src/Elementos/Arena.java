@@ -23,7 +23,7 @@ public class Arena {
     private Pokemon pokemon;
     private Pokemon enemyPokemon;
     private Computadora computadora;
-    private Vistas.VistaArena vistaArena;
+    private Vistas.VistaArena vistaArena; 
     
     private Mundo mundo;
     
@@ -80,54 +80,51 @@ public class Arena {
 //        
 //    }
      
-    /**
-     * Se asignan las acciones a la partida, dependiendo el botón seleccionado. 
-     * @param vistaArena
-     * @return accion
-     */
-    public int accionarBotones(VistaArena vistaArena) {
-       
-        int status = vistaArena.getEstadoVistaArena();
-        if(status == 1) {
-            System.out.println("Ataco");
-            return pokemon.atacar(enemyPokemon);    
-        }
-        if(status == 2) {
-            System.out.println("Defendio");
-            return pokemon.defender();
-        }
-        if(status == 3) {
-            int nombreEnemigo = Integer.parseInt(enemyPokemon.getNombre());
-            System.out.println(nombreEnemigo);
-            return nombreEnemigo;
-        }
-        return -1;
-    }
-    public void determinarLucha(){
-        if((accionarBotones(vistaArena)== 1) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
-            
-            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 1)){
-                System.out.println("Los dos pokemons se atacaron.");
-                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
-                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+ pokemon.ATAQUE);
-            }
-            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 1)){
-                System.out.println("Solo "+pokemon.getNombre()+" se le baja la vida.");
-                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
-            }
-            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 0)){
-                System.out.println("Solo "+enemyPokemon.getNombre()+" se le baja la vida.");
-                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+pokemon.ATAQUE);
-            }
-            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 0)){
-                System.out.println("Los dos fallaron el ataque.");
-            }
-            
-        }else{
-            if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){
-                
-            }
-        }
+    
+//    public void determinarLucha(){
+//        if((accionarBotones(vistaArena)== 1) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){//Atacar - Atacar
+//            
+//            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 1)){
+//                System.out.println("Los dos pokemons se atacaron.");
+//                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+//                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+ pokemon.ATAQUE);
+//            }
+//            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 1)){
+//                System.out.println("Solo "+pokemon.getNombre()+" se le baja la vida.");
+//                pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+//            }
+//            if((pokemon.atacar(enemyPokemon)== 1) & (enemyPokemon.atacar(pokemon) == 0)){
+//                System.out.println("Solo "+enemyPokemon.getNombre()+" se le baja la vida.");
+//                enemyPokemon.setResistenciaVida(enemyPokemon.getResistenciaVida()+pokemon.ATAQUE);
+//            }
+//            if((pokemon.atacar(enemyPokemon)== 0) & (enemyPokemon.atacar(pokemon) == 0)){
+//                System.out.println("Los dos fallaron el ataque.");
+//            }
+//            
+//        }else{
+//            if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 1 )){//Defender - defender
+//                if((pokemon.defender() == 3) & (enemyPokemon.defender() == 3)){
+//                    System.out.println("No pasa nada, los dos se defendieron.");
+//                }
+//                if((pokemon.defender() == 4) & (enemyPokemon.defender() == 4)){
+//                    System.out.println("No pasa nada, los dos se defendieron.");
+//                }
+//            }else{
+//                if((accionarBotones(vistaArena)== 2) & (computadora.seleccionarAccion(enemyPokemon, pokemon) == 0 )){ // Defender - atacar
+//                    if((pokemon.defender() == 3) & (enemyPokemon.atacar(pokemon) == 1)){
+//                        System.out.println("No pasa nada, "+pokemon.getNombre()+" se defendio exitosamente, pokemon "+enemyPokemon.getNombre()+
+//                                                            ", ataco exitosamente.");
+//                    }
+//                    if((pokemon.defender() == 4) & (enemyPokemon.atacar(pokemon) == 1)){
+//                        System.out.println(""+enemyPokemon.getNombre()+" ataco exitosamente a "+pokemon.getNombre()+" que no se defendio exitosamente.");
+//                        pokemon.setResistenciaVida(pokemon.getResistenciaVida()+pokemon.ATAQUE);
+//                    }
+//                }
+//            }
+//        }
+//    }
+    public void entregarOpcionComputadora(){
+        computadora.seleccionarAccion(pokemon, enemyPokemon);
     }
     /**
      * Determina metodo yoSeQuienEres, si fue correcto, cambia la imagen,

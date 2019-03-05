@@ -41,7 +41,11 @@ public final class VistaArena extends javax.swing.JFrame {
      * Determinar el estado, ó botones seleccionados.
      */
     private int estadoVistaArena = -1;
-  
+    
+    private int accionUsuario;
+    
+    private int accionMaquina;
+    
     private Arena arena;
     public void setArena(Arena arena) {
         this.arena = arena;
@@ -304,14 +308,14 @@ public final class VistaArena extends javax.swing.JFrame {
         actualizarBarraDeVida();
     }//GEN-LAST:event_bConocerActionPerformed
 
+    
     /**
      * Se realiza el ataque al oponente.
      * @param evt 
      */
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
-        estadoVistaArena = 1;
-        arena.accionarBotones(this);
-        arena.determinarLucha();
+        accionUsuario = 1;
+        
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     /**
@@ -319,9 +323,8 @@ public final class VistaArena extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefenderActionPerformed
-        estadoVistaArena = 2;
-        arena.accionarBotones(this);
-        arena.determinarLucha();
+        accionUsuario = 0;
+        
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     
