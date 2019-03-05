@@ -362,11 +362,17 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonJugador.setString(arena.getPokemon().getResistenciaVida()+"");
         barPokemonEnemigo.setString(arena.getEnemyPokemon().getResistenciaVida()+"");
     }
+    /**
+     * Modifica la progres bar, la cual pinta la barra de vida del pokemon enemigo.
+     */
     public void  modificarVidaEnemigo(){
         barPokemonEnemigo.setValue(arena.getEnemyPokemon().getResistenciaVida());
         barPokemonEnemigo.setString(Integer.toString(arena.getEnemyPokemon().getResistenciaVida()));
         bConocer.setEnabled(false);
     }
+    /**
+     * Modifica la barra de vida del pokemon.
+     */
     public void modificarVidaPokemon(){
         barPokemonJugador.setValue(arena.getPokemon().getResistenciaVida());
         barPokemonJugador.setString(Integer.toString(arena.getPokemon().getResistenciaVida()));
