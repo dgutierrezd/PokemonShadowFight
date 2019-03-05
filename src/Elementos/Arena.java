@@ -26,7 +26,9 @@ public class Arena {
     private Vistas.VistaArena vistaArena;
     private Mundo mundo;
     
-    
+    /**
+     * Generar los Pokemones para asignarlos en la vista Arena.
+     */
     public void generarPokemon(){
         pokemon = generarPokemonRandom();
         enemyPokemon = generarPokemonRandom();
@@ -134,38 +136,54 @@ public class Arena {
      */
     public void restaurarImagenPc(){
             
-            if(vistaArena.saberQuienEs() == 0){
-                String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
-                pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
-                String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
-                ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
-                vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
-                vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
-                vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
-                
-
-
-                int vidaPokemon = enemyPokemon.getResistenciaVida()/2;
-                vistaArena.barPokemonEnemigo.setValue(vidaPokemon);
-                System.out.println(vidaPokemon);
-                int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
-                strEnemy = strEnemy / 2;
-                String strE = Integer.toString(strEnemy);
-                vistaArena.barPokemonEnemigo.setString(strE);
-                vistaArena.bConocer.setEnabled(false);
-            } else {
-
-                
-
-                if(vistaArena.saberQuienEs() == 1) {
-                    vistaArena.barPokemonJugador.setValue(pokemon.getResistenciaVida()/2);
-                    int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
-                    strUser = strUser / 2;
-                    String strU = Integer.toString(strUser);
-                    vistaArena.barPokemonJugador.setString(strU);
-                }
-
+            switch(vistaArena.saberQuienEs()) {
+                case -1:
+                break;
+                case 0:
+                    modificarVidaJugador();
+                break;
+                case 1:
+                    obtenerPokemonEnemigo();
+                    modificarVidaEnemigo();
+                break;
             }
+    }
+    
+    /**
+     * Al adivnar el nombre del Pokemon, se modifica la barra de vida.
+     */
+    public void modificarVidaEnemigo() {
+        vistaArena.barPokemonEnemigo.setValue(vistaArena.barPokemonEnemigo.getValue()/2);
+        int strEnemy = Integer.parseInt(vistaArena.barPokemonEnemigo.getString());
+        strEnemy = strEnemy / 2;
+        String strE = Integer.toString(strEnemy);
+        vistaArena.barPokemonEnemigo.setString(strE);
+        vistaArena.bConocer.setEnabled(false);
+    }
+    
+    /**
+     * Si no se logra adivinar el nombre del Pokemon, la barra de vida del Jugador
+     * se modificará.
+     */
+    public void modificarVidaJugador() {
+        vistaArena.barPokemonJugador.setValue(vistaArena.barPokemonJugador.getValue()/2);
+        int strUser = Integer.parseInt(vistaArena.barPokemonJugador.getString());
+        strUser = strUser / 2;
+        String strU = Integer.toString(strUser);
+        vistaArena.barPokemonJugador.setString(strU);
+    }
+    
+    /**
+     * Obtener el nombre del Pokemon enemigo para poder adivnarlo.
+     */
+    public void obtenerPokemonEnemigo() {
+        String pokemonImage = vistaArena.ipokemonPc.getIcon().toString();
+        pokemonImage = pokemonImage.substring(31, pokemonImage.length()-9);
+        String pokemonPc = "src\\Imagenes\\Pokemons\\"+pokemonImage+".png";
+        ImageIcon imagenPokemonPc = new ImageIcon(pokemonPc);
+        vistaArena.ipokemonPc.setIcon(imagenPokemonPc);
+        vistaArena.lblNombrePokemonComputador.setText(pokemonImage);
+        vistaArena.lblTipoPokemonComputador.setText(vistaArena.lblTipoPokemonComputadorEscondido.getText());
     }
 
     public Pokemon getPokemon() {

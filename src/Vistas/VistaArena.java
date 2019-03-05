@@ -68,7 +68,6 @@ public final class VistaArena extends javax.swing.JFrame {
     public VistaArena() {
         initComponents();
         setVisible(false);
-        
         crearPartida();// HASTA AQUI ESTABA BIEN :)
         
     }
@@ -80,7 +79,6 @@ public final class VistaArena extends javax.swing.JFrame {
         iniciarDialogoPrincipal();
         vistaPrincipal.setResizable(false);
         decidirBotones(vistaPrincipal);
-        
     }
     
     /**
@@ -92,26 +90,6 @@ public final class VistaArena extends javax.swing.JFrame {
         crearImagenesPokemons();
         actualizarPokemonVista();
     }
-    
-    
-    
-//    /**
-//     * Se obtiene el Pokemon del usuario.
-//     * @return pokemon del jugador.
-//     */
-//    public Pokemon entregarPokemonUsuario() {
-//        Pokemon pokemon = arena.generarPokemon();
-//        return pokemon;
-//    }
-    
-//    /**
-//     * Se obtiene el Pokemon manejado por el computador.
-//     * @return pokemon del servidor.
-//     */
-//    public Pokemon entregarPokemonComputadora() {
-//        Pokemon enemyPokemon = arena.generarPokemon();
-//        return enemyPokemon;
-//    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -229,7 +207,6 @@ public final class VistaArena extends javax.swing.JFrame {
         ImageIcon imagenPokemonUsuario = arena.pintarPokemonUsuario();
         ImageIcon imagenPokemonPc = arena.pintarPokemonComputadora();
         pintarPokemones(imagenPokemonUsuario, imagenPokemonPc);
-        
     }
     
     private AudioClip musica;
@@ -338,11 +315,10 @@ public final class VistaArena extends javax.swing.JFrame {
         actualizarPokemonVista();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
-    
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
-     * @return El resultado booleano de la comparacion de los nombres de los pokemon's.
+     * @return Opción dada al adivinar pokemon.
      */
     public int saberQuienEs(){
         String pokemon = ipokemonPc.getIcon().toString();
@@ -350,44 +326,18 @@ public final class VistaArena extends javax.swing.JFrame {
         System.out.println(pokemon);
         String pokemonOponente = JOptionPane.showInputDialog(null, "Cómo se llama este Pokémon?", null);
         
-        if(pokemonOponente == null) {
+        if(pokemonOponente == null)
             return -1;
-        }
         
         if(pokemonOponente.equalsIgnoreCase(pokemon)) {
             JOptionPane.showMessageDialog(null, "¡Acertaste! Ese es pokemon contricante, lo conocerás a continuación.");
-            return 0;
+            return 1;
         } else {
             JOptionPane.showMessageDialog(null, "Has fallado! Ese no es tu Pokemon contrincante :-(");
-            return 1;
+            return 0;
         }
     }
     
-    /**
-     * Al ir disminuyendo la cantidad de Vidas, se disminuirá el color de la barra,
-     * para poder tener una experiencia más gratificante.
-     * @param pokemon Para utilizar la barra de vida del pokemon del Usuario.
-     * @param enemyPokemon Para utilizar la barra de vida del pokemon de la Computadora.
-     */
-    public void cambiarColorVida(Pokemon pokemon ,  Pokemon enemyPokemon) {
-        int vidaJugador = pokemon.getResistenciaVida();
-    
-        if(vidaJugador <= 7 && vidaJugador > 3) {
-            barPokemonJugador.setForeground(Color.yellow);
-        }else {
-            if(vidaJugador <= 3) {
-                barPokemonJugador.setForeground(Color.red);
-            }
-        }
-        int vidaEnemigo = enemyPokemon.getResistenciaVida();
-        if(vidaEnemigo <= 7 && vidaEnemigo > 3) {
-            barPokemonEnemigo.setForeground(Color.yellow);
-        } else {
-            if(vidaEnemigo <= 3) {
-                barPokemonEnemigo.setForeground(Color.red);
-            }
-        }
-    }
     public void actualizarBarraDeVida(){
         arena.restaurarImagenPc();
     }
