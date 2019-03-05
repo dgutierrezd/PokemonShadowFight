@@ -380,6 +380,10 @@ public final class VistaArena extends javax.swing.JFrame {
         barPokemonEnemigo.setString(Integer.toString(arena.getEnemyPokemon().getResistenciaVida()));
         bConocer.setEnabled(false);
     }
+    public void modificarVidaPokemon(){
+        barPokemonJugador.setValue(arena.getPokemon().getResistenciaVida());
+        barPokemonJugador.setString(Integer.toString(arena.getPokemon().getResistenciaVida()));
+    }
     public void salirPartida() {
         musica.stop();
         dispose();
