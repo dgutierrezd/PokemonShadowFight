@@ -102,9 +102,9 @@ public final class VistaArena extends javax.swing.JFrame {
         btnDefender = new javax.swing.JButton();
         lblNombrePokemonComputador = new javax.swing.JLabel();
         lblTipoPokemonComputador = new javax.swing.JLabel();
-        lblTipoPokemonComputadorEscondido = new javax.swing.JLabel();
         bMuerteSubita = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
+        lblTipoPokemonComputadorEscondido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,7 +180,6 @@ public final class VistaArena extends javax.swing.JFrame {
 
         lblTipoPokemonComputador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
         getContentPane().add(lblTipoPokemonComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
-        getContentPane().add(lblTipoPokemonComputadorEscondido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         bMuerteSubita.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bMuerteSubita.setText("Muerte Súbita");
@@ -193,6 +192,7 @@ public final class VistaArena extends javax.swing.JFrame {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(lblTipoPokemonComputadorEscondido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,7 +315,30 @@ public final class VistaArena extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     private void bMuerteSubitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMuerteSubitaActionPerformed
+        String numeroJugador = JOptionPane.showInputDialog(null, "Ingresa un número entre el 1 y 10...");
+        int numJugador = Integer.parseInt(numeroJugador);
         arena.generarNumeroMuerteSubita();
+        if(arena.ganadorMuerteSubita()) {
+            if(numJugador > arena.generarNumeroMuerteSubita()) {
+                JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
+                System.out.println(arena.generarNumeroMuerteSubita());
+                salirPartida();
+            } else {
+                JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
+                System.out.println(arena.generarNumeroMuerteSubita());
+                salirPartida();
+            }
+        } else {
+            if(numJugador < arena.generarNumeroMuerteSubita()) {
+                JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
+                System.out.println(arena.generarNumeroMuerteSubita());
+                salirPartida();
+            } else {
+                JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
+                System.out.println(arena.generarNumeroMuerteSubita());
+                salirPartida();
+            }
+        }
     }//GEN-LAST:event_bMuerteSubitaActionPerformed
 
     /**

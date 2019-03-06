@@ -142,9 +142,20 @@ public class Arena {
         }
     }
     
-    public void generarNumeroMuerteSubita() {
+    public int generarNumeroMuerteSubita() {
         int numeroMuerteSubita = (int)(Math.random()*10 + 1);
-        System.out.println(numeroMuerteSubita);
+        return numeroMuerteSubita;
+    }
+    
+    public boolean ganadorMuerteSubita() {
+        int menorOMayor = (int)(Math.random()* 1);
+        if(menorOMayor == 0) {
+            System.out.println("Soy Mayor");
+            return true;
+        } else {
+            System.out.println("SoyMenor");
+            return false;
+        }
     }
     
     /**
