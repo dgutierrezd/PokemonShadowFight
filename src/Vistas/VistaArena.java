@@ -317,25 +317,13 @@ public final class VistaArena extends javax.swing.JFrame {
     private void bMuerteSubitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMuerteSubitaActionPerformed
         String numeroJugador = JOptionPane.showInputDialog(null, "Ingresa un número entre el 1 y 10...");
         int numJugador = Integer.parseInt(numeroJugador);
-        arena.generarNumeroMuerteSubita();
-        if(arena.ganadorMuerteSubita()) {
-            if(numJugador > arena.generarNumeroMuerteSubita()) {
-                JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
-                System.out.println(arena.generarNumeroMuerteSubita());
-                salirPartida();
-            } else {
-                JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
-                System.out.println(arena.generarNumeroMuerteSubita());
-                salirPartida();
-            }
+        boolean muerteSubita = arena.muerteSubita(numJugador);
+        if(muerteSubita) {
+            JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
+            salirPartida();
         } else {
-            if(numJugador < arena.generarNumeroMuerteSubita()) {
-                JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
-                System.out.println(arena.generarNumeroMuerteSubita());
-                salirPartida();
-            } else {
+            if(!muerteSubita) {
                 JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
-                System.out.println(arena.generarNumeroMuerteSubita());
                 salirPartida();
             }
         }

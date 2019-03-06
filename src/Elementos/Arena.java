@@ -147,8 +147,30 @@ public class Arena {
         return numeroMuerteSubita;
     }
     
+    public boolean muerteSubita(int numJugador) {
+        int numeroMuerteSubita = generarNumeroMuerteSubita();
+        System.out.println(numeroMuerteSubita);
+        boolean muerteSubita = ganadorMuerteSubita();
+        if(muerteSubita) {
+            if(numJugador > numeroMuerteSubita) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if(!muerteSubita) {
+                if(numJugador < numeroMuerteSubita) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    } 
+    
     public boolean ganadorMuerteSubita() {
-        int menorOMayor = (int)(Math.random()* 1);
+        int menorOMayor = (int)(Math.random()* 2);
         if(menorOMayor == 0) {
             System.out.println("Soy Mayor");
             return true;
