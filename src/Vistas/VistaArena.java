@@ -289,6 +289,7 @@ public final class VistaArena extends javax.swing.JFrame {
     private void bConocerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConocerActionPerformed
         generarMusicaConocer();
         actualizarBarraDeVida();
+        generarMuerteSubitaComputador();
     }//GEN-LAST:event_bConocerActionPerformed
 
     
@@ -301,6 +302,7 @@ public final class VistaArena extends javax.swing.JFrame {
         arena.determinarCombate(accionUsuario);
         actualizarPokemonVista();
         arena.finalizarPartida();
+        generarMuerteSubitaComputador();
     }//GEN-LAST:event_btnAtacarActionPerformed
 
     /**
@@ -312,12 +314,17 @@ public final class VistaArena extends javax.swing.JFrame {
         arena.determinarCombate(accionUsuario);
         actualizarPokemonVista();
         arena.finalizarPartida();
+        generarMuerteSubitaComputador();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
     private void bMuerteSubitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMuerteSubitaActionPerformed
+        generarMuerteSubita();
+    }//GEN-LAST:event_bMuerteSubitaActionPerformed
+
+    public void generarMuerteSubita() {
         String numeroJugador = JOptionPane.showInputDialog(null, "Ingresa un número entre el 1 y 10...");
         int numJugador = Integer.parseInt(numeroJugador);
-        boolean muerteSubita = arena.muerteSubita(numJugador);
+        boolean muerteSubita = arena.determinarMuerteSubita(numJugador);
         if(muerteSubita) {
             JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
             salirPartida();
@@ -327,8 +334,16 @@ public final class VistaArena extends javax.swing.JFrame {
                 salirPartida();
             }
         }
-    }//GEN-LAST:event_bMuerteSubitaActionPerformed
-
+    }
+    
+    public void generarMuerteSubitaComputador() {
+        boolean muerteSubita = arena.escogerMuerteSubita();
+        if(muerteSubita) {
+            System.out.println("Ahi voy a morir!!!1");
+            generarMuerteSubita();
+        } 
+    }
+    
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.

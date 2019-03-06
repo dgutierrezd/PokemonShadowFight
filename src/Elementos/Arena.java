@@ -147,7 +147,7 @@ public class Arena {
         return numeroMuerteSubita;
     }
     
-    public boolean muerteSubita(int numJugador) {
+    public boolean determinarMuerteSubita(int numJugador) {
         int numeroMuerteSubita = generarNumeroMuerteSubita();
         System.out.println(numeroMuerteSubita);
         boolean muerteSubita = ganadorMuerteSubita();
@@ -168,7 +168,14 @@ public class Arena {
         }
         return false;
     } 
-    
+            
+    public boolean escogerMuerteSubita(){
+        int numeroComputadora = (int)(Math.random()*100+1);
+        if(numeroComputadora <= 5){
+            return true;
+        }
+        return false;
+    }
     public boolean ganadorMuerteSubita() {
         int menorOMayor = (int)(Math.random()* 2);
         if(menorOMayor == 0) {
