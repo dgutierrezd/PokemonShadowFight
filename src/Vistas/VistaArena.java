@@ -324,14 +324,20 @@ public final class VistaArena extends javax.swing.JFrame {
     public void generarMuerteSubita() {
         String numeroJugador = JOptionPane.showInputDialog(null, "Ingresa un número entre el 1 y 10...");
         int numJugador = Integer.parseInt(numeroJugador);
-        boolean muerteSubita = arena.determinarMuerteSubita(numJugador);
-        if(muerteSubita) {
+        int muerteSubita = arena.determinarMuerteSubita(numJugador);
+        if(muerteSubita == 1) {
             JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
             salirPartida();
         } else {
-            if(!muerteSubita) {
+            if(muerteSubita == 0) {
                 JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
                 salirPartida();
+            } else {
+               if(muerteSubita == -1) {
+                   JOptionPane.showMessageDialog(null, "Que mal, digitaste el mismo número que tu oponente \n"
+                                                     + " Vuelve a intentarlo.");
+                   generarMuerteSubita();
+               } 
             }
         }
     }

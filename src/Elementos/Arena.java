@@ -147,26 +147,34 @@ public class Arena {
         return numeroMuerteSubita;
     }
     
-    public boolean determinarMuerteSubita(int numJugador) {
+    public int determinarMuerteSubita(int numJugador) {
         int numeroMuerteSubita = generarNumeroMuerteSubita();
         System.out.println(numeroMuerteSubita);
         boolean muerteSubita = ganadorMuerteSubita();
         if(muerteSubita) {
             if(numJugador > numeroMuerteSubita) {
-                return true;
+                return 1;
             } else {
-                return false;
+                if(numJugador == numeroMuerteSubita) {
+                    return -1;
+                } else {
+                    return 0;
+                }
             }
         } else {
             if(!muerteSubita) {
                 if(numJugador < numeroMuerteSubita) {
-                    return true;
+                    return 1;
                 } else {
-                    return false;
+                    if(numJugador == numeroMuerteSubita) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
                 }
-            }
+            } 
         }
-        return false;
+        return 0;
     } 
             
     public boolean escogerMuerteSubita(){
