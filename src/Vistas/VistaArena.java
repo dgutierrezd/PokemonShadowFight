@@ -102,8 +102,9 @@ public final class VistaArena extends javax.swing.JFrame {
         btnDefender = new javax.swing.JButton();
         lblNombrePokemonComputador = new javax.swing.JLabel();
         lblTipoPokemonComputador = new javax.swing.JLabel();
-        fondo = new javax.swing.JLabel();
         lblTipoPokemonComputadorEscondido = new javax.swing.JLabel();
+        bMuerteSubita = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,10 +180,19 @@ public final class VistaArena extends javax.swing.JFrame {
 
         lblTipoPokemonComputador.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
         getContentPane().add(lblTipoPokemonComputador, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, -1));
+        getContentPane().add(lblTipoPokemonComputadorEscondido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
+
+        bMuerteSubita.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bMuerteSubita.setText("Muerte Súbita");
+        bMuerteSubita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMuerteSubitaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bMuerteSubita, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ArenaDeCombate.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(lblTipoPokemonComputadorEscondido, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -304,6 +314,10 @@ public final class VistaArena extends javax.swing.JFrame {
         arena.finalizarPartida();
     }//GEN-LAST:event_btnDefenderActionPerformed
 
+    private void bMuerteSubitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMuerteSubitaActionPerformed
+        arena.generarNumeroMuerteSubita();
+    }//GEN-LAST:event_bMuerteSubitaActionPerformed
+
     /**
      * Valida si el nombre del pokemon ingresado es igual al nombre del pokemon
      * enemigo.
@@ -399,6 +413,7 @@ public final class VistaArena extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bConocer;
+    private javax.swing.JButton bMuerteSubita;
     private javax.swing.JButton bVolver;
     public javax.swing.JProgressBar barPokemonEnemigo;
     public javax.swing.JProgressBar barPokemonJugador;

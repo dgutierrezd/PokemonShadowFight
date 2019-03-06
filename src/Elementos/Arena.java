@@ -142,6 +142,11 @@ public class Arena {
         }
     }
     
+    public void generarNumeroMuerteSubita() {
+        int numeroMuerteSubita = (int)(Math.random()*10 + 1);
+        System.out.println(numeroMuerteSubita);
+    }
+    
     /**
      * Se determinan las acciones realizadas por los dos Pokemones en combate, 
      * y dependiendo de estas se disminuyen sus vidas.
