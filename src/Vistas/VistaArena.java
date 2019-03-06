@@ -322,23 +322,29 @@ public final class VistaArena extends javax.swing.JFrame {
     }//GEN-LAST:event_bMuerteSubitaActionPerformed
 
     public void generarMuerteSubita() {
+        
         String numeroJugador = JOptionPane.showInputDialog(null, "Ingresa un número entre el 1 y 10...");
         int numJugador = Integer.parseInt(numeroJugador);
-        int muerteSubita = arena.determinarMuerteSubita(numJugador);
-        if(muerteSubita == 1) {
-            JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
-            salirPartida();
-        } else {
-            if(muerteSubita == 0) {
-                JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
+        if(numJugador <= 10 & numJugador >0){
+            int muerteSubita = arena.determinarMuerteSubita(numJugador);
+            if(muerteSubita == 1) {
+                JOptionPane.showMessageDialog(null, "Has ganado la partida!!");
                 salirPartida();
             } else {
-               if(muerteSubita == -1) {
-                   JOptionPane.showMessageDialog(null, "Que mal, digitaste el mismo número que tu oponente \n"
-                                                     + " Vuelve a intentarlo.");
-                   generarMuerteSubita();
-               } 
+                if(muerteSubita == 0) {
+                    JOptionPane.showMessageDialog(null, "El computador te ha ganado en Muerte Súbita!");
+                    salirPartida();
+                } else {
+                   if(muerteSubita == -1) {
+                       JOptionPane.showMessageDialog(null, "Que mal, digitaste el mismo número que tu oponente \n"
+                                                         + " Vuelve a intentarlo.");
+                       generarMuerteSubita();
+                   } 
+                }
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Rayos!, digitaste un numero incorrecto, vuelve a intentarlo.");
+            generarMuerteSubita();
         }
     }
     
